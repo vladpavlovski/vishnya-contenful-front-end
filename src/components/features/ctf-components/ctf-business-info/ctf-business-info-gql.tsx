@@ -1,5 +1,4 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import { Container } from '@mui/material';
 import Head from 'next/head';
 
 import { useCtfBusinessInfoQuery } from './__generated/business-info.generated';
@@ -30,9 +29,9 @@ export const CtfBusinessInfoGql = ({ preview, id }: CtfBusinessInfoGqlPropsInter
 
   if (!topicBusinessInfo) {
     return (
-      <Container>
+      <div>
         <EntryNotFound />
-      </Container>
+      </div>
     );
   }
 
