@@ -7,15 +7,8 @@ interface FormatCurrencyProps {
   currency?: string;
 }
 
-export const FormatCurrency = ({
-  value,
-  locale,
-  style = 'currency',
-  currency = 'EUR',
-}: FormatCurrencyProps) => {
+export const FormatCurrency = ({ value, locale, currency = 'EUR' }: FormatCurrencyProps) => {
   const { locale: localeFromRouter } = useContentfulContext();
 
-  return (
-    <>{new Intl.NumberFormat(locale || localeFromRouter, { style, currency }).format(value)}</>
-  );
+  return <>{new Intl.NumberFormat(locale || localeFromRouter, { currency }).format(value)}</>;
 };
