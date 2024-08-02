@@ -6,7 +6,6 @@ import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generate
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
 import { PageLink } from '@src/components/features/page-link';
 import LayoutContext, { defaultLayout, useLayoutContext } from '@src/layout-context';
-import { getColorConfigFromPalette } from '@src/theme';
 
 export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
   const {
@@ -16,12 +15,10 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     bodyText,
     ctaText,
     targetPage,
-    colorPalette,
     sys: { id },
   } = props;
   const layout = useLayoutContext();
 
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
   const imageStyle = imageStyleBoolean ? 'partial' : 'full';
   const backgroundImage = useMemo(
     () =>
@@ -60,7 +57,6 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
               fontWeight: 800,
               lineHeight: 1.08,
               maxWidth: '44rem',
-              color: colorConfig.headlineColor,
             }}
             {...inspectorMode({ fieldId: 'headline' })}
           >
@@ -72,7 +68,6 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
             <div
               className={''}
               style={{
-                color: colorConfig.textColor,
                 fontWeight: 400,
                 lineHeight: 1.56,
                 marginTop: '6rem',
@@ -85,12 +80,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
         )}
         {targetPage && ctaText && (
           <div className={''} style={{ marginTop: '6rem' }}>
-            <PageLink
-              page={targetPage}
-              variant="contained"
-              color={colorConfig.buttonColor}
-              isButton
-            >
+            <PageLink page={targetPage} variant="contained" isButton>
               {ctaText}
             </PageLink>
           </div>

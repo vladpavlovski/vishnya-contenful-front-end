@@ -1,91 +1,9 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import { Theme, Container } from '@mui/material';
-import Typography from '@mui/material/Typography';
-import { makeStyles } from '@mui/styles';
-import clsx from 'clsx';
 import React, { useMemo } from 'react';
 
 import { BusinessInfoFieldsFragment } from './__generated/business-info.generated';
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    paddingBottom: theme.spacing(18),
-    paddingTop: (props: BusinessInfoFieldsFragment) =>
-      props.name || props.shortDescription ? 0 : theme.spacing(18),
-    '& .MuiContainer-root + .ComponentInfoBlock': {
-      marginTop: theme.spacing(18),
-    },
-    '& .ComponentInfoBlock + .MuiContainer-root': {
-      marginTop: theme.spacing(18),
-    },
-  },
-  container: {
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    maxWidth: '126.2rem',
-  },
-  containerNarrow: {
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    maxWidth: '77rem',
-  },
-  hero: {
-    marginBottom: theme.spacing(18),
-    position: 'relative',
-  },
-  heroBg: {
-    backgroundColor: '#000',
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    '&::before': {
-      backgroundColor: 'rgba(0, 0, 0, 0.5)',
-      bottom: 0,
-      content: '""',
-      display: 'block',
-      left: 0,
-      position: 'absolute',
-      right: 0,
-      top: 0,
-      zIndex: 1,
-    },
-  },
-  heroInner: {
-    alignItems: 'center',
-    color: '#fff',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    maxWidth: '55rem',
-    paddingBottom: theme.spacing(8),
-    paddingTop: theme.spacing(8),
-    position: 'relative',
-    textAlign: 'center',
-    zIndex: 1,
-    [theme.breakpoints.up('md')]: {
-      paddingBottom: theme.spacing(16),
-      paddingTop: theme.spacing(16),
-    },
-    '@media (min-height: 600px)': {
-      minHeight: '59rem',
-    },
-  },
-  title: {
-    [theme.breakpoints.up('md')]: {
-      fontSize: '4.5rem',
-    },
-  },
-  subtitle: {
-    fontSize: '2.5rem',
-    marginTop: theme.spacing(3),
-  },
-}));
 
 const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
   const {
@@ -100,52 +18,73 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
     [featuredImage],
   );
 
-  const classes = useStyles(props);
   const inspectorMode = useContentfulInspectorMode({ entryId: id });
 
   return (
-    <div className={classes.root}>
+    <div className={''}>
       {(name || shortDescription) && (
-        <div className={classes.hero}>
+        <div className={''}>
           <div
-            className={classes.heroBg}
+            className={''}
             style={{
               backgroundImage: `url(${backgroundImage})`,
+              backgroundColor: '#000',
+              backgroundPosition: 'center center',
+              backgroundSize: 'cover',
+              position: 'absolute',
+              top: 0,
+              right: 0,
+              bottom: 0,
+              left: 0,
+              zIndex: 1,
             }}
             {...inspectorMode({ fieldId: 'featuredImage' })}
-          />
-          <Container maxWidth={false}>
-            <div className={clsx(classes.containerNarrow, classes.heroInner)}>
+          >
+            <div
+              className={''}
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                position: 'absolute',
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0,
+                zIndex: 1,
+              }}
+            />
+          </div>
+          <div className={''} style={{ maxWidth: '77rem', margin: '0 auto', textAlign: 'center' }}>
+            <div
+              className={''}
+              style={{ maxWidth: '55rem', padding: '8rem 0', position: 'relative', color: '#fff' }}
+            >
               {name && (
-                <Typography
-                  variant="h1"
-                  className={classes.title}
+                <h1
+                  className={''}
+                  style={{ fontSize: '4.5rem' }}
                   {...inspectorMode({ fieldId: 'name' })}
                 >
                   {name}
-                </Typography>
+                </h1>
               )}
               {shortDescription && (
-                <Typography
-                  className={classes.subtitle}
+                <p
+                  className={''}
+                  style={{ fontSize: '2.5rem', marginTop: '3rem' }}
                   {...inspectorMode({
                     fieldId: 'shortDescription',
                   })}
                 >
                   {shortDescription}
-                </Typography>
+                </p>
               )}
             </div>
-          </Container>
+          </div>
         </div>
       )}
       {body && (
         <div {...inspectorMode({ fieldId: 'body' })}>
-          <CtfRichtext
-            {...body}
-            containerClassName={classes.container}
-            gridClassName={classes.containerNarrow}
-          />
+          <CtfRichtext {...body} containerClassName={''} gridClassName={''} />
         </div>
       )}
     </div>

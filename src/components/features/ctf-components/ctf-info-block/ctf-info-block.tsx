@@ -7,7 +7,6 @@ import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
 import { SectionHeadlines } from '@src/components/features/section-headlines';
 import LayoutContext, { defaultLayout } from '@src/layout-context';
-import { getColorConfigFromPalette } from '@src/theme';
 
 export interface CtfInfoBlockPropsInterface extends InfoBlockFieldsFragment {
   previousComponent?: string | null;
@@ -24,16 +23,13 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
     block3Image,
     block3Body,
     previousComponent,
-    colorPalette,
     sys: { id },
   } = props;
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
   const inspectorMode = useContentfulInspectorMode({ entryId: id });
 
   return (
     <div
       style={{
-        backgroundColor: colorConfig.backgroundColor,
         maxWidth: '100%',
         margin: '0 auto',
       }}
@@ -54,12 +50,12 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
         <SectionHeadlines
           headline={headline}
           headlineProps={{
-            style: { color: colorConfig.headlineColor },
+            style: {},
             ...inspectorMode({ fieldId: 'headline' }),
           }}
           subline={subline}
           sublineProps={{
-            style: { color: colorConfig.textColor },
+            style: {},
             ...inspectorMode({ fieldId: 'subline' }),
           }}
           className={''}
@@ -106,7 +102,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 )}
                 <div
                   className={''}
-                  style={{ color: colorConfig.textColor }}
                   {...inspectorMode({
                     fieldId: 'block1Body',
                   })}
@@ -145,7 +140,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 )}
                 <div
                   className={''}
-                  style={{ color: colorConfig.textColor }}
                   {...inspectorMode({
                     fieldId: 'block2Body',
                   })}
@@ -184,7 +178,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 )}
                 <div
                   className={''}
-                  style={{ color: colorConfig.textColor }}
                   {...inspectorMode({
                     fieldId: 'block3Body',
                   })}

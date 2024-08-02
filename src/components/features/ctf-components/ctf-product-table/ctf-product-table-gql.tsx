@@ -1,5 +1,4 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import { Container } from '@mui/material';
 
 import { useCtfProductTableQuery } from './__generated/ctf-product-table.generated';
 import { CtfProductTable } from './ctf-product-table';
@@ -27,9 +26,9 @@ export const CtfProductTableGql = (props: CtfProductTableGqlPropsInterface) => {
 
   if (!componentProductTable) {
     return (
-      <Container>
+      <div className={''}>
         <EntryNotFound />
-      </Container>
+      </div>
     );
   }
 

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange */
 import { useRouter } from 'next/router';
 import React from 'react';
 
@@ -30,9 +31,10 @@ export const LanguageSelector = () => {
           </clipPath>
         </defs>
       </svg>
+
       <select
         value={locale}
-        onBlur={event => {
+        onChange={event => {
           router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
             locale: String(event.target.value),
           });

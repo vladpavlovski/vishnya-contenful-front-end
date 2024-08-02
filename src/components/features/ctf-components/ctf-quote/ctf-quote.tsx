@@ -5,18 +5,16 @@ import { QuoteFieldsFragment } from './__generated/ctf-quote.generated';
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
 import LayoutContext, { defaultLayout } from '@src/layout-context';
-import { getColorConfigFromPalette } from '@src/theme';
 
 export const CtfQuote = (props: QuoteFieldsFragment) => {
   const {
     imagePosition,
     image,
     quote,
-    colorPalette,
+
     quoteAlignment: quoteAlignmentBoolean,
     sys: { id },
   } = props;
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
   const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight';
   const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left';
   const backgroundImage = useMemo(() => (image ? `${image.url}?w=${600 * 2}` : undefined), [image]);
@@ -24,11 +22,7 @@ export const CtfQuote = (props: QuoteFieldsFragment) => {
 
   return (
     <LayoutContext.Provider value={{ ...defaultLayout, parent: 'quote' }}>
-      <div
-        style={{
-          backgroundColor: colorConfig.backgroundColor,
-        }}
-      >
+      <div>
         <div
           style={{
             order: 2,
@@ -41,7 +35,6 @@ export const CtfQuote = (props: QuoteFieldsFragment) => {
             <div
               {...inspectorMode({ fieldId: 'quote' })}
               style={{
-                color: colorConfig.textColor,
                 textAlign: quoteAlignment,
               }}
             >

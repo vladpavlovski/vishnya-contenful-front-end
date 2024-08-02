@@ -2,22 +2,10 @@ import { TextBlockFieldsFragment } from './__generated/ctf-text-block.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
 import { SectionHeadlines } from '@src/components/features/section-headlines';
-import { getColorConfigFromPalette } from '@src/theme';
 
-export const CtfTextBlock = ({
-  headline,
-  subline,
-  body,
-  colorPalette,
-}: TextBlockFieldsFragment) => {
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
-
+export const CtfTextBlock = ({ headline, subline, body }: TextBlockFieldsFragment) => {
   return (
-    <div
-      style={{
-        backgroundColor: colorConfig.backgroundColor,
-      }}
-    >
+    <div>
       <div
         className={''}
         style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '126rem', padding: '152px 0' }}
@@ -25,20 +13,16 @@ export const CtfTextBlock = ({
         <SectionHeadlines
           headline={headline}
           headlineProps={{
-            style: { color: colorConfig.headlineColor },
+            style: {},
           }}
           subline={subline}
           sublineProps={{
-            style: { color: colorConfig.textColor },
+            style: {},
           }}
           className={''}
         />
         {body && (
-          <div
-            style={{
-              color: colorConfig.textColor,
-            }}
-          >
+          <div>
             <CtfRichtext {...body} />
           </div>
         )}

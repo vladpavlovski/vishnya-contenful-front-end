@@ -7,12 +7,10 @@ import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
 import { PageLink } from '@src/components/features/page-link';
 import LayoutContext, { defaultLayout } from '@src/layout-context';
-import { getColorConfigFromPalette } from '@src/theme';
 import { optimizeLineBreak } from '@src/utils';
 
 const DuplexContent = (props: DuplexFieldsFragment) => {
-  const { headline, bodyText, targetPage, ctaText, colorPalette } = props;
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
+  const { headline, bodyText, targetPage, ctaText } = props;
   const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id });
 
   return (
@@ -25,7 +23,6 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
             lineHeight: 1.3,
             fontWeight: 700,
             maxWidth: '60.4rem',
-            color: colorConfig.headlineColor,
           }}
           {...inspectorMode({ fieldId: 'headline' })}
         >
@@ -37,7 +34,6 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
           <div
             className={''}
             style={{
-              color: colorConfig.textColor,
               fontWeight: 400,
               lineHeight: 1.56,
               marginTop: '7rem',
@@ -54,7 +50,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
           style={{ marginTop: '8rem' }}
           {...inspectorMode({ fieldId: 'ctaText' })}
         >
-          <PageLink page={targetPage} variant="contained" color={colorConfig.buttonColor} isButton>
+          <PageLink page={targetPage} variant="contained" isButton>
             {ctaText}
           </PageLink>
         </div>
@@ -100,11 +96,10 @@ const DuplexImage = (props: DuplexFieldsFragment) => {
 };
 
 export const CtfDuplex = (props: DuplexFieldsFragment) => {
-  const { colorPalette, containerLayout: containerLayoutBoolean } = props;
-  const colorConfig = getColorConfigFromPalette(colorPalette || '');
+  const { containerLayout: containerLayoutBoolean } = props;
 
   return (
-    <div className={''} style={{ backgroundColor: colorConfig.backgroundColor }}>
+    <div className={''}>
       <div className={''}>
         {containerLayoutBoolean ? (
           <>

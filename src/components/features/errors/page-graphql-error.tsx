@@ -1,14 +1,12 @@
-import { Container, Box } from '@mui/material';
-
 import { GraphqlError } from '@src/components/shared/graphql-error';
 import { PageContainer } from '@src/components/templates/page-container';
 
 export const PageGraphqlError = (props: { error: any }) => (
   <PageContainer>
-    <Container>
-      <Box my={12}>
+    <div className={''} style={{ padding: '0 1rem' }}>
+      <div className={''} style={{ marginTop: '3rem', marginBottom: '3rem' }}>
         <GraphqlError error={props.error} />
-      </Box>
-    </Container>
+      </div>
+    </div>
   </PageContainer>
 );
