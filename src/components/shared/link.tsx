@@ -1,19 +1,7 @@
-import MuiButton from '@mui/material/Button';
-import MuiLink from '@mui/material/Link';
-import { makeStyles } from '@mui/styles';
-import clsx from 'clsx';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 import queryString from 'query-string';
 import { ReactNode } from 'react';
-
-const useStyles = makeStyles(() => ({
-  baseAnchor: {
-    display: 'block',
-    color: 'inherit',
-    textDecoration: 'none',
-  },
-}));
 
 interface Props {
   children: ReactNode;
@@ -45,11 +33,7 @@ export const Link = (props: Props) => {
     underline,
     onClick,
     isButton = false,
-    variant,
-    size,
     color,
-    startIcon,
-    endIcon,
     urlParams = '',
     title,
   } = props;
@@ -93,8 +77,6 @@ export const Link = (props: Props) => {
     }
   }
 
-  const classes = useStyles();
-
   if (props.href === undefined || props.href === null) return <>{props.children}</>;
 
   const external = href.startsWith('http://') || href.startsWith('https://');
@@ -102,37 +84,33 @@ export const Link = (props: Props) => {
 
   if (external === true || !href) {
     return isButton ? (
-      <MuiButton
-        href={href}
+      <button
         className={className}
-        color={color}
+        style={{ color: color }}
         onClick={() => onClick && onClick()}
-        variant={variant}
-        size={size}
-        startIcon={startIcon}
-        endIcon={endIcon}
-        title={title}>
+        title={title}
+      >
         {children}
-      </MuiButton>
+      </button>
     ) : (
-      <MuiLink
+      <a
         className={className}
-        underline={underlineStyle}
-        color={color}
+        style={{ textDecoration: underlineStyle, color: color }}
         href={href}
         target={props.target}
         rel="noopener noreferrer"
         onClick={() => onClick && onClick()}
-        title={title}>
+        title={title}
+      >
         {children}
-      </MuiLink>
+      </a>
     );
   }
 
   if (withoutMaterial === true) {
     return (
       <NextLink href={href} as={as} passHref>
-        <a className={clsx(classes.baseAnchor, className)} title={title}>
+        <a className={''} title={title}>
           {children}
         </a>
       </NextLink>
@@ -142,33 +120,30 @@ export const Link = (props: Props) => {
   if (isButton === true) {
     return (
       <NextLink href={href} as={as} passHref>
-        <MuiButton
-          href={as}
+        <button
           className={className}
-          color={color}
+          style={{ color: color }}
           onClick={() => onClick && onClick()}
-          variant={variant}
-          size={size}
-          startIcon={startIcon}
-          endIcon={endIcon}
-          title={title}>
+          title={title}
+        >
           {children}
-        </MuiButton>
+        </button>
       </NextLink>
     );
   }
 
   return (
     <NextLink href={href} as={as} passHref>
-      <MuiLink
-        href={as}
+      <a
+        role="link"
+        tabIndex={0}
         className={className}
-        underline={underlineStyle}
-        color={color}
+        style={{ textDecoration: underlineStyle, color: color }}
         onClick={() => onClick && onClick()}
-        title={title}>
+        title={title}
+      >
         {children}
-      </MuiLink>
+      </a>
     </NextLink>
   );
 };

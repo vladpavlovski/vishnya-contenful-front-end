@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import React, { useMemo } from 'react';
 
 import { useContentfulContext } from '@src/contentful-context';
@@ -23,7 +22,7 @@ interface Props {
 }
 
 export const ComponentResolver = (props: Props) => {
-  const { componentProps, inline = false } = props;
+  const { componentProps } = props;
   const { previewActive } = useContentfulContext();
 
   const { locale } = useContentfulContext();
@@ -65,11 +64,7 @@ export const ComponentResolver = (props: Props) => {
   }
 
   return (
-    <Box
-      position="relative"
-      component={inline ? 'span' : 'div'}
-      className={componentProps.__typename}
-    >
+    <div className={componentProps.__typename}>
       {Component ? (
         <Component
           {...componentProps}
@@ -87,6 +82,6 @@ export const ComponentResolver = (props: Props) => {
           previousComponent={previousComponentProp}
         />
       )}
-    </Box>
+    </div>
   );
 };

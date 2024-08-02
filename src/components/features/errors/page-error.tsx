@@ -1,11 +1,7 @@
-import { Theme, Container, Grid, Typography } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import { useTranslation } from 'next-i18next';
 import React from 'react';
-import { File } from 'react-kawaii';
 
 import { PageContainer } from '@src/components/templates/page-container';
-import colorfulTheme from '@src/theme';
 
 interface PropsInterface {
   error?: {
@@ -14,33 +10,8 @@ interface PropsInterface {
   };
 }
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    width: '100%',
-    minhHeight: '100%',
-    color: 'black',
-  },
-  container: {
-    paddingTop: theme.spacing(16),
-  },
-  content: {
-    '& > *': {
-      marginBottom: theme.spacing(6),
-    },
-  },
-  icon: {
-    marginRight: theme.spacing(4),
-    marginBottom: theme.spacing(3),
-  },
-  headlineWrap: {
-    alignItems: 'center',
-    display: 'flex',
-  },
-}));
-
 export const PageError = (props: PropsInterface) => {
   const { t } = useTranslation();
-  const classes = useStyles();
 
   const error =
     props.error === undefined
@@ -51,30 +22,25 @@ export const PageError = (props: PropsInterface) => {
       : props.error;
 
   return (
-    <div className={classes.root}>
+    <div className={''} style={{ width: '100%', minHeight: '100%', color: 'black' }}>
       <PageContainer>
-        <Container className={classes.container}>
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item xs={12} sm={8}>
-              <div className={classes.headlineWrap}>
-                <File
-                  size={100}
-                  mood="ko"
-                  color={colorfulTheme.palette.primary.main}
-                  className={classes.icon}
-                />
-                <Typography variant="h1" gutterBottom>
-                  {t('error.code', { code: error.code })}
-                </Typography>
+        <div className={''} style={{ paddingTop: '16rem' }}>
+          <div
+            className={''}
+            style={{ display: 'flex', justifyContent: 'center', marginBottom: '6rem' }}
+          >
+            <div className={''} style={{ width: '100%', maxWidth: '800px' }}>
+              <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
+                <h1 style={{ marginBottom: '1rem' }}>{t('error.code', { code: error.code })}</h1>
               </div>
               {error.message && (
-                <div className={classes.content}>
-                  <Typography variant="h4">{error.message}</Typography>
+                <div className={''} style={{ marginBottom: '6rem' }}>
+                  <h4>{error.message}</h4>
                 </div>
               )}
-            </Grid>
-          </Grid>
-        </Container>
+            </div>
+          </div>
+        </div>
       </PageContainer>
     </div>
   );
