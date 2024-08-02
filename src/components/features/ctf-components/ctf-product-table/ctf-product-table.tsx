@@ -1,6 +1,4 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import { Theme, Typography, Container } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import throttle from 'lodash/throttle';
 import Image, { ImageLoader } from 'next/image';
 import { useTranslation } from 'next-i18next';
@@ -28,116 +26,6 @@ const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
   return queryString.stringifyUrl({ url: src, query: params });
 };
 
-const useStyles = makeStyles((theme: Theme) => ({
-  section: {
-    backgroundColor: '#FCFCFC',
-  },
-  innerContainer: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    maxWidth: '126rem',
-    padding: theme.spacing(19, 0, 11),
-  },
-  sectionHeadlines: {
-    marginBottom: theme.spacing(12),
-  },
-  comparisonTable: {
-    display: 'flex',
-    flexFlow: 'row wrap',
-    justifyContent: 'center',
-    marginLeft: theme.spacing(-10),
-    marginTop: theme.spacing(8),
-    '@media (max-width: 1059px)': {
-      '[data-columns-count="3"] & $comparisonTableColumn:nth-child(3) [data-equal-size]': {
-        height: 'auto !important',
-      },
-    },
-    '@media (max-width: 819px)': {
-      '[data-columns-count] & [data-equal-size]': {
-        height: 'auto !important',
-      },
-      '[data-columns-count] & $comparisonTableColumn:not(:first-child)': {
-        marginTop: theme.spacing(8),
-      },
-    },
-  },
-  comparisonTableColumn: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexShrink: 0,
-    marginBottom: theme.spacing(4),
-    maxWidth: '100%',
-    paddingLeft: theme.spacing(10),
-    width: '40.5rem',
-    [theme.breakpoints.up('md')]: {
-      width: '35rem',
-    },
-    '@media (min-width: 1320px)': {
-      width: '40.5rem',
-    },
-  },
-  comparisonFeaturesBreak: {
-    padding: theme.spacing(6, 0, 6),
-    [theme.breakpoints.up('md')]: {
-      padding: theme.spacing(11, 0, 11),
-    },
-  },
-  title: {
-    color: '#1B273A',
-    fontSize: '2rem',
-    fontWeight: 500,
-    lineHeight: 1.09,
-  },
-  shortDescription: {
-    marginTop: theme.spacing(8),
-    paddingBottom: theme.spacing(4),
-    '& p': {
-      fontWeight: 400,
-      color: '#414D63',
-      fontSize: '1.8rem',
-      lineHeight: 1.55,
-    },
-  },
-  featuredImage: {
-    paddingBottom: theme.spacing(7),
-  },
-  feature: {
-    paddingBottom: theme.spacing(2),
-    [theme.breakpoints.up('md')]: {
-      paddingBottom: theme.spacing(5),
-    },
-    color: '#414D63',
-  },
-  featureInner: {
-    overflow: 'hidden',
-  },
-  signUp: {
-    marginTop: theme.spacing(6),
-  },
-  pricingBottom: {
-    marginTop: 'auto',
-    paddingTop: theme.spacing(3),
-    [theme.breakpoints.up('md')]: {
-      marginTop: 'auto',
-      paddingTop: theme.spacing(8),
-    },
-  },
-  priceAddition: {
-    fontSize: '1.8rem',
-    fontWeight: 400,
-    color: '#414D63',
-  },
-  priceUpper: {
-    fontSize: '1.8rem',
-    fontWeight: 400,
-    color: '#414D63',
-    '& $priceAddition': {
-      fontSize: '1.8rem',
-      fontWeight: 400,
-    },
-  },
-}));
-
 export const CtfProductTable = (props: ProductTableFieldsFragment) => {
   const { t } = useTranslation();
   const {
@@ -147,7 +35,6 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
     sys: { id },
   } = props;
 
-  const classes = useStyles();
   const inspectorMode = useContentfulInspectorMode();
 
   // Rendering product features
@@ -274,26 +161,25 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
       window.removeEventListener('resize', resizeGridItems);
     };
   }, [resizeGridItems]);
-
   return (
     <div ref={gridElement}>
-      <Container maxWidth={false} className={classes.section}>
-        <div className={classes.innerContainer}>
+      <div className="">
+        <div className="">
           <SectionHeadlines
             headline={headline}
             headlineLivePreviewProps={inspectorMode({ entryId: id, fieldId: 'headline' })}
             subline={subline}
             sublineLivePreviewProps={inspectorMode({ entryId: id, fieldId: 'subline' })}
-            className={classes.sectionHeadlines}
+            className={''}
           />
           {productsCollection && productsCollection.items.length > 0 && (
-            <div className={classes.comparisonTable}>
+            <div className="">
               {productsCollection.items.map(
                 (product, j) =>
                   product && (
                     <div
                       key={product.sys.id}
-                      className={classes.comparisonTableColumn}
+                      className=""
                       ref={el => {
                         gridColumnElements.current[j] = el;
                       }}
@@ -303,7 +189,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                       })}
                     >
                       <div
-                        className={classes.featuredImage}
+                        className=""
                         {...inspectorMode({
                           entryId: product.sys.id,
                           fieldId: 'featuredImage',
@@ -340,16 +226,15 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                               : `${gridSizes[`index-1`]}px`,
                         }}
                       >
-                        <Typography
-                          variant="h2"
-                          className={classes.title}
+                        <h2
+                          className={''}
                           {...inspectorMode({
                             entryId: product.sys.id,
                             fieldId: 'name',
                           })}
                         >
                           {product.name}
-                        </Typography>
+                        </h2>
                       </div>
                       <div
                         data-equal-size="2"
@@ -371,10 +256,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                               parent: 'product-description',
                             }}
                           >
-                            <CtfRichtext
-                              {...product.description}
-                              className={classes.shortDescription}
-                            />
+                            <CtfRichtext {...product.description} className={''} />
                           </LayoutContext.Provider>
                         )}
                       </div>
@@ -392,14 +274,12 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         })}
                       >
                         {!product.price || product.price === 0 ? (
-                          <Typography variant="h2" component="span" className={classes.priceUpper}>
-                            {t('price.free')}
-                          </Typography>
+                          <h2 className={''}>{t('price.free')}</h2>
                         ) : (
-                          <Typography variant="h2" component="span" className={classes.priceUpper}>
+                          <h2 className={''}>
                             <FormatCurrency value={product.price} />
-                            <span className={classes.priceAddition}>/{t('time.month')}</span>
-                          </Typography>
+                            <span className={''}>/{t('time.month')}</span>
+                          </h2>
                         )}
                       </div>
                       {featureNames && featuresGrid && (
@@ -409,7 +289,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                             parent: 'product-table',
                           }}
                         >
-                          <div className={classes.comparisonFeaturesBreak} />
+                          <div className="" />
                           <div
                             {...inspectorMode({
                               entryId: product.sys.id,
@@ -421,10 +301,10 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                                 featuresGrid[featureName][product.sys.id] && (
                                   <div
                                     key={`${product.sys.id}-${featureName}`}
-                                    className={classes.feature}
+                                    className={''}
                                     {...featuresGrid[featureName][product.sys.id].attributes}
                                   >
-                                    <div data-equal-size={i + 4} className={classes.featureInner}>
+                                    <div data-equal-size={i + 4} className={''}>
                                       <CtfRichtext
                                         {...featuresGrid[featureName][product.sys.id].value}
                                       />
@@ -436,7 +316,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         </LayoutContext.Provider>
                       )}
                       <div
-                        className={classes.pricingBottom}
+                        className={''}
                         data-equal-size={(featureNames || []).length + 4}
                         style={{
                           height:
@@ -447,22 +327,12 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         }}
                       >
                         {!product.price || product.price === 0 ? (
-                          <Typography variant="h2" component="span">
-                            {t('price.free')}
-                          </Typography>
+                          <h2 className={''}>{t('price.free')}</h2>
                         ) : (
-                          <Typography
-                            variant="h2"
-                            component="span"
-                            className={classes.priceUpper}
-                            {...inspectorMode({
-                              entryId: product.sys.id,
-                              fieldId: 'price',
-                            })}
-                          >
+                          <h2 className={''}>
                             <FormatCurrency value={product.price} />
-                            <span className={classes.priceAddition}>/{t('time.month')}</span>
-                          </Typography>
+                            <span className={''}>/{t('time.month')}</span>
+                          </h2>
                         )}
                       </div>
                     </div>
@@ -471,7 +341,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
             </div>
           )}
         </div>
-      </Container>
+      </div>
     </div>
   );
 };

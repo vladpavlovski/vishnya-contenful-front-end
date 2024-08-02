@@ -1,4 +1,3 @@
-import { Box } from '@mui/material';
 import Image, { ImageProps } from 'next/image';
 import React, { useState } from 'react';
 
@@ -24,15 +23,16 @@ export const CtfImage = ({
   blurUrl.searchParams.set('w', '100');
 
   return (
-    <Box
-      component="figure"
-      margin="0"
-      fontSize={0}
+    <figure
+      className={''}
       style={{
+        margin: 0,
+        fontSize: 0,
         transition: '300ms ease-out',
         transitionProperty: 'opacity',
         opacity: loaded ? 1 : 0,
-      }}>
+      }}
+    >
       <Image
         onLoad={() => {
           setLoaded(true);
@@ -46,6 +46,6 @@ export const CtfImage = ({
         {...rest}
       />
       {showDescription && description && <figcaption>{description}</figcaption>}
-    </Box>
+    </figure>
   );
 };

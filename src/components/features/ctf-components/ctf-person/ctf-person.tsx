@@ -1,5 +1,4 @@
-import { Theme, Container } from '@mui/material';
-import { makeStyles } from '@mui/styles';
+import React from 'react';
 
 import { PersonFieldsFragment } from './__generated/ctf-person.generated';
 
@@ -8,33 +7,31 @@ import { CardLeadership } from '@src/components/features/card-leadership';
 import { CardPerson } from '@src/components/features/card-person';
 import { useLayoutContext } from '@src/layout-context';
 
-const useStyles = makeStyles((theme: Theme) => ({
-  root: {
-    marginLeft: 'auto',
-    marginRight: 'auto',
-    paddingBottom: theme.spacing(3),
-    paddingTop: theme.spacing(3),
-  },
-}));
-
 interface CtfPersonPropsInterface extends PersonFieldsFragment {
   previousComponent: string | null;
 }
 
 export const CtfPerson = (props: CtfPersonPropsInterface) => {
   const layout = useLayoutContext();
-  const classes = useStyles();
   const isLeadership = props.cardStyle === false;
 
+  const containerStyle = {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    paddingBottom: '24px', // Assuming theme.spacing(3) is 24px
+    paddingTop: '24px', // Assuming theme.spacing(3) is 24px
+    maxWidth: layout.containerWidth,
+  };
+
   return layout.parent === 'quote' ? (
-    <div className={classes.root} style={{ maxWidth: layout.containerWidth }}>
+    <div className={''} style={containerStyle}>
       <Author {...props} />
     </div>
   ) : (
-    <Container maxWidth={false}>
-      <div className={classes.root} style={{ maxWidth: layout.containerWidth }}>
+    <div className={''} style={{ maxWidth: '100%', padding: 0 }}>
+      <div className={''} style={containerStyle}>
         {isLeadership ? <CardLeadership {...props} /> : <CardPerson {...props} />}
       </div>
-    </Container>
+    </div>
   );
 };
