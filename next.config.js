@@ -1,20 +1,13 @@
-require('dotenv').config();
-const nextComposePlugins = require('next-compose-plugins');
+require('dotenv').config()
 
-const headers = require('./config/headers');
-const plugins = require('./config/plugins');
-const { i18n } = require('./next-i18next.config.js');
-
-/**
- * https://github.com/cyrilwanner/next-compose-plugins/issues/59
- */
-const { withPlugins } = nextComposePlugins.extend(() => ({}));
+const headers = require('./config/headers')
+const { i18n } = require('./next-i18next.config.js')
 
 /**
  * Next config
  * documentation: https://nextjs.org/docs/api-reference/next.config.js/introduction
  */
-module.exports = withPlugins(plugins, {
+module.exports = {
   i18n,
   /**
    * add the environment variables you would like exposed to the client here
@@ -24,7 +17,7 @@ module.exports = withPlugins(plugins, {
     ENVIRONMENT_NAME: process.env.ENVIRONMENT_NAME,
     CONTENTFUL_SPACE_ID: process.env.CONTENTFUL_SPACE_ID,
     CONTENTFUL_ACCESS_TOKEN: process.env.CONTENTFUL_ACCESS_TOKEN,
-    CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN,
+    CONTENTFUL_PREVIEW_ACCESS_TOKEN: process.env.CONTENTFUL_PREVIEW_ACCESS_TOKEN
   },
 
   /**
@@ -63,6 +56,6 @@ module.exports = withPlugins(plugins, {
     deviceSizes: [320, 420, 768, 1024, 1200, 1600],
     domains: ['images.ctfassets.net', 'images.eu.ctfassets.net'],
     path: '/_next/image',
-    loader: 'default',
-  },
-});
+    loader: 'default'
+  }
+}
