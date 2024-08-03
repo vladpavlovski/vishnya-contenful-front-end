@@ -1,25 +1,25 @@
-import { ImageProps } from 'next/image';
+import { ImageProps } from 'next/legacy/image'
 
-import { AssetFieldsFragment } from './__generated/ctf-asset.generated';
+import { AssetFieldsFragment } from './__generated/ctf-asset.generated'
 
-import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image';
-import { CtfVideo } from '@src/components/features/ctf-components/ctf-video/ctf-video';
-import { useLayoutContext } from '@src/layout-context';
+import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
+import { CtfVideo } from '@src/components/features/ctf-components/ctf-video/ctf-video'
+import { useLayoutContext } from '@src/layout-context'
 
 interface CtfAssetPropsInterface
   extends AssetFieldsFragment,
     Pick<ImageProps, 'layout' | 'objectFit' | 'objectPosition'> {
-  className?: string;
-  showDescription?: boolean;
-  onClick?: () => any;
+  className?: string
+  showDescription?: boolean
+  onClick?: () => any
 }
 
 export const CtfAsset = (props: CtfAssetPropsInterface) => {
-  const { contentType, url, showDescription = true, title, width, height } = props;
-  const layout = useLayoutContext();
+  const { contentType, url, showDescription = true, title, width, height } = props
+  const layout = useLayoutContext()
 
   if (!contentType || !url) {
-    return null;
+    return null
   }
 
   if (contentType.startsWith('image')) {
@@ -35,12 +35,12 @@ export const CtfAsset = (props: CtfAssetPropsInterface) => {
             : showDescription
         }
       />
-    );
+    )
   }
 
   if (contentType.startsWith('video')) {
-    return <CtfVideo {...props} />;
+    return <CtfVideo {...props} />
   }
 
-  return null;
-};
+  return null
+}

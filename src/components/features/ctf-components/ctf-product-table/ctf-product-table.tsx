@@ -1,113 +1,113 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import Image, { ImageLoader } from 'next/image';
-import { useTranslation } from 'next-i18next';
-import queryString from 'query-string';
-import { useMemo, useRef } from 'react';
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import Image, { ImageLoader } from 'next/legacy/image'
+import { useTranslation } from 'next-i18next'
+import queryString from 'query-string'
+import { useMemo, useRef } from 'react'
 
-import { ProductTableFieldsFragment } from './__generated/ctf-product-table.generated';
+import { ProductTableFieldsFragment } from './__generated/ctf-product-table.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { FormatCurrency } from '@src/components/features/format-currency';
-import { SectionHeadlines } from '@src/components/features/section-headlines';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { FormatCurrency } from '@src/components/features/format-currency'
+import { SectionHeadlines } from '@src/components/features/section-headlines'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
-  const params: Record<string, string | number> = {};
+  const params: Record<string, string | number> = {}
 
   if (width) {
-    params.w = width;
+    params.w = width
   }
 
   if (quality) {
-    params.q = quality;
+    params.q = quality
   }
 
-  return queryString.stringifyUrl({ url: src, query: params });
-};
+  return queryString.stringifyUrl({ url: src, query: params })
+}
 
 export const CtfProductTable = (props: ProductTableFieldsFragment) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
   const {
     headline,
     subline,
     productsCollection,
-    sys: { id },
-  } = props;
+    sys: { id }
+  } = props
 
-  const inspectorMode = useContentfulInspectorMode();
+  const inspectorMode = useContentfulInspectorMode()
 
   // Rendering product features
   const featureNames: string[] | null = useMemo(() => {
     if (!productsCollection || productsCollection?.items.length === 0) {
-      return null;
+      return null
     }
 
-    const names: string[] = [];
+    const names: string[] = []
 
     productsCollection?.items.forEach(product => {
       if (!product || (product.featuresCollection?.items.length || 0) === 0) {
-        return;
+        return
       }
 
       product.featuresCollection!.items.forEach(feature => {
         if (!feature?.name) {
-          return;
+          return
         }
 
         if (names.includes(feature.name)) {
-          return;
+          return
         }
 
-        names.push(feature.name);
-      });
-    });
+        names.push(feature.name)
+      })
+    })
 
-    return names;
-  }, [productsCollection]);
+    return names
+  }, [productsCollection])
 
   const featuresGrid: Record<
     string,
     Record<string, { attributes: Record<string, string>; value: any }>
   > | null = useMemo(() => {
     if (!featureNames || !productsCollection) {
-      return null;
+      return null
     }
 
-    const grid = {};
+    const grid = {}
 
     featureNames.forEach(featureName => {
-      grid[featureName] = {};
+      grid[featureName] = {}
 
       productsCollection?.items.forEach(product => {
         if (!product || (product.featuresCollection?.items.length || 0) === 0) {
-          return;
+          return
         }
 
         const feature = product.featuresCollection!.items.find(
-          featureX => featureX?.name === featureName,
-        );
+          featureX => featureX?.name === featureName
+        )
 
         if (!feature) {
-          return;
+          return
         }
 
         const fieldId: keyof typeof feature = feature.shortDescription
           ? 'shortDescription'
-          : 'longDescription';
+          : 'longDescription'
 
         grid[featureName][product.sys.id] = {
           attributes: inspectorMode({ fieldId, entryId: feature.sys.id }),
-          value: feature[fieldId],
-        };
-      });
-    });
+          value: feature[fieldId]
+        }
+      })
+    })
 
-    return grid;
-  }, [featureNames, productsCollection, inspectorMode]);
+    return grid
+  }, [featureNames, productsCollection, inspectorMode])
 
   // Keeping the grid items the same size
-  const gridElement = useRef<HTMLDivElement>(null);
-  const gridColumnElements = useRef<(HTMLDivElement | null)[]>([]);
+  const gridElement = useRef<HTMLDivElement>(null)
+  const gridColumnElements = useRef<(HTMLDivElement | null)[]>([])
 
   return (
     <div ref={gridElement}>
@@ -129,18 +129,18 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                       key={product.sys.id}
                       className=""
                       ref={el => {
-                        gridColumnElements.current[j] = el;
+                        gridColumnElements.current[j] = el
                       }}
                       {...inspectorMode({
                         entryId: product.sys.id,
-                        fieldId: 'internalName',
+                        fieldId: 'internalName'
                       })}
                     >
                       <div
                         className=""
                         {...inspectorMode({
                           entryId: product.sys.id,
-                          fieldId: 'featuredImage',
+                          fieldId: 'featuredImage'
                         })}
                       >
                         <div data-equal-size="0">
@@ -162,7 +162,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                           className={''}
                           {...inspectorMode({
                             entryId: product.sys.id,
-                            fieldId: 'name',
+                            fieldId: 'name'
                           })}
                         >
                           {product.name}
@@ -172,14 +172,14 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         data-equal-size="2"
                         {...inspectorMode({
                           entryId: product.sys.id,
-                          fieldId: 'description',
+                          fieldId: 'description'
                         })}
                       >
                         {product.description && (
                           <LayoutContext.Provider
                             value={{
                               ...defaultLayout,
-                              parent: 'product-description',
+                              parent: 'product-description'
                             }}
                           >
                             <CtfRichtext {...product.description} className={''} />
@@ -190,7 +190,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         data-equal-size="3"
                         {...inspectorMode({
                           entryId: product.sys.id,
-                          fieldId: 'price',
+                          fieldId: 'price'
                         })}
                       >
                         {!product.price || product.price === 0 ? (
@@ -206,14 +206,14 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         <LayoutContext.Provider
                           value={{
                             ...defaultLayout,
-                            parent: 'product-table',
+                            parent: 'product-table'
                           }}
                         >
                           <div className="" />
                           <div
                             {...inspectorMode({
                               entryId: product.sys.id,
-                              fieldId: 'features',
+                              fieldId: 'features'
                             })}
                           >
                             {featureNames.map(
@@ -230,7 +230,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                                       />
                                     </div>
                                   </div>
-                                ),
+                                )
                             )}
                           </div>
                         </LayoutContext.Provider>
@@ -246,12 +246,12 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         )}
                       </div>
                     </div>
-                  ),
+                  )
               )}
             </div>
           )}
         </div>
       </div>
     </div>
-  );
-};
+  )
+}

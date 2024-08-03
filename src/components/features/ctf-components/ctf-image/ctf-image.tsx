@@ -1,9 +1,9 @@
-import Image, { ImageProps } from 'next/image';
-import React, { useState } from 'react';
+import Image, { ImageProps } from 'next/legacy/image'
+import React, { useState } from 'react'
 
 interface CtfImagePropsInterface extends ImageProps {
-  description?: string | null;
-  showDescription?: boolean;
+  description?: string | null
+  showDescription?: boolean
 }
 
 export const CtfImage = ({
@@ -15,12 +15,12 @@ export const CtfImage = ({
   layout,
   ...rest
 }: CtfImagePropsInterface) => {
-  const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false)
 
-  if (!src) return null;
+  if (!src) return null
 
-  const blurUrl = new URL(String(src));
-  blurUrl.searchParams.set('w', '100');
+  const blurUrl = new URL(String(src))
+  blurUrl.searchParams.set('w', '100')
 
   return (
     <figure
@@ -30,12 +30,12 @@ export const CtfImage = ({
         fontSize: 0,
         transition: '300ms ease-out',
         transitionProperty: 'opacity',
-        opacity: loaded ? 1 : 0,
+        opacity: loaded ? 1 : 0
       }}
     >
       <Image
         onLoad={() => {
-          setLoaded(true);
+          setLoaded(true)
         }}
         src={src}
         width={width}
@@ -47,5 +47,5 @@ export const CtfImage = ({
       />
       {showDescription && description && <figcaption>{description}</figcaption>}
     </figure>
-  );
-};
+  )
+}
