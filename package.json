@@ -47,7 +47,6 @@
     "query-string": "7.1.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-transition-group": "4.4.5",
     "rehype-parse": "8.0.4",
     "rehype-react": "7.1.1",
     "remark-breaks": "4.0.0"
@@ -64,7 +63,6 @@
     "@tanstack/react-query-devtools": "4.12.0",
     "@types/imagesloaded": "4.1.2",
     "@types/react": "18.0.15",
-    "@types/react-transition-group": "4.4.5",
     "@typescript-eslint/eslint-plugin": "5.0.0",
     "@typescript-eslint/parser": "5.32.0",
     "babel-jest": "27.0.2",
