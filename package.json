@@ -42,8 +42,8 @@
     "next": "12.3.1",
     "next-i18next": "12.0.1",
     "query-string": "7.1.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "rehype-parse": "8.0.4",
     "rehype-react": "7.1.1",
     "remark-breaks": "4.0.0"
