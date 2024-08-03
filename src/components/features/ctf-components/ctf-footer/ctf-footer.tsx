@@ -10,7 +10,6 @@ import {
 import { LanguageSelector } from '@src/components/features/language-selector';
 import { Link } from '@src/components/shared/link';
 import { useContentfulContext } from '@src/contentful-context';
-import Logo from '@src/icons/logo-tagline.svg';
 
 export const CtfFooter = (props: FooterFieldsFragment) => {
   const footerContent = props.items[0];
@@ -94,9 +93,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
       <div className={''}>
         <section className={''}>
           <div className={''}>
-            <div className={''}>
-              <Logo className={''} />
-            </div>
+            <div className={''}>Logog here</div>
 
             <section className={''}>
               <p className={''}>{t('legal.copyright', { year: new Date().getFullYear() })}</p>

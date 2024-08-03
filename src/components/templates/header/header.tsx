@@ -2,7 +2,6 @@ import { useTranslation } from 'next-i18next';
 
 import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql';
 import { Link } from '@src/components/shared/link';
-import Logo from '@src/icons/colorful-coin-logo.svg';
 
 interface HeaderPropsInterface {
   isMenuOpen?: boolean;
@@ -25,7 +24,7 @@ export const Header = (props: HeaderPropsInterface) => {
       >
         <div>
           <Link href="/" withoutMaterial title={t('common.homepage')}>
-            <Logo className={''} style={{ display: 'block', height: 'auto', width: '113px' }} />
+            Logo here
           </Link>
           <div style={{ display: 'none' }}>
             <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
