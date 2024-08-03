@@ -3,7 +3,6 @@
 A Marketing Starter Template powered by Next.js & Contentful, pre-designed with optimized & adjustable pages,
 components, and data management.
 
-![The homepage of the Marketing Starter Template](marketing-starter-template.jpg 'The homepage of the Marketing Starter Template')
 
 $~$
 
