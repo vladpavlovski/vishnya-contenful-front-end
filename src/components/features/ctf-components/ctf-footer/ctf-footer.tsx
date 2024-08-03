@@ -1,8 +1,4 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import Facebook from '@mui/icons-material/Facebook';
-import Instagram from '@mui/icons-material/Instagram';
-import LinkedIn from '@mui/icons-material/LinkedIn';
-import Twitter from '@mui/icons-material/Twitter';
 import { useTranslation } from 'next-i18next';
 
 import { FooterFieldsFragment } from './__generated/ctf-footer.generated';
@@ -125,7 +121,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
-                    <Twitter />
+                    Twitter-icon
                   </a>
                 )}
                 {footerContent?.facebookLink && (
@@ -135,7 +131,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
-                    <Facebook />
+                    Facebook-icon
                   </a>
                 )}
                 {footerContent?.linkedinLink && (
@@ -145,7 +141,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
-                    <LinkedIn />
+                    LinkedIn-icon
                   </a>
                 )}
                 {footerContent?.instagramLink && (
@@ -155,7 +151,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
-                    <Instagram />
+                    Instagram-icon
                   </a>
                 )}
               </div>

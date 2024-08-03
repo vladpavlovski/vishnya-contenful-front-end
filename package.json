@@ -36,11 +36,6 @@
     "@contentful/live-preview": "4.5.0",
     "@contentful/rich-text-react-renderer": "15.12.1",
     "@contentful/rich-text-types": "15.12.1",
-    "@emotion/react": "11.10.4",
-    "@emotion/styled": "11.10.4",
-    "@mui/icons-material": "5.10.9",
-    "@mui/material": "5.10.9",
-    "@mui/styles": "5.10.9",
     "@next/bundle-analyzer": "12.3.0",
     "@svgr/webpack": "6.3.1",
     "@tanstack/react-query": "4.3.9",
@@ -99,10 +94,5 @@
     "react-i18next": "11.18.6",
     "ts-node": "10.9.2",
     "typescript": "5.5.4"
-  },
-  "resolutions": {
-    "**/trim": "1.0.0",
-    "**/trim-newlines": "3.0.1",
-    "**/glob-parent": "5.1.2"
   }
 }
