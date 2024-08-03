@@ -1,20 +1,21 @@
-import React from 'react';
+'use client'
+import React from 'react'
 
-import { CtaFieldsFragment } from './__generated/ctf-cta.generated';
+import { CtaFieldsFragment } from './__generated/ctf-cta.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { PageLink } from '@src/components/features/page-link';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
-import { optimizeLineBreak } from '@src/utils';
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { PageLink } from '@src/components/features/page-link'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
+import { optimizeLineBreak } from '@src/utils'
 
 export const CtfCta = (props: CtaFieldsFragment) => {
-  const { headline, subline, targetPage, ctaText, urlParameters } = props;
+  const { headline, subline, targetPage, ctaText, urlParameters } = props
 
   return (
     <div
       className={''}
       style={{
-        textAlign: 'center',
+        textAlign: 'center'
       }}
     >
       <div
@@ -23,14 +24,14 @@ export const CtfCta = (props: CtaFieldsFragment) => {
           marginLeft: 'auto',
           marginRight: 'auto',
           maxWidth: '93.4rem',
-          padding: '19rem 0',
+          padding: '19rem 0'
         }}
       >
         {headline && (
           <h2
             className={''}
             style={{
-              fontWeight: 'bold',
+              fontWeight: 'bold'
             }}
           >
             {optimizeLineBreak(headline)}
@@ -43,7 +44,7 @@ export const CtfCta = (props: CtaFieldsFragment) => {
               style={{
                 fontWeight: 400,
                 lineHeight: 1.52,
-                marginTop: '8rem',
+                marginTop: '8rem'
               }}
             >
               <CtfRichtext {...subline} className={''} />
@@ -64,5 +65,5 @@ export const CtfCta = (props: CtaFieldsFragment) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

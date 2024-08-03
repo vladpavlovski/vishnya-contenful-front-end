@@ -1,13 +1,14 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import React from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import React from 'react'
 
-import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset';
-import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated';
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
+import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 interface CardLeadershipPropsInterface extends PersonFieldsFragment {
-  previousComponent: string | null;
+  previousComponent: string | null
 }
 
 export const CardLeadership = (props: CardLeadershipPropsInterface) => {
@@ -16,11 +17,11 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
     bio,
     avatar,
     previousComponent,
-    sys: { id: entryId },
-  } = props;
-  const nameSplit = name?.split(', ');
+    sys: { id: entryId }
+  } = props
+  const nameSplit = name?.split(', ')
 
-  const inspectorMode = useContentfulInspectorMode({ entryId });
+  const inspectorMode = useContentfulInspectorMode({ entryId })
 
   return (
     <div
@@ -33,8 +34,8 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
         marginRight: 'auto',
         maxWidth: '93.4rem',
         ...(previousComponent === 'TopicPerson' && {
-          marginTop: '7rem',
-        }),
+          marginTop: '7rem'
+        })
       }}
     >
       {avatar && (
@@ -47,7 +48,7 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
             marginBottom: '5rem',
             marginRight: '10rem',
             maxWidth: '9.8rem',
-            overflow: 'hidden',
+            overflow: 'hidden'
           }}
         >
           <CtfAsset {...avatar} showDescription={false} />
@@ -64,7 +65,7 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
                     fontSize: '2.1rem',
                     fontWeight: 500,
                     lineHeight: 1.333,
-                    marginBottom: '1rem',
+                    marginBottom: '1rem'
                   }}
                 >
                   {nameSplit[0]}
@@ -87,5 +88,5 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

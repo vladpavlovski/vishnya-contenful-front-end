@@ -1,20 +1,21 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import React from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import React from 'react'
 
-import { NavigationFieldsFragment } from './__generated/ctf-navigation.generated';
-import { getLinkDisplayText, getLinkHrefPrefix } from './utils';
+import { NavigationFieldsFragment } from './__generated/ctf-navigation.generated'
+import { getLinkDisplayText, getLinkHrefPrefix } from './utils'
 
-import { Link } from '@src/components/shared/link';
+import { Link } from '@src/components/shared/link'
 
 export const CtfNavigation = (props: NavigationFieldsFragment) => {
-  const inspectorMode = useContentfulInspectorMode();
+  const inspectorMode = useContentfulInspectorMode()
 
-  const navigationContent = props.items[0];
+  const navigationContent = props.items[0]
 
   const renderNavigationLinks = (menuGroup, listClassName) => {
     return menuGroup?.items?.map(menuItem => {
-      const href = getLinkHrefPrefix(menuItem);
-      const linkText = getLinkDisplayText(menuItem);
+      const href = getLinkHrefPrefix(menuItem)
+      const linkText = getLinkDisplayText(menuItem)
 
       return (
         <li
@@ -22,16 +23,16 @@ export const CtfNavigation = (props: NavigationFieldsFragment) => {
           className={listClassName}
           {...inspectorMode({
             entryId: menuItem.sys.id,
-            fieldId: 'pageName',
+            fieldId: 'pageName'
           })}
         >
           <Link href={href} className={''}>
             {linkText}
           </Link>
         </li>
-      );
-    });
-  };
+      )
+    })
+  }
 
   return (
     <>
@@ -44,7 +45,7 @@ export const CtfNavigation = (props: NavigationFieldsFragment) => {
               display: 'flex',
               listStyle: 'none',
               margin: 0,
-              padding: 0,
+              padding: 0
             }}
           >
             {navigationContent.menuItemsCollection.items.map(
@@ -62,11 +63,11 @@ export const CtfNavigation = (props: NavigationFieldsFragment) => {
                       height: '8rem',
                       lineHeight: 1.9,
                       marginRight: '4rem', // Assuming theme.spacing(8) is 4rem
-                      position: 'relative',
+                      position: 'relative'
                     }}
                     {...inspectorMode({
                       entryId: menuItem.sys.id,
-                      fieldId: 'groupName',
+                      fieldId: 'groupName'
                     })}
                   >
                     {!menuItem.link ? (
@@ -91,18 +92,18 @@ export const CtfNavigation = (props: NavigationFieldsFragment) => {
                           position: 'absolute',
                           top: 'calc(100% - 2rem)',
                           transform: 'translateY(20%)',
-                          transition: 'all 0.3s ease-in-out',
+                          transition: 'all 0.3s ease-in-out'
                         }}
                       >
                         {renderNavigationLinks(menuItem.children, '')}
                       </ul>
                     )}
                   </li>
-                ),
+                )
             )}
           </ul>
         </nav>
       )}
     </>
-  );
-};
+  )
+}

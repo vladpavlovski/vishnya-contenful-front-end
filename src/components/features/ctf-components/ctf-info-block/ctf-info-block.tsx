@@ -1,15 +1,16 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import React from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import React from 'react'
 
-import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated';
+import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated'
 
-import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset';
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { SectionHeadlines } from '@src/components/features/section-headlines';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { SectionHeadlines } from '@src/components/features/section-headlines'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export interface CtfInfoBlockPropsInterface extends InfoBlockFieldsFragment {
-  previousComponent?: string | null;
+  previousComponent?: string | null
 }
 
 export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
@@ -23,15 +24,15 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
     block3Image,
     block3Body,
     previousComponent,
-    sys: { id },
-  } = props;
-  const inspectorMode = useContentfulInspectorMode({ entryId: id });
+    sys: { id }
+  } = props
+  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
     <div
       style={{
         maxWidth: '100%',
-        margin: '0 auto',
+        margin: '0 auto'
       }}
     >
       <div
@@ -44,19 +45,19 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
           marginTop:
             previousComponent === 'ComponentInfoBlock' && !headline && !subline ? '-19rem' : '0',
           paddingTop:
-            previousComponent === 'ComponentInfoBlock' && !headline && !subline ? '0' : '19rem',
+            previousComponent === 'ComponentInfoBlock' && !headline && !subline ? '0' : '19rem'
         }}
       >
         <SectionHeadlines
           headline={headline}
           headlineProps={{
             style: {},
-            ...inspectorMode({ fieldId: 'headline' }),
+            ...inspectorMode({ fieldId: 'headline' })
           }}
           subline={subline}
           sublineProps={{
             style: {},
-            ...inspectorMode({ fieldId: 'subline' }),
+            ...inspectorMode({ fieldId: 'subline' })
           }}
           className={''}
         />
@@ -69,7 +70,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
               alignItems: 'flex-start',
               justifyContent: 'center',
               marginLeft: '-5rem',
-              marginTop: '-5rem',
+              marginTop: '-5rem'
             }}
           >
             {block1Body && (
@@ -79,7 +80,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                   marginLeft: '5rem',
                   marginTop: '5rem',
                   maxWidth: '39rem',
-                  width: '100%',
+                  width: '100%'
                 }}
               >
                 {block1Image && (
@@ -91,10 +92,10 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                       justifyContent: 'center',
                       width: '11.3rem',
                       height: '11.3rem',
-                      fontSize: 0,
+                      fontSize: 0
                     }}
                     {...inspectorMode({
-                      fieldId: 'block1Image',
+                      fieldId: 'block1Image'
                     })}
                   >
                     <CtfAsset {...block1Image} showDescription={false} />
@@ -103,7 +104,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 <div
                   className={''}
                   {...inspectorMode({
-                    fieldId: 'block1Body',
+                    fieldId: 'block1Body'
                   })}
                 >
                   <CtfRichtext {...block1Body} className={''} />
@@ -117,7 +118,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                   marginLeft: '5rem',
                   marginTop: '5rem',
                   maxWidth: '39rem',
-                  width: '100%',
+                  width: '100%'
                 }}
               >
                 {block2Image && (
@@ -129,10 +130,10 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                       justifyContent: 'center',
                       width: '11.3rem',
                       height: '11.3rem',
-                      fontSize: 0,
+                      fontSize: 0
                     }}
                     {...inspectorMode({
-                      fieldId: 'block2Image',
+                      fieldId: 'block2Image'
                     })}
                   >
                     <CtfAsset {...block2Image} showDescription={false} />
@@ -141,7 +142,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 <div
                   className={''}
                   {...inspectorMode({
-                    fieldId: 'block2Body',
+                    fieldId: 'block2Body'
                   })}
                 >
                   <CtfRichtext {...block2Body} className={''} />
@@ -155,7 +156,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                   marginLeft: '5rem',
                   marginTop: '5rem',
                   maxWidth: '39rem',
-                  width: '100%',
+                  width: '100%'
                 }}
               >
                 {block3Image && (
@@ -167,10 +168,10 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                       justifyContent: 'center',
                       width: '11.3rem',
                       height: '11.3rem',
-                      fontSize: 0,
+                      fontSize: 0
                     }}
                     {...inspectorMode({
-                      fieldId: 'block3Image',
+                      fieldId: 'block3Image'
                     })}
                   >
                     <CtfAsset {...block3Image} showDescription={false} />
@@ -179,7 +180,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 <div
                   className={''}
                   {...inspectorMode({
-                    fieldId: 'block3Body',
+                    fieldId: 'block3Body'
                   })}
                 >
                   <CtfRichtext {...block3Body} className={''} />
@@ -190,5 +191,5 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
         </LayoutContext.Provider>
       </div>
     </div>
-  );
-};
+  )
+}

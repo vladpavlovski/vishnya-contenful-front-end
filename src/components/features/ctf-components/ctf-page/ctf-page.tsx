@@ -1,22 +1,22 @@
-import React from 'react';
+'use client'
+import React from 'react'
 
-import { CtfPageFieldsFragment } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated';
-import { ComponentResolver } from '@src/components/shared/component-resolver';
-import { PageContainer } from '@src/components/templates/page-container';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { CtfPageFieldsFragment } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
+import { ComponentResolver } from '@src/components/shared/component-resolver'
+import { PageContainer } from '@src/components/templates/page-container'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 const CtfPage = (props: CtfPageFieldsFragment) => {
   const topSection =
-    props.topSectionCollection && props.topSectionCollection.items.filter(it => !!it);
-  const content = props.pageContent;
+    props.topSectionCollection && props.topSectionCollection.items.filter(it => !!it)
+  const content = props.pageContent
   const extraSection =
-    props.extraSectionCollection && props.extraSectionCollection.items.filter(it => !!it);
+    props.extraSectionCollection && props.extraSectionCollection.items.filter(it => !!it)
 
   const layoutConfig = {
     ...defaultLayout,
-    containerWidth: 1262,
-  };
-
+    containerWidth: 1262
+  }
   return (
     <PageContainer>
       {topSection &&
@@ -39,7 +39,7 @@ const CtfPage = (props: CtfPageFieldsFragment) => {
           </LayoutContext.Provider>
         ))}
     </PageContainer>
-  );
-};
+  )
+}
 
-export default CtfPage;
+export default CtfPage

@@ -1,17 +1,18 @@
-import { useTranslation } from 'next-i18next';
+'use client'
+import { useTranslation } from 'next-i18next'
 
-import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql';
-import { Link } from '@src/components/shared/link';
+import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql'
+import { Link } from '@src/components/shared/link'
 
 interface HeaderPropsInterface {
-  isMenuOpen?: boolean;
-  onMenuClick?: () => any;
+  isMenuOpen?: boolean
+  onMenuClick?: () => any
 }
 
 export const Header = (props: HeaderPropsInterface) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
-  const { onMenuClick, isMenuOpen } = props;
+  const { onMenuClick, isMenuOpen } = props
 
   return (
     <header className={''} style={{ boxShadow: '0 2px 6px #00000021' }}>
@@ -19,7 +20,7 @@ export const Header = (props: HeaderPropsInterface) => {
         style={{
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          justifyContent: 'space-between'
         }}
       >
         <div>
@@ -47,5 +48,5 @@ export const Header = (props: HeaderPropsInterface) => {
         </div>
       </div>
     </header>
-  );
-};
+  )
+}

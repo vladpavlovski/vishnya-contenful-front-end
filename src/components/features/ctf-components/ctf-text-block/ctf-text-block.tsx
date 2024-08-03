@@ -1,7 +1,8 @@
-import { TextBlockFieldsFragment } from './__generated/ctf-text-block.generated';
+'use client'
+import { TextBlockFieldsFragment } from './__generated/ctf-text-block.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { SectionHeadlines } from '@src/components/features/section-headlines';
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { SectionHeadlines } from '@src/components/features/section-headlines'
 
 export const CtfTextBlock = ({ headline, subline, body }: TextBlockFieldsFragment) => {
   return (
@@ -13,11 +14,11 @@ export const CtfTextBlock = ({ headline, subline, body }: TextBlockFieldsFragmen
         <SectionHeadlines
           headline={headline}
           headlineProps={{
-            style: {},
+            style: {}
           }}
           subline={subline}
           sublineProps={{
-            style: {},
+            style: {}
           }}
           className={''}
         />
@@ -28,5 +29,5 @@ export const CtfTextBlock = ({ headline, subline, body }: TextBlockFieldsFragmen
         )}
       </div>
     </div>
-  );
-};
+  )
+}

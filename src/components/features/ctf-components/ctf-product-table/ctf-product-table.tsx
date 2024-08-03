@@ -1,3 +1,4 @@
+'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import Image, { ImageLoader } from 'next/legacy/image'
 import { useTranslation } from 'next-i18next'

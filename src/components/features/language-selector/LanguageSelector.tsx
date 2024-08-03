@@ -1,32 +1,32 @@
-/* eslint-disable jsx-a11y/no-onchange */
-import { useRouter } from 'next/router';
-import React from 'react';
+'use client'
+import { usePathname, useRouter } from 'next/navigation'
+import React from 'react'
+
+import { DEFAULT_LOCALE, LOCALES } from '@src/lib/localse'
 
 export const LanguageSelector = () => {
-  const { locale, locales } = useRouter();
-  const router = useRouter();
+  const router = useRouter()
+  const pathname = usePathname()
 
   const languageNames = new Intl.DisplayNames([], {
-    type: 'language',
-  });
+    type: 'language'
+  })
 
-  return locales && locales.length > 1 ? (
+  return LOCALES.length > 1 ? (
     <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
       language-icon
       <select
-        value={locale}
-        onChange={event => {
-          router.push({ pathname: router.pathname, query: router.query }, router.asPath, {
-            locale: String(event.target.value),
-          });
+        value={DEFAULT_LOCALE}
+        onChange={() => {
+          router.push(pathname)
         }}
       >
-        {locales?.map(availableLocale => (
+        {LOCALES?.map(availableLocale => (
           <option key={availableLocale} value={availableLocale}>
             {languageNames.of(availableLocale)}
           </option>
         ))}
       </select>
     </div>
-  ) : null;
-};
+  ) : null
+}

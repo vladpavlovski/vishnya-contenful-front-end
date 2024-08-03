@@ -18,13 +18,13 @@ import contentfulConfig from 'contentful.config'
 import nextI18nConfig from 'next-i18next.config'
 
 const LivePreviewProvider = ({ children }) => {
-  const { previewActive, locale } = useContentfulContext()
+  const { locale } = useContentfulContext()
 
   return (
     <ContentfulLivePreviewProvider
       locale={locale}
-      enableInspectorMode={previewActive}
-      enableLiveUpdates={previewActive}
+      enableInspectorMode={false}
+      enableLiveUpdates={false}
     >
       {children}
     </ContentfulLivePreviewProvider>
@@ -40,7 +40,6 @@ const CustomApp = ({
 }: AppProps<CustomPageProps>) => {
   const [queryClient] = useState(() => new QueryClient(queryConfig))
   const { dehydratedState, err, ...pageProps } = originalPageProps
-  const { previewActive } = useContentfulContext()
 
   useEffect(() => {
     // when component is mounting we remove server side rendered css:
@@ -79,12 +78,12 @@ const CustomApp = ({
         <meta key="og:type" property="og:type" content="website" />
       </Head>
 
-      <ContentfulContentProvider router={router}>
+      <ContentfulContentProvider>
         <LivePreviewProvider>
           <QueryClientProvider client={queryClient}>
             <ReactQueryDevtools initialIsOpen={false} />
             <HydrationBoundary state={dehydratedState}>
-              <Layout preview={previewActive}>
+              <Layout preview={false}>
                 <Component {...pageProps} err={err} />
               </Layout>
             </HydrationBoundary>

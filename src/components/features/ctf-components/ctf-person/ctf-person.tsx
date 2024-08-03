@@ -1,27 +1,28 @@
-import React from 'react';
+'use client'
+import React from 'react'
 
-import { PersonFieldsFragment } from './__generated/ctf-person.generated';
+import { PersonFieldsFragment } from './__generated/ctf-person.generated'
 
-import { Author } from '@src/components/features/author';
-import { CardLeadership } from '@src/components/features/card-leadership';
-import { CardPerson } from '@src/components/features/card-person';
-import { useLayoutContext } from '@src/layout-context';
+import { Author } from '@src/components/features/author'
+import { CardLeadership } from '@src/components/features/card-leadership'
+import { CardPerson } from '@src/components/features/card-person'
+import { useLayoutContext } from '@src/layout-context'
 
 interface CtfPersonPropsInterface extends PersonFieldsFragment {
-  previousComponent: string | null;
+  previousComponent: string | null
 }
 
 export const CtfPerson = (props: CtfPersonPropsInterface) => {
-  const layout = useLayoutContext();
-  const isLeadership = props.cardStyle === false;
+  const layout = useLayoutContext()
+  const isLeadership = props.cardStyle === false
 
   const containerStyle = {
     marginLeft: 'auto',
     marginRight: 'auto',
     paddingBottom: '24px', // Assuming theme.spacing(3) is 24px
     paddingTop: '24px', // Assuming theme.spacing(3) is 24px
-    maxWidth: layout.containerWidth,
-  };
+    maxWidth: layout.containerWidth
+  }
 
   return layout.parent === 'quote' ? (
     <div className={''} style={containerStyle}>
@@ -33,5 +34,5 @@ export const CtfPerson = (props: CtfPersonPropsInterface) => {
         {isLeadership ? <CardLeadership {...props} /> : <CardPerson {...props} />}
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,3 +1,4 @@
+'use client'
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer'
 import { Block as RichtextBlock, BLOCKS, INLINES } from '@contentful/rich-text-types'
@@ -36,12 +37,12 @@ interface CtfRichtextPropsInterface {
 }
 
 const EntryHyperlink = ({ node }) => {
-  const { previewActive, locale } = useContentfulContext()
+  const { locale } = useContentfulContext()
 
   const { isLoading, data } = useCtfRichTextHyperlinkQuery({
     locale,
     id: node.data?.target.sys.id,
-    preview: previewActive
+    preview: false
   })
 
   const page = useContentfulLiveUpdates(data?.page)

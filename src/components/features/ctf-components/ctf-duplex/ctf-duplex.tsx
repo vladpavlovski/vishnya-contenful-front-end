@@ -1,16 +1,17 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
-import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated';
+import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated'
 
-import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image';
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { PageLink } from '@src/components/features/page-link';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
-import { optimizeLineBreak } from '@src/utils';
+import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { PageLink } from '@src/components/features/page-link'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
+import { optimizeLineBreak } from '@src/utils'
 
 const DuplexContent = (props: DuplexFieldsFragment) => {
-  const { headline, bodyText, targetPage, ctaText } = props;
-  const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id });
+  const { headline, bodyText, targetPage, ctaText } = props
+  const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
 
   return (
     <div className={''}>
@@ -21,7 +22,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
             fontSize: '3rem',
             lineHeight: 1.3,
             fontWeight: 700,
-            maxWidth: '60.4rem',
+            maxWidth: '60.4rem'
           }}
           {...inspectorMode({ fieldId: 'headline' })}
         >
@@ -35,7 +36,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
             style={{
               fontWeight: 400,
               lineHeight: 1.56,
-              marginTop: '7rem',
+              marginTop: '7rem'
             }}
             {...inspectorMode({ fieldId: 'bodyText' })}
           >
@@ -55,12 +56,12 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 const DuplexImage = (props: DuplexFieldsFragment) => {
-  const { image } = props;
-  const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id });
+  const { image } = props
+  const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
 
   return (
     <div className={''}>
@@ -80,11 +81,11 @@ const DuplexImage = (props: DuplexFieldsFragment) => {
         </div>
       ) : null}
     </div>
-  );
-};
+  )
+}
 
 export const CtfDuplex = (props: DuplexFieldsFragment) => {
-  const { containerLayout: containerLayoutBoolean } = props;
+  const { containerLayout: containerLayoutBoolean } = props
 
   return (
     <div className={''}>
@@ -102,5 +103,5 @@ export const CtfDuplex = (props: DuplexFieldsFragment) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

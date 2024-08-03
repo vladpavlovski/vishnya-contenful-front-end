@@ -1,16 +1,17 @@
-import { ReactNode } from 'react';
+'use client'
+import { ReactNode } from 'react'
 
-import { PageLinkFieldsFragment } from '@src/components/features/page-link/__generated/page-link.generated';
-import { Link, LinkProps } from '@src/components/shared/link';
+import { PageLinkFieldsFragment } from '@src/components/features/page-link/__generated/page-link.generated'
+import { Link, LinkProps } from '@src/components/shared/link'
 
 export type PageLinkProps = Omit<LinkProps, 'children'> & {
-  page: PageLinkFieldsFragment;
-  render?: (pathname?: string) => ReactNode;
-  children?: ReactNode;
-};
+  page: PageLinkFieldsFragment
+  render?: (pathname?: string) => ReactNode
+  children?: ReactNode
+}
 
 export const PageLink = (props: PageLinkProps) => {
-  const pathname = props.page.slug ? `/${props.page.slug}` : ``;
+  const pathname = props.page.slug ? `/${props.page.slug}` : ``
 
   const linkProps = {
     href: pathname,
@@ -23,8 +24,8 @@ export const PageLink = (props: PageLinkProps) => {
     size: props.size,
     color: props.color,
     endIcon: props.endIcon,
-    urlParams: props.urlParams,
-  };
+    urlParams: props.urlParams
+  }
 
-  return <Link {...linkProps}>{props.render ? props.render(pathname) : props.children}</Link>;
-};
+  return <Link {...linkProps}>{props.render ? props.render(pathname) : props.children}</Link>
+}

@@ -1,41 +1,42 @@
-import React from 'react';
+'use client'
+import React from 'react'
 
-import { NavigationFieldsFragment } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated';
+import { NavigationFieldsFragment } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import {
   getLinkDisplayText,
-  getLinkHrefPrefix,
-} from '@src/components/features/ctf-components/ctf-navigation/utils';
-import { Link } from '@src/components/shared/link';
+  getLinkHrefPrefix
+} from '@src/components/features/ctf-components/ctf-navigation/utils'
+import { Link } from '@src/components/shared/link'
 
 interface MobileMenuPropsInterface extends NavigationFieldsFragment {
-  isOpen?: boolean;
-  onOpenChange: (isOpen: boolean) => any;
+  isOpen?: boolean
+  onOpenChange: (isOpen: boolean) => any
 }
 
 export const CtfMobileMenu = (props: MobileMenuPropsInterface) => {
-  const { isOpen, onOpenChange } = props;
+  const { isOpen, onOpenChange } = props
 
   const onCloseClick = (e, reason) => {
     if (reason === 'backdropClick') {
-      onOpenChange(false);
+      onOpenChange(false)
     }
-  };
+  }
 
-  const mobileMenuContent = props.items[0];
+  const mobileMenuContent = props.items[0]
 
   const renderMobileMenuLinks = menuGroup => {
     return menuGroup?.items?.map(menuItem => {
-      const href = getLinkHrefPrefix(menuItem);
-      const linkText = getLinkDisplayText(menuItem);
+      const href = getLinkHrefPrefix(menuItem)
+      const linkText = getLinkDisplayText(menuItem)
       return (
         <li key={menuItem.sys.id} className={''}>
           <Link href={href} className={''}>
             {linkText}
           </Link>
         </li>
-      );
-    });
-  };
+      )
+    })
+  }
 
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
@@ -54,7 +55,7 @@ export const CtfMobileMenu = (props: MobileMenuPropsInterface) => {
         height: '100%',
         backgroundColor: 'white',
         zIndex: 1000,
-        overflowY: 'auto',
+        overflowY: 'auto'
       }}
     >
       {mobileMenuContent?.menuItemsCollection?.items.length && (
@@ -70,7 +71,7 @@ export const CtfMobileMenu = (props: MobileMenuPropsInterface) => {
                     display: 'block',
                     fontSize: '2.1rem',
                     lineHeight: '1.8',
-                    position: 'relative',
+                    position: 'relative'
                   }}
                 >
                   {!menuItem.link ? (
@@ -86,18 +87,18 @@ export const CtfMobileMenu = (props: MobileMenuPropsInterface) => {
                       style={{
                         borderLeft: '1px solid #eee',
                         listStyle: 'none',
-                        padding: '0 0 0 2rem',
+                        padding: '0 0 0 2rem'
                       }}
                     >
                       {renderMobileMenuLinks(menuItem.children)}
                     </ul>
                   )}
                 </li>
-              ) : null,
+              ) : null
             )}
           </ul>
         </nav>
       )}
     </div>
-  );
-};
+  )
+}

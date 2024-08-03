@@ -1,10 +1,11 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import { useMemo } from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import { useMemo } from 'react'
 
-import { QuoteFieldsFragment } from './__generated/ctf-quote.generated';
+import { QuoteFieldsFragment } from './__generated/ctf-quote.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export const CtfQuote = (props: QuoteFieldsFragment) => {
   const {
@@ -13,12 +14,12 @@ export const CtfQuote = (props: QuoteFieldsFragment) => {
     quote,
 
     quoteAlignment: quoteAlignmentBoolean,
-    sys: { id },
-  } = props;
-  const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight';
-  const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left';
-  const backgroundImage = useMemo(() => (image ? `${image.url}?w=${600 * 2}` : undefined), [image]);
-  const inspectorMode = useContentfulInspectorMode({ entryId: id });
+    sys: { id }
+  } = props
+  const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight'
+  const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left'
+  const backgroundImage = useMemo(() => (image ? `${image.url}?w=${600 * 2}` : undefined), [image])
+  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
     <LayoutContext.Provider value={{ ...defaultLayout, parent: 'quote' }}>
@@ -28,14 +29,14 @@ export const CtfQuote = (props: QuoteFieldsFragment) => {
             order: 2,
             width: '100%',
             flexShrink: 0,
-            flexDirection: containerLayout === 'imageLeft' ? 'row' : 'row-reverse',
+            flexDirection: containerLayout === 'imageLeft' ? 'row' : 'row-reverse'
           }}
         >
           {quote && (
             <div
               {...inspectorMode({ fieldId: 'quote' })}
               style={{
-                textAlign: quoteAlignment,
+                textAlign: quoteAlignment
               }}
             >
               <CtfRichtext {...quote} />
@@ -46,21 +47,21 @@ export const CtfQuote = (props: QuoteFieldsFragment) => {
           style={{
             maxWidth: '60rem',
             order: 1,
-            width: '100%',
+            width: '100%'
           }}
           {...inspectorMode({
-            fieldId: 'image',
+            fieldId: 'image'
           })}
         >
           {backgroundImage && (
             <div
               style={{
-                backgroundImage: `url('${backgroundImage}')`,
+                backgroundImage: `url('${backgroundImage}')`
               }}
             />
           )}
         </div>
       </div>
     </LayoutContext.Provider>
-  );
-};
+  )
+}

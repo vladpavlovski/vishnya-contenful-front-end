@@ -1,3 +1,4 @@
+'use client'
 import { ImageProps } from 'next/legacy/image'
 
 import { AssetFieldsFragment } from './__generated/ctf-asset.generated'

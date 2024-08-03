@@ -1,51 +1,52 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import { useTranslation } from 'next-i18next';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import { useTranslation } from 'next-i18next'
 
-import { FooterFieldsFragment } from './__generated/ctf-footer.generated';
+import { FooterFieldsFragment } from './__generated/ctf-footer.generated'
 
 import {
   getLinkDisplayText,
-  getLinkHrefPrefix,
-} from '@src/components/features/ctf-components/ctf-navigation/utils';
-import { LanguageSelector } from '@src/components/features/language-selector';
-import { Link } from '@src/components/shared/link';
-import { useContentfulContext } from '@src/contentful-context';
+  getLinkHrefPrefix
+} from '@src/components/features/ctf-components/ctf-navigation/utils'
+import { LanguageSelector } from '@src/components/features/language-selector'
+import { Link } from '@src/components/shared/link'
+import { useContentfulContext } from '@src/contentful-context'
 
 export const CtfFooter = (props: FooterFieldsFragment) => {
-  const footerContent = props.items[0];
+  const footerContent = props.items[0]
 
-  const { t } = useTranslation();
-  const { locale } = useContentfulContext();
-  const inspectorMode = useContentfulInspectorMode();
+  const { t } = useTranslation()
+  const { locale } = useContentfulContext()
+  const inspectorMode = useContentfulInspectorMode()
 
   const renderMenuGroupLinks = (menuGroup, listClassName) => {
     return menuGroup?.items?.map(menuItem => {
-      const href = getLinkHrefPrefix(menuItem);
-      const linkText = getLinkDisplayText(menuItem);
+      const href = getLinkHrefPrefix(menuItem)
+      const linkText = getLinkDisplayText(menuItem)
       return (
         <li
           key={menuItem.sys.id}
           className={listClassName}
           {...inspectorMode({
             entryId: menuItem.sys.id,
-            fieldId: 'pageName',
+            fieldId: 'pageName'
           })}
         >
           <Link href={href} className={''}>
             {linkText}
           </Link>
         </li>
-      );
-    });
-  };
+      )
+    })
+  }
 
   const containerProps = footerContent?.sys?.id
     ? inspectorMode({
         entryId: footerContent.sys.id,
         fieldId: 'menuItems',
-        locale,
+        locale
       })
-    : undefined;
+    : undefined
 
   return (
     <>
@@ -64,7 +65,7 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                             {...inspectorMode({
                               entryId: menuItem.sys.id,
                               fieldId: 'groupName',
-                              locale,
+                              locale
                             })}
                           >
                             {menuItem.groupName}
@@ -74,14 +75,14 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
                               {renderMenuGroupLinks(
                                 menuItem.featuredPagesCollection,
 
-                                '',
+                                ''
                               )}
                             </ul>
                           )}
                         </li>
                       </ul>
                     </div>
-                  ),
+                  )
               )}
             </nav>
           )}
@@ -157,5 +158,5 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
         </section>
       </div>
     </>
-  );
-};
+  )
+}

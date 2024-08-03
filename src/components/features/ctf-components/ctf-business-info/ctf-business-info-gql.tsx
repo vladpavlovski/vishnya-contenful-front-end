@@ -1,30 +1,31 @@
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import Head from 'next/head';
+'use client'
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
+import Head from 'next/head'
 
-import { useCtfBusinessInfoQuery } from './__generated/business-info.generated';
-import CtfBusinessInfo from './ctf-business-info';
+import { useCtfBusinessInfoQuery } from './__generated/business-info.generated'
+import CtfBusinessInfo from './ctf-business-info'
 
-import { EntryNotFound } from '@src/components/features/errors/entry-not-found';
-import { useContentfulContext } from '@src/contentful-context';
+import { EntryNotFound } from '@src/components/features/errors/entry-not-found'
+import { useContentfulContext } from '@src/contentful-context'
 
 interface CtfBusinessInfoGqlPropsInterface {
-  id: string;
-  preview?: boolean;
+  id: string
+  preview?: boolean
 }
 
 export const CtfBusinessInfoGql = ({ preview, id }: CtfBusinessInfoGqlPropsInterface) => {
-  const { locale } = useContentfulContext();
+  const { locale } = useContentfulContext()
 
   const { data, isLoading } = useCtfBusinessInfoQuery({
     locale,
     id,
-    preview,
-  });
+    preview
+  })
 
-  const topicBusinessInfo = useContentfulLiveUpdates(data?.topicBusinessInfo);
+  const topicBusinessInfo = useContentfulLiveUpdates(data?.topicBusinessInfo)
 
   if (!data || isLoading) {
-    return null;
+    return null
   }
 
   if (!topicBusinessInfo) {
@@ -32,7 +33,7 @@ export const CtfBusinessInfoGql = ({ preview, id }: CtfBusinessInfoGqlPropsInter
       <div>
         <EntryNotFound />
       </div>
-    );
+    )
   }
 
   return (
@@ -48,5 +49,5 @@ export const CtfBusinessInfoGql = ({ preview, id }: CtfBusinessInfoGqlPropsInter
       )}
       <CtfBusinessInfo {...topicBusinessInfo} />
     </>
-  );
-};
+  )
+}

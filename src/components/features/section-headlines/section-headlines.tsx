@@ -1,17 +1,18 @@
-import React from 'react';
+'use client'
+import React from 'react'
 
-import { Markdown } from '@src/components/features/markdown';
+import { Markdown } from '@src/components/features/markdown'
 
 interface SectionHeadlinesPropsInterface {
-  headline?: string | null;
-  headlineProps?: React.HTMLProps<HTMLHeadingElement>;
-  headlineLivePreviewProps?: any;
-  subline?: string | null;
-  sublineProps?: React.HTMLProps<HTMLHeadingElement>;
-  sublineLivePreviewProps?: any;
-  body?: string | null;
-  align?: 'center' | 'left';
-  className?: string;
+  headline?: string | null
+  headlineProps?: React.HTMLProps<HTMLHeadingElement>
+  headlineLivePreviewProps?: any
+  subline?: string | null
+  sublineProps?: React.HTMLProps<HTMLHeadingElement>
+  sublineLivePreviewProps?: any
+  body?: string | null
+  align?: 'center' | 'left'
+  className?: string
 }
 
 export const SectionHeadlines = (props: SectionHeadlinesPropsInterface) => {
@@ -24,24 +25,24 @@ export const SectionHeadlines = (props: SectionHeadlinesPropsInterface) => {
     sublineLivePreviewProps = {},
     body,
     align = 'center',
-    className = '',
-  } = props;
+    className = ''
+  } = props
 
   const computedHeadlineProps: React.HTMLProps<HTMLHeadingElement> & { component?: string } = {
     as: 'h2',
     ...headlineProps,
     ...headlineLivePreviewProps,
-    className: '',
-  };
+    className: ''
+  }
   const computedSublineProps: React.HTMLProps<HTMLHeadingElement> = {
     as: 'h3',
     ...sublineProps,
     ...sublineLivePreviewProps,
-    className: '',
-  };
+    className: ''
+  }
 
   if (!headline && !subline && !body) {
-    return null;
+    return null
   }
 
   return (
@@ -58,5 +59,5 @@ export const SectionHeadlines = (props: SectionHeadlinesPropsInterface) => {
       )}
       {body && <Markdown text={body} className={''} />}
     </div>
-  );
-};
+  )
+}

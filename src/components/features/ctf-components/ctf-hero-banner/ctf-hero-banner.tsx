@@ -1,11 +1,12 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import { useMemo } from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import { useMemo } from 'react'
 
-import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generated';
+import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import { PageLink } from '@src/components/features/page-link';
-import LayoutContext, { defaultLayout, useLayoutContext } from '@src/layout-context';
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { PageLink } from '@src/components/features/page-link'
+import LayoutContext, { defaultLayout, useLayoutContext } from '@src/layout-context'
 
 export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
   const {
@@ -15,19 +16,19 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     bodyText,
     ctaText,
     targetPage,
-    sys: { id },
-  } = props;
-  const layout = useLayoutContext();
+    sys: { id }
+  } = props
+  const layout = useLayoutContext()
 
-  const imageStyle = imageStyleBoolean ? 'partial' : 'full';
+  const imageStyle = imageStyleBoolean ? 'partial' : 'full'
   const backgroundImage = useMemo(
     () =>
       image
         ? `${image.url}?w=${imageStyle === 'partial' ? 767 * 2 : layout.containerWidth * 2}`
         : undefined,
-    [image, imageStyle, layout.containerWidth],
-  );
-  const inspectorMode = useContentfulInspectorMode({ entryId: id });
+    [image, imageStyle, layout.containerWidth]
+  )
+  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
     <div className={''} {...inspectorMode({ fieldId: 'image' })}>
@@ -43,7 +44,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
               right: 0,
               top: 0,
               width: '50%',
-              backgroundImage: `url(${backgroundImage})`,
+              backgroundImage: `url(${backgroundImage})`
             }}
           />
         </div>
@@ -56,7 +57,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
               fontSize: '3rem',
               fontWeight: 800,
               lineHeight: 1.08,
-              maxWidth: '44rem',
+              maxWidth: '44rem'
             }}
             {...inspectorMode({ fieldId: 'headline' })}
           >
@@ -70,7 +71,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
               style={{
                 fontWeight: 400,
                 lineHeight: 1.56,
-                marginTop: '6rem',
+                marginTop: '6rem'
               }}
               {...inspectorMode({ fieldId: 'bodyText' })}
             >
@@ -87,5 +88,5 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

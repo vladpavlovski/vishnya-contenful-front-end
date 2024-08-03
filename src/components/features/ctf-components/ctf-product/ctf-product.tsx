@@ -1,11 +1,12 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import React, { Fragment } from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import React, { Fragment } from 'react'
 
-import { ProductFieldsFragment } from './__generated/ctf-product.generated';
+import { ProductFieldsFragment } from './__generated/ctf-product.generated'
 
-import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset';
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export const CtfProduct = (props: ProductFieldsFragment) => {
   const {
@@ -13,10 +14,10 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
     featuredImage,
     description,
     featuresCollection,
-    sys: { id },
-  } = props;
+    sys: { id }
+  } = props
 
-  const inspectorMode = useContentfulInspectorMode();
+  const inspectorMode = useContentfulInspectorMode()
 
   return (
     <>
@@ -32,14 +33,14 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
             paddingTop: '152px', // Assuming theme.spacing(19) is 76px
             paddingBottom: '152px', // Assuming theme.spacing(19) is 76px
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'space-between'
           }}
         >
           <div
             className={''}
             style={{
               order: 2,
-              width: '100%',
+              width: '100%'
             }}
           >
             {name && (
@@ -49,7 +50,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                   fontSize: '3.2rem',
                   maxWidth: '60.4rem',
                   fontWeight: 600,
-                  lineHeight: 1.39,
+                  lineHeight: 1.39
                 }}
                 {...inspectorMode({ entryId: id, fieldId: 'name' })}
               >
@@ -62,7 +63,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                   className={''}
                   {...inspectorMode({
                     entryId: id,
-                    fieldId: 'description',
+                    fieldId: 'description'
                   })}
                 >
                   <CtfRichtext {...description} className={''} />
@@ -78,11 +79,11 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                 order: 1,
                 width: '100%',
                 display: 'flex',
-                justifyContent: 'flex-end',
+                justifyContent: 'flex-end'
               }}
               {...inspectorMode({
                 entryId: id,
-                fieldId: 'featuredImage',
+                fieldId: 'featuredImage'
               })}
             >
               <CtfAsset {...featuredImage} showDescription={false} className={''} />
@@ -97,7 +98,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
             style={{
               backgroundColor: '#FCFCFC',
               paddingTop: '152px', // Assuming theme.spacing(19) is 76px
-              paddingBottom: '48px', // Assuming theme.spacing(12) is 48px
+              paddingBottom: '48px' // Assuming theme.spacing(12) is 48px
             }}
           >
             <div
@@ -105,13 +106,13 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
               style={{
                 maxWidth: '77rem',
                 marginLeft: 'auto',
-                marginRight: 'auto',
+                marginRight: 'auto'
               }}
             >
               <div
                 className={''}
                 style={{
-                  display: 'flex',
+                  display: 'flex'
                 }}
               >
                 <dl>
@@ -124,25 +125,25 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                             style={{
                               backgroundColor: '#707070',
                               height: '2px',
-                              display: item === featuresCollection.items[0] ? 'none' : 'block',
+                              display: item === featuresCollection.items[0] ? 'none' : 'block'
                             }}
                           />
                           <div
                             className={''}
                             style={{
                               display: 'flex',
-                              marginTop: '80px', // Assuming theme.spacing(10) is 80px
+                              marginTop: '80px' // Assuming theme.spacing(10) is 80px
                             }}
                           >
                             <dt
                               className={''}
                               style={{
                                 marginBottom: '32px', // Assuming theme.spacing(4) is 32px
-                                color: '#414D63',
+                                color: '#414D63'
                               }}
                               {...inspectorMode({
                                 entryId: item.sys.id,
-                                fieldId: 'name',
+                                fieldId: 'name'
                               })}
                             >
                               {item.name}
@@ -153,7 +154,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                 width: '50rem',
                                 fontSize: '1.8rem',
                                 color: '#414D63',
-                                margin: 0,
+                                margin: 0
                               }}
                             >
                               {item.longDescription && (
@@ -161,7 +162,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                                   className={''}
                                   {...inspectorMode({
                                     entryId: item.sys.id,
-                                    fieldId: 'longDescription',
+                                    fieldId: 'longDescription'
                                   })}
                                 >
                                   <CtfRichtext {...item.longDescription} />
@@ -170,7 +171,7 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
                             </dd>
                           </div>
                         </Fragment>
-                      ),
+                      )
                   )}
                 </dl>
               </div>
@@ -179,5 +180,5 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
         </LayoutContext.Provider>
       )}
     </>
-  );
-};
+  )
+}

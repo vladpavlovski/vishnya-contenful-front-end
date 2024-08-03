@@ -1,90 +1,90 @@
-import { IncomingMessage } from 'http';
+import { IncomingMessage } from 'http'
 
-import { NextPage, NextPageContext } from 'next';
-import NextErrorComponent, { ErrorProps } from 'next/error';
-import React from 'react';
+import { NextPage, NextPageContext } from 'next'
+import NextErrorComponent, { ErrorProps } from 'next/error'
+import React from 'react'
 
-import { PageError } from '@src/components/features/errors/page-error';
-import { tryget } from '@src/utils';
+import { PageError } from '@src/components/features/errors/page-error'
+import { tryget } from '@src/utils'
 
 export interface NextPageErrorRequest extends IncomingMessage {
   query: {
-    [key: string]: string | string[];
-  };
+    [key: string]: string | string[]
+  }
   cookies: {
-    [key: string]: string;
-  };
-  body: any;
+    [key: string]: string
+  }
+  body: any
 }
 
 interface ErrorPagePropsInterface {
-  statusCode: number;
-  hasGetInitialPropsRun?: boolean;
-  err?: Error;
-  code?: number;
-  message?: string;
-  req?: Pick<NextPageErrorRequest, 'url' | 'method' | 'query' | 'cookies' | 'body' | 'headers'>;
+  statusCode: number
+  hasGetInitialPropsRun?: boolean
+  err?: Error
+  code?: number
+  message?: string
+  req?: Pick<NextPageErrorRequest, 'url' | 'method' | 'query' | 'cookies' | 'body' | 'headers'>
 }
 
 const getStatusAndMessageFromError = (
   err: Error,
-  statusCode = 500,
+  statusCode = 500
 ): { code: number; message: string } => {
   let error = {
     code: statusCode,
-    message: '',
-  };
+    message: ''
+  }
 
-  const errorMessage = tryget(() => (err as any).networkError.result.errors[0].message, '');
+  const errorMessage = tryget(() => (err as any).networkError.result.errors[0].message, '')
 
-  const errorStatus = tryget(() => (err as any).networkError.statusCode, statusCode);
+  const errorStatus = tryget(() => (err as any).networkError.statusCode, statusCode)
 
   const isEnvironmentNotFoundError = tryget(
     () => errorMessage.includes('The access token you provided is invalid'),
-    false,
-  );
+    false
+  )
 
-  const isMissingContentTypeError = tryget(() => errorMessage.includes('Unknown type "'), false);
+  const isMissingContentTypeError = tryget(() => errorMessage.includes('Unknown type "'), false)
 
   if (isEnvironmentNotFoundError) {
     error = {
       code: errorStatus,
       message:
-        'Either environment was not found, or your access token is incorrect. If your default environment works, then it is possible that you misspelled your environment, or you did not enable it in the API Key settings.',
-    };
+        'Either environment was not found, or your access token is incorrect. If your default environment works, then it is possible that you misspelled your environment, or you did not enable it in the API Key settings.'
+    }
   } else if (isMissingContentTypeError) {
-    const missingContentType = errorMessage.split('"')[1];
+    const missingContentType = errorMessage.split('"')[1]
 
     error = {
       code: errorStatus,
-      message: `Could not find "${missingContentType}" Content Type. Make sure you have installed the necessary apps and that you did not rename or delete any of the core content types.`,
-    };
+      message: `Could not find "${missingContentType}" Content Type. Make sure you have installed the necessary apps and that you did not rename or delete any of the core content types.`
+    }
   } else if (errorMessage !== '') {
     error = {
       code: errorStatus,
-      message: errorMessage,
-    };
+      message: errorMessage
+    }
   } else {
     error = {
       code: errorStatus,
-      message: err.message,
-    };
+      message: err.message
+    }
   }
 
-  return error;
-};
+  return error
+}
 
 const ErrorPage: NextPage<ErrorPagePropsInterface> = ({ statusCode, err, code, message }) => {
   if (code !== undefined && message !== undefined) {
-    return <PageError error={{ code, message }} />;
+    return <PageError error={{ code, message }} />
   }
 
   if (err !== undefined) {
-    return <PageError error={getStatusAndMessageFromError(err, statusCode)} />;
+    return <PageError error={getStatusAndMessageFromError(err, statusCode)} />
   }
 
-  return <NextErrorComponent statusCode={statusCode} />;
-};
+  return <NextErrorComponent statusCode={statusCode} />
+}
 
 ErrorPage.getInitialProps = async ({
   req,
@@ -92,23 +92,23 @@ ErrorPage.getInitialProps = async ({
   err,
   pathname,
   query,
-  AppTree,
+  AppTree
 }: NextPageContext & {
-  req: NextPageErrorRequest;
+  req: NextPageErrorRequest
 }) => {
   const errorInitialProps: ErrorProps & {
-    hasGetInitialPropsRun?: boolean;
+    hasGetInitialPropsRun?: boolean
   } = await NextErrorComponent.getInitialProps({
     res,
     err,
     pathname,
     query,
-    AppTree,
-  });
+    AppTree
+  })
 
   // Workaround for https://github.com/vercel/next.js/issues/8592, mark when
   // getInitialProps has run
-  errorInitialProps.hasGetInitialPropsRun = true;
+  errorInitialProps.hasGetInitialPropsRun = true
 
   // Running on the server, the response object (`res`) is available.
   //
@@ -124,7 +124,7 @@ ErrorPage.getInitialProps = async ({
   //    Boundaries: https://reactjs.org/docs/error-boundaries.html
 
   if (res?.statusCode === 404) {
-    return { statusCode: 404 };
+    return { statusCode: 404 }
   }
 
   if (err) {
@@ -138,13 +138,13 @@ ErrorPage.getInitialProps = async ({
             query: req.query,
             cookies: req.cookies,
             body: req.body,
-            headers: req.headers,
+            headers: req.headers
           }
-        : undefined,
-    };
+        : undefined
+    }
   }
 
-  return errorInitialProps;
-};
+  return errorInitialProps
+}
 
-export default ErrorPage;
+export default ErrorPage

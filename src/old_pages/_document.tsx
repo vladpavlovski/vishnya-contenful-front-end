@@ -1,6 +1,6 @@
 /* eslint-disable react/no-danger */
-import Document, { DocumentContext, Head, Main, NextScript, Html } from 'next/document';
-import React from 'react';
+import Document, { DocumentContext, Head, Main, NextScript, Html } from 'next/document'
+import React from 'react'
 
 export default class CustomDocument extends Document {
   render() {
@@ -26,7 +26,7 @@ export default class CustomDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    );
+    )
   }
 }
 
@@ -55,18 +55,18 @@ CustomDocument.getInitialProps = async function (ctx: DocumentContext) {
   // 4. page.render
 
   // Render app and page and get the context of the page with collected side effects.
-  const originalRenderPage = ctx.renderPage;
+  const originalRenderPage = ctx.renderPage
 
   ctx.renderPage = () =>
     originalRenderPage({
-      enhanceApp: App => props => <App {...props} />,
-    });
+      enhanceApp: App => props => <App {...props} />
+    })
 
-  const initialProps = await Document.getInitialProps(ctx);
+  const initialProps = await Document.getInitialProps(ctx)
 
   return {
     ...initialProps,
     locale: ctx.locale,
-    styles: <>{null}</>,
-  };
-};
+    styles: <>{null}</>
+  }
+}

@@ -1,9 +1,10 @@
-import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import React, { useMemo } from 'react';
+'use client'
+import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import React, { useMemo } from 'react'
 
-import { BusinessInfoFieldsFragment } from './__generated/business-info.generated';
+import { BusinessInfoFieldsFragment } from './__generated/business-info.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
 
 const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
   const {
@@ -11,14 +12,14 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
     name,
     shortDescription,
     featuredImage,
-    sys: { id },
-  } = props;
+    sys: { id }
+  } = props
   const backgroundImage = useMemo(
     () => (featuredImage ? `${featuredImage.url}?w=1920` : undefined),
-    [featuredImage],
-  );
+    [featuredImage]
+  )
 
-  const inspectorMode = useContentfulInspectorMode({ entryId: id });
+  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
     <div className={''}>
@@ -36,7 +37,7 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
               right: 0,
               bottom: 0,
               left: 0,
-              zIndex: 1,
+              zIndex: 1
             }}
             {...inspectorMode({ fieldId: 'featuredImage' })}
           >
@@ -49,7 +50,7 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
                 right: 0,
                 bottom: 0,
                 left: 0,
-                zIndex: 1,
+                zIndex: 1
               }}
             />
           </div>
@@ -72,7 +73,7 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
                   className={''}
                   style={{ fontSize: '2.5rem', marginTop: '3rem' }}
                   {...inspectorMode({
-                    fieldId: 'shortDescription',
+                    fieldId: 'shortDescription'
                   })}
                 >
                   {shortDescription}
@@ -88,7 +89,7 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default CtfBusinessInfo;
+export default CtfBusinessInfo

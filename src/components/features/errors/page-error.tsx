@@ -1,25 +1,26 @@
-import { useTranslation } from 'next-i18next';
-import React from 'react';
+'use client'
+import { useTranslation } from 'next-i18next'
+import React from 'react'
 
-import { PageContainer } from '@src/components/templates/page-container';
+import { PageContainer } from '@src/components/templates/page-container'
 
 interface PropsInterface {
   error?: {
-    code: number;
-    message?: string;
-  };
+    code: number
+    message?: string
+  }
 }
 
 export const PageError = (props: PropsInterface) => {
-  const { t } = useTranslation();
+  const { t } = useTranslation()
 
   const error =
     props.error === undefined
       ? {
           code: 400,
-          message: t('error.somethingWentWrong'),
+          message: t('error.somethingWentWrong')
         }
-      : props.error;
+      : props.error
 
   return (
     <div className={''} style={{ width: '100%', minHeight: '100%', color: 'black' }}>
@@ -43,5 +44,5 @@ export const PageError = (props: PropsInterface) => {
         </div>
       </PageContainer>
     </div>
-  );
-};
+  )
+}

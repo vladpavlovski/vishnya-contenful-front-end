@@ -1,32 +1,33 @@
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
+'use client'
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
-import { useCtfInfoBlockQuery } from './__generated/ctf-info-block.generated';
-import { CtfInfoBlock } from './ctf-info-block';
+import { useCtfInfoBlockQuery } from './__generated/ctf-info-block.generated'
+import { CtfInfoBlock } from './ctf-info-block'
 
 interface CtfInfoBlockGqlPropsInterface {
-  id: string;
-  locale: string;
-  preview: boolean;
-  previousComponent: string | null;
+  id: string
+  locale: string
+  preview: boolean
+  previousComponent: string | null
 }
 
 export const CtfInfoBlockGql = ({
   id,
   locale,
   preview,
-  previousComponent,
+  previousComponent
 }: CtfInfoBlockGqlPropsInterface) => {
   const { isLoading, data } = useCtfInfoBlockQuery({
     id,
     locale,
-    preview,
-  });
+    preview
+  })
 
-  const componentInfoBlock = useContentfulLiveUpdates(data?.componentInfoBlock);
+  const componentInfoBlock = useContentfulLiveUpdates(data?.componentInfoBlock)
 
   if (isLoading || !componentInfoBlock) {
-    return null;
+    return null
   }
 
-  return <CtfInfoBlock {...componentInfoBlock} previousComponent={previousComponent} />;
-};
+  return <CtfInfoBlock {...componentInfoBlock} previousComponent={previousComponent} />
+}

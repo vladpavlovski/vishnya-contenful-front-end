@@ -1,22 +1,23 @@
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
-import React from 'react';
+'use client'
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
+import React from 'react'
 
-import { useCtfFooterQuery } from './__generated/ctf-footer.generated';
-import { CtfFooter } from './ctf-footer';
+import { useCtfFooterQuery } from './__generated/ctf-footer.generated'
+import { CtfFooter } from './ctf-footer'
 
-import { useContentfulContext } from '@src/contentful-context';
+import { useContentfulContext } from '@src/contentful-context'
 
 export const CtfFooterGql = () => {
-  const { locale, previewActive } = useContentfulContext();
+  const { locale } = useContentfulContext()
 
   const { data, isLoading } = useCtfFooterQuery({
     locale,
-    preview: previewActive,
-  });
+    preview: false
+  })
 
-  const footerMenuCollection = useContentfulLiveUpdates(data?.footerMenuCollection);
+  const footerMenuCollection = useContentfulLiveUpdates(data?.footerMenuCollection)
 
-  if (!footerMenuCollection || isLoading) return null;
+  if (!footerMenuCollection || isLoading) return null
 
-  return <CtfFooter {...footerMenuCollection} />;
-};
+  return <CtfFooter {...footerMenuCollection} />
+}

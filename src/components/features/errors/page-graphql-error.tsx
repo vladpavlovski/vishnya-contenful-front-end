@@ -1,5 +1,6 @@
-import { GraphqlError } from '@src/components/shared/graphql-error';
-import { PageContainer } from '@src/components/templates/page-container';
+'use client'
+import { GraphqlError } from '@src/components/shared/graphql-error'
+import { PageContainer } from '@src/components/templates/page-container'
 
 export const PageGraphqlError = (props: { error: any }) => (
   <PageContainer>
@@ -9,4 +10,4 @@ export const PageGraphqlError = (props: { error: any }) => (
       </div>
     </div>
   </PageContainer>
-);
+)

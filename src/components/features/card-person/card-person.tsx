@@ -1,9 +1,10 @@
-import React from 'react';
+'use client'
+import React from 'react'
 
-import { Avatar } from '@src/components/features/avatar';
-import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated';
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext';
-import LayoutContext, { defaultLayout } from '@src/layout-context';
+import { Avatar } from '@src/components/features/avatar'
+import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
   return (
@@ -14,7 +15,7 @@ export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
           style={{
             flexShrink: 0,
             marginRight: '13rem',
-            width: '10rem',
+            width: '10rem'
           }}
         >
           <Avatar asset={avatar} />
@@ -28,7 +29,7 @@ export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
               fontSize: '1.8rem',
               lineHeight: 1.333,
               marginBottom: '2rem',
-              marginTop: 0,
+              marginTop: 0
             }}
           >
             {name}
@@ -43,5 +44,5 @@ export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}

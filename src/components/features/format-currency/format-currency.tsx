@@ -1,14 +1,15 @@
-import { useContentfulContext } from '@src/contentful-context';
+'use client'
+import { useContentfulContext } from '@src/contentful-context'
 
 interface FormatCurrencyProps {
-  value: number;
-  locale?: string;
-  style?: string;
-  currency?: string;
+  value: number
+  locale?: string
+  style?: string
+  currency?: string
 }
 
 export const FormatCurrency = ({ value, locale, currency = 'EUR' }: FormatCurrencyProps) => {
-  const { locale: localeFromRouter } = useContentfulContext();
+  const { locale: localeFromRouter } = useContentfulContext()
 
-  return <>{new Intl.NumberFormat(locale || localeFromRouter, { currency }).format(value)}</>;
-};
+  return <>{new Intl.NumberFormat(locale || localeFromRouter, { currency }).format(value)}</>
+}

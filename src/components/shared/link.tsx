@@ -1,5 +1,6 @@
+'use client'
 import NextLink from 'next/link'
-import { useRouter } from 'next/router'
+import { usePathname } from 'next/navigation'
 import queryString from 'query-string'
 import { ReactNode } from 'react'
 
@@ -37,12 +38,12 @@ export const Link = (props: Props) => {
     urlParams = '',
     title
   } = props
-  const router = useRouter()
+  const pathname = usePathname()
   let href = props.href || ''
   let { as } = props
 
-  if (!dropUrlParams && router) {
-    const urlQuerystring = router.asPath.split('?')[1]
+  if (!dropUrlParams && pathname) {
+    const urlQuerystring = pathname.split('?')[1]
     if (urlQuerystring) {
       href += href.indexOf('?') < 0 ? `?${urlQuerystring}` : `&${urlQuerystring}`
     }
