@@ -1,9 +1,8 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import throttle from 'lodash/throttle';
 import Image, { ImageLoader } from 'next/image';
 import { useTranslation } from 'next-i18next';
 import queryString from 'query-string';
-import { useState, useMemo, useRef, useEffect, useCallback } from 'react';
+import { useState, useMemo, useRef } from 'react';
 
 import { ProductTableFieldsFragment } from './__generated/ctf-product-table.generated';
 
@@ -110,57 +109,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
   const gridElement = useRef<HTMLDivElement>(null);
   const gridColumnElements = useRef<(HTMLDivElement | null)[]>([]);
   const [gridSizes, setGridSizes] = useState<{ [key: string]: number }>({});
-  const resizeGridItems = useCallback(
-    () =>
-      throttle(() => {
-        if (!gridElement.current || gridColumnElements.current.length === 0) {
-          return;
-        }
 
-        gridElement.current.setAttribute(
-          'data-columns-count',
-          `${gridColumnElements.current.length}`,
-        );
-
-        const children = gridElement.current.querySelectorAll('[data-equal-size]');
-
-        if (children.length === 0) {
-          return;
-        }
-
-        const heightMap: { [key: string]: number } = {};
-
-        for (let i = 0; i < children.length; i += 1) {
-          const child = children[i];
-          const childIndex = child.getAttribute('data-equal-size') || '0';
-          const childHeight = child.scrollHeight;
-
-          if (heightMap[`index-${childIndex}`] === undefined) {
-            heightMap[`index-${childIndex}`] = childHeight;
-          } else if (heightMap[`index-${childIndex}`] < childHeight) {
-            heightMap[`index-${childIndex}`] = childHeight;
-          }
-        }
-
-        setGridSizes(heightMap);
-      }, 100),
-    [],
-  );
-
-  useEffect(() => {
-    if (!gridElement.current) {
-      return () => {
-        window.removeEventListener('resize', resizeGridItems);
-      };
-    }
-
-    window.addEventListener('resize', resizeGridItems);
-    resizeGridItems();
-
-    return () => {
-      window.removeEventListener('resize', resizeGridItems);
-    };
-  }, [resizeGridItems]);
   return (
     <div ref={gridElement}>
       <div className="">
@@ -195,15 +144,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                           fieldId: 'featuredImage',
                         })}
                       >
-                        <div
-                          data-equal-size="0"
-                          style={{
-                            height:
-                              gridSizes[`index-0`] === undefined
-                                ? undefined
-                                : `${gridSizes[`index-0`]}px`,
-                          }}
-                        >
+                        <div data-equal-size="0">
                           {product.featuredImage && (
                             <Image
                               src={product.featuredImage.url as string}
