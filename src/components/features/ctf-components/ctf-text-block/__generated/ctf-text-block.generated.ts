@@ -113,13 +113,15 @@ export const useCtfTextBlockQuery = <
       TError = unknown
     >(
       variables: CtfTextBlockQueryVariables,
-      options?: UseQueryOptions<CtfTextBlockQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfTextBlockQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfTextBlockQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfTextBlockQuery, TError, TData>(
-      ['CtfTextBlock', variables],
-      customFetcher<CtfTextBlockQuery, CtfTextBlockQueryVariables>(CtfTextBlockDocument, variables),
-      options
+      {
+    queryKey: ['CtfTextBlock', variables],
+    queryFn: customFetcher<CtfTextBlockQuery, CtfTextBlockQueryVariables>(CtfTextBlockDocument, variables),
+    ...options
+  }
     )};
 
 useCtfTextBlockQuery.getKey = (variables: CtfTextBlockQueryVariables) => ['CtfTextBlock', variables];

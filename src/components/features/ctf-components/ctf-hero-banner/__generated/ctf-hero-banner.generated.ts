@@ -64,13 +64,15 @@ export const useCtfHeroBannerQuery = <
       TError = unknown
     >(
       variables: CtfHeroBannerQueryVariables,
-      options?: UseQueryOptions<CtfHeroBannerQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfHeroBannerQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfHeroBannerQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfHeroBannerQuery, TError, TData>(
-      ['CtfHeroBanner', variables],
-      customFetcher<CtfHeroBannerQuery, CtfHeroBannerQueryVariables>(CtfHeroBannerDocument, variables),
-      options
+      {
+    queryKey: ['CtfHeroBanner', variables],
+    queryFn: customFetcher<CtfHeroBannerQuery, CtfHeroBannerQueryVariables>(CtfHeroBannerDocument, variables),
+    ...options
+  }
     )};
 
 useCtfHeroBannerQuery.getKey = (variables: CtfHeroBannerQueryVariables) => ['CtfHeroBanner', variables];

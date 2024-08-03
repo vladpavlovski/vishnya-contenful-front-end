@@ -1,4 +1,4 @@
-import { prefetchMap } from '@src/lib/prefetch-mappings';
+import { prefetchMap } from '@src/lib/prefetch-mappings'
 
 /**
  * Create an array of prefetchQuery functions that can be awaited in our pages to prefetch React Query calls
@@ -8,18 +8,18 @@ import { prefetchMap } from '@src/lib/prefetch-mappings';
  */
 export const prefetchPromiseArr = ({ inputArr, queryClient, locale }) =>
   inputArr?.map(item => {
-    if (!item) return;
+    if (!item) return
 
-    const { __typename, sys } = item;
+    const { __typename, sys } = item
 
-    if (!__typename) return;
+    if (!__typename) return
 
-    const query = prefetchMap?.[__typename];
+    const query = prefetchMap?.[__typename]
 
-    if (!query) return;
+    if (!query) return
 
-    return queryClient.prefetchQuery(
-      query.getKey({ id: sys.id, locale, preview: false }),
-      query.fetcher({ id: sys.id, locale, preview: false }),
-    );
-  }) || [];
+    return queryClient.prefetchQuery({
+      queryKey: query.getKey({ id: sys.id, locale, preview: false }),
+      queryFn: query.fetcher({ id: sys.id, locale, preview: false })
+    })
+  }) || []

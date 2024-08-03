@@ -119,13 +119,15 @@ export const useCtfQuoteQuery = <
       TError = unknown
     >(
       variables: CtfQuoteQueryVariables,
-      options?: UseQueryOptions<CtfQuoteQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfQuoteQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfQuoteQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfQuoteQuery, TError, TData>(
-      ['CtfQuote', variables],
-      customFetcher<CtfQuoteQuery, CtfQuoteQueryVariables>(CtfQuoteDocument, variables),
-      options
+      {
+    queryKey: ['CtfQuote', variables],
+    queryFn: customFetcher<CtfQuoteQuery, CtfQuoteQueryVariables>(CtfQuoteDocument, variables),
+    ...options
+  }
     )};
 
 useCtfQuoteQuery.getKey = (variables: CtfQuoteQueryVariables) => ['CtfQuote', variables];

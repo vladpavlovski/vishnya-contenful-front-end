@@ -64,13 +64,15 @@ export const useCtfDuplexQuery = <
       TError = unknown
     >(
       variables: CtfDuplexQueryVariables,
-      options?: UseQueryOptions<CtfDuplexQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfDuplexQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfDuplexQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfDuplexQuery, TError, TData>(
-      ['CtfDuplex', variables],
-      customFetcher<CtfDuplexQuery, CtfDuplexQueryVariables>(CtfDuplexDocument, variables),
-      options
+      {
+    queryKey: ['CtfDuplex', variables],
+    queryFn: customFetcher<CtfDuplexQuery, CtfDuplexQueryVariables>(CtfDuplexDocument, variables),
+    ...options
+  }
     )};
 
 useCtfDuplexQuery.getKey = (variables: CtfDuplexQueryVariables) => ['CtfDuplex', variables];

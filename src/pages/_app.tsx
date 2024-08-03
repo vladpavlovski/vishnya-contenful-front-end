@@ -1,5 +1,10 @@
 import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react'
-import { DehydratedState, Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import {
+  DehydratedState,
+  HydrationBoundary,
+  QueryClient,
+  QueryClientProvider
+} from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -78,11 +83,11 @@ const CustomApp = ({
         <LivePreviewProvider>
           <QueryClientProvider client={queryClient}>
             <ReactQueryDevtools initialIsOpen={false} />
-            <Hydrate state={dehydratedState}>
+            <HydrationBoundary state={dehydratedState}>
               <Layout preview={previewActive}>
                 <Component {...pageProps} err={err} />
               </Layout>
-            </Hydrate>
+            </HydrationBoundary>
           </QueryClientProvider>
         </LivePreviewProvider>
       </ContentfulContentProvider>

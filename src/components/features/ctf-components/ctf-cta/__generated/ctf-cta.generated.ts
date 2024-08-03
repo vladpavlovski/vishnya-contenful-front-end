@@ -54,13 +54,15 @@ export const useCtfCtaQuery = <
       TError = unknown
     >(
       variables: CtfCtaQueryVariables,
-      options?: UseQueryOptions<CtfCtaQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfCtaQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfCtaQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfCtaQuery, TError, TData>(
-      ['CtfCta', variables],
-      customFetcher<CtfCtaQuery, CtfCtaQueryVariables>(CtfCtaDocument, variables),
-      options
+      {
+    queryKey: ['CtfCta', variables],
+    queryFn: customFetcher<CtfCtaQuery, CtfCtaQueryVariables>(CtfCtaDocument, variables),
+    ...options
+  }
     )};
 
 useCtfCtaQuery.getKey = (variables: CtfCtaQueryVariables) => ['CtfCta', variables];

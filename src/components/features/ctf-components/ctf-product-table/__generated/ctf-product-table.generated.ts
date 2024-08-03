@@ -57,13 +57,15 @@ export const useCtfProductTableQuery = <
       TError = unknown
     >(
       variables: CtfProductTableQueryVariables,
-      options?: UseQueryOptions<CtfProductTableQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfProductTableQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfProductTableQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfProductTableQuery, TError, TData>(
-      ['CtfProductTable', variables],
-      customFetcher<CtfProductTableQuery, CtfProductTableQueryVariables>(CtfProductTableDocument, variables),
-      options
+      {
+    queryKey: ['CtfProductTable', variables],
+    queryFn: customFetcher<CtfProductTableQuery, CtfProductTableQueryVariables>(CtfProductTableDocument, variables),
+    ...options
+  }
     )};
 
 useCtfProductTableQuery.getKey = (variables: CtfProductTableQueryVariables) => ['CtfProductTable', variables];

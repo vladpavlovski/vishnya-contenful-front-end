@@ -54,13 +54,15 @@ export const useCtfPersonQuery = <
       TError = unknown
     >(
       variables: CtfPersonQueryVariables,
-      options?: UseQueryOptions<CtfPersonQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfPersonQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfPersonQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfPersonQuery, TError, TData>(
-      ['CtfPerson', variables],
-      customFetcher<CtfPersonQuery, CtfPersonQueryVariables>(CtfPersonDocument, variables),
-      options
+      {
+    queryKey: ['CtfPerson', variables],
+    queryFn: customFetcher<CtfPersonQuery, CtfPersonQueryVariables>(CtfPersonDocument, variables),
+    ...options
+  }
     )};
 
 useCtfPersonQuery.getKey = (variables: CtfPersonQueryVariables) => ['CtfPerson', variables];

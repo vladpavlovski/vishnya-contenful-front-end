@@ -118,13 +118,15 @@ export const useCtfBusinessInfoQuery = <
       TError = unknown
     >(
       variables: CtfBusinessInfoQueryVariables,
-      options?: UseQueryOptions<CtfBusinessInfoQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfBusinessInfoQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfBusinessInfoQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfBusinessInfoQuery, TError, TData>(
-      ['CtfBusinessInfo', variables],
-      customFetcher<CtfBusinessInfoQuery, CtfBusinessInfoQueryVariables>(CtfBusinessInfoDocument, variables),
-      options
+      {
+    queryKey: ['CtfBusinessInfo', variables],
+    queryFn: customFetcher<CtfBusinessInfoQuery, CtfBusinessInfoQueryVariables>(CtfBusinessInfoDocument, variables),
+    ...options
+  }
     )};
 
 useCtfBusinessInfoQuery.getKey = (variables: CtfBusinessInfoQueryVariables) => ['CtfBusinessInfo', variables];

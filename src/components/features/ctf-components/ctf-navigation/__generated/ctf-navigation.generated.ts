@@ -62,13 +62,15 @@ export const useCtfNavigationQuery = <
       TError = unknown
     >(
       variables?: CtfNavigationQueryVariables,
-      options?: UseQueryOptions<CtfNavigationQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfNavigationQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfNavigationQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfNavigationQuery, TError, TData>(
-      variables === undefined ? ['CtfNavigation'] : ['CtfNavigation', variables],
-      customFetcher<CtfNavigationQuery, CtfNavigationQueryVariables>(CtfNavigationDocument, variables),
-      options
+      {
+    queryKey: variables === undefined ? ['CtfNavigation'] : ['CtfNavigation', variables],
+    queryFn: customFetcher<CtfNavigationQuery, CtfNavigationQueryVariables>(CtfNavigationDocument, variables),
+    ...options
+  }
     )};
 
 useCtfNavigationQuery.getKey = (variables?: CtfNavigationQueryVariables) => variables === undefined ? ['CtfNavigation'] : ['CtfNavigation', variables];

@@ -193,13 +193,15 @@ export const useCtfPageQuery = <
       TError = unknown
     >(
       variables: CtfPageQueryVariables,
-      options?: UseQueryOptions<CtfPageQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfPageQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfPageQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfPageQuery, TError, TData>(
-      ['CtfPage', variables],
-      customFetcher<CtfPageQuery, CtfPageQueryVariables>(CtfPageDocument, variables),
-      options
+      {
+    queryKey: ['CtfPage', variables],
+    queryFn: customFetcher<CtfPageQuery, CtfPageQueryVariables>(CtfPageDocument, variables),
+    ...options
+  }
     )};
 
 useCtfPageQuery.getKey = (variables: CtfPageQueryVariables) => ['CtfPage', variables];

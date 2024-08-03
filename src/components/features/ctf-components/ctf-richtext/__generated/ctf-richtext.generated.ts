@@ -41,13 +41,15 @@ export const useCtfRichTextHyperlinkQuery = <
       TError = unknown
     >(
       variables: CtfRichTextHyperlinkQueryVariables,
-      options?: UseQueryOptions<CtfRichTextHyperlinkQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfRichTextHyperlinkQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfRichTextHyperlinkQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfRichTextHyperlinkQuery, TError, TData>(
-      ['CtfRichTextHyperlink', variables],
-      customFetcher<CtfRichTextHyperlinkQuery, CtfRichTextHyperlinkQueryVariables>(CtfRichTextHyperlinkDocument, variables),
-      options
+      {
+    queryKey: ['CtfRichTextHyperlink', variables],
+    queryFn: customFetcher<CtfRichTextHyperlinkQuery, CtfRichTextHyperlinkQueryVariables>(CtfRichTextHyperlinkDocument, variables),
+    ...options
+  }
     )};
 
 useCtfRichTextHyperlinkQuery.getKey = (variables: CtfRichTextHyperlinkQueryVariables) => ['CtfRichTextHyperlink', variables];

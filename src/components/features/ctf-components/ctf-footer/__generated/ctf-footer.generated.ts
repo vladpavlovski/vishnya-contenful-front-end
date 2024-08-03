@@ -72,13 +72,15 @@ export const useCtfFooterQuery = <
       TError = unknown
     >(
       variables?: CtfFooterQueryVariables,
-      options?: UseQueryOptions<CtfFooterQuery, TError, TData>
+      options?: Omit<UseQueryOptions<CtfFooterQuery, TError, TData>, 'queryKey'> & { queryKey?: UseQueryOptions<CtfFooterQuery, TError, TData>['queryKey'] }
     ) => {
     
     return useQuery<CtfFooterQuery, TError, TData>(
-      variables === undefined ? ['CtfFooter'] : ['CtfFooter', variables],
-      customFetcher<CtfFooterQuery, CtfFooterQueryVariables>(CtfFooterDocument, variables),
-      options
+      {
+    queryKey: variables === undefined ? ['CtfFooter'] : ['CtfFooter', variables],
+    queryFn: customFetcher<CtfFooterQuery, CtfFooterQueryVariables>(CtfFooterDocument, variables),
+    ...options
+  }
     )};
 
 useCtfFooterQuery.getKey = (variables?: CtfFooterQueryVariables) => variables === undefined ? ['CtfFooter'] : ['CtfFooter', variables];
