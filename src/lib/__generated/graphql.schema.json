@@ -10,6 +10,7 @@
         "kind": "OBJECT",
         "name": "Asset",
         "description": "Represents a binary file in a space. An asset can be any file type.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "contentType",
@@ -294,6 +295,7 @@
         "kind": "OBJECT",
         "name": "AssetCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -373,6 +375,7 @@
         "kind": "INPUT_OBJECT",
         "name": "AssetFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -1248,6 +1251,7 @@
         "kind": "OBJECT",
         "name": "AssetLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "componentDuplexCollection",
@@ -1808,6 +1812,7 @@
         "kind": "ENUM",
         "name": "AssetOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1939,6 +1944,7 @@
         "kind": "SCALAR",
         "name": "Boolean",
         "description": "The `Boolean` scalar type represents `true` or `false`.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -1949,6 +1955,7 @@
         "kind": "OBJECT",
         "name": "ComponentCta",
         "description": "Full-width container for creating visually distinct Calls-to-Action (CTAs) [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentCta)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -2235,6 +2242,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -2314,6 +2322,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentCtaFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -2889,6 +2898,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -3038,6 +3048,7 @@
         "kind": "ENUM",
         "name": "ComponentCtaLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3133,6 +3144,7 @@
         "kind": "ENUM",
         "name": "ComponentCtaOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3252,6 +3264,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSubline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -3295,6 +3308,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -3346,6 +3360,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -3417,6 +3432,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -3476,6 +3492,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -3559,6 +3576,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -3592,6 +3610,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -3625,6 +3644,7 @@
         "kind": "OBJECT",
         "name": "ComponentCtaSublineResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -3658,6 +3678,7 @@
         "kind": "UNION",
         "name": "ComponentCtaTargetPage",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -3674,6 +3695,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplex",
         "description": "Full-width container for displaying side-by-side image and copy, includes multiple layout options [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentDuplex)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -4022,6 +4044,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyText",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -4065,6 +4088,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -4116,6 +4140,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -4187,6 +4212,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -4246,6 +4272,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -4329,6 +4356,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -4362,6 +4390,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -4395,6 +4424,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexBodyTextResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -4428,6 +4458,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -4507,6 +4538,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentDuplexFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -5074,6 +5106,7 @@
         "kind": "OBJECT",
         "name": "ComponentDuplexLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -5223,6 +5256,7 @@
         "kind": "ENUM",
         "name": "ComponentDuplexLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -5318,6 +5352,7 @@
         "kind": "ENUM",
         "name": "ComponentDuplexOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -5449,6 +5484,7 @@
         "kind": "UNION",
         "name": "ComponentDuplexTargetPage",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -5465,6 +5501,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBanner",
         "description": "Full-width container for displaying images and snappy copy; can include an optional CTA [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentHeroBanner)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -5838,6 +5875,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyText",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -5881,6 +5919,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -5932,6 +5971,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -6003,6 +6043,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -6062,6 +6103,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -6145,6 +6187,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -6178,6 +6221,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -6211,6 +6255,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerBodyTextResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -6244,6 +6289,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -6323,6 +6369,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentHeroBannerFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -6982,6 +7029,7 @@
         "kind": "OBJECT",
         "name": "ComponentHeroBannerLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -7131,6 +7179,7 @@
         "kind": "ENUM",
         "name": "ComponentHeroBannerLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -7226,6 +7275,7 @@
         "kind": "ENUM",
         "name": "ComponentHeroBannerOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -7369,6 +7419,7 @@
         "kind": "UNION",
         "name": "ComponentHeroBannerTargetPage",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -7385,6 +7436,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlock",
         "description": "Full-width container for displaying short bits of generic information with optional icons/visuals [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentInfoBlock)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -7770,6 +7822,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1Body",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -7813,6 +7866,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -7864,6 +7918,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -7935,6 +7990,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -7994,6 +8050,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8077,6 +8134,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8110,6 +8168,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8143,6 +8202,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock1BodyResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8176,6 +8236,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2Body",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -8219,6 +8280,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8270,6 +8332,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8341,6 +8404,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -8400,6 +8464,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8483,6 +8548,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8516,6 +8582,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8549,6 +8616,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock2BodyResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8582,6 +8650,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3Body",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -8625,6 +8694,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8676,6 +8746,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8747,6 +8818,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -8806,6 +8878,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -8889,6 +8962,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8922,6 +8996,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8955,6 +9030,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockBlock3BodyResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -8988,6 +9064,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -9067,6 +9144,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentInfoBlockFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -9646,6 +9724,7 @@
         "kind": "OBJECT",
         "name": "ComponentInfoBlockLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -9795,6 +9874,7 @@
         "kind": "ENUM",
         "name": "ComponentInfoBlockLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -9890,6 +9970,7 @@
         "kind": "ENUM",
         "name": "ComponentInfoBlockOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -9997,6 +10078,7 @@
         "kind": "OBJECT",
         "name": "ComponentProductTable",
         "description": "Component that renders products in a table enabling a side-by-side comparison [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentProductTable)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -10260,6 +10342,7 @@
         "kind": "OBJECT",
         "name": "ComponentProductTableCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -10339,6 +10422,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentProductTableFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -10706,6 +10790,7 @@
         "kind": "OBJECT",
         "name": "ComponentProductTableLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -10855,6 +10940,7 @@
         "kind": "ENUM",
         "name": "ComponentProductTableLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -10950,6 +11036,7 @@
         "kind": "ENUM",
         "name": "ComponentProductTableOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -11045,6 +11132,7 @@
         "kind": "OBJECT",
         "name": "ComponentProductTableProductsCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -11124,6 +11212,7 @@
         "kind": "ENUM",
         "name": "ComponentProductTableProductsCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -11219,6 +11308,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuote",
         "description": "Full-width component for quotes, reviews and testimonials, includes multiple layout options [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentQuote)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -11480,6 +11570,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -11559,6 +11650,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentQuoteFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -11930,6 +12022,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -12079,6 +12172,7 @@
         "kind": "ENUM",
         "name": "ComponentQuoteLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -12174,6 +12268,7 @@
         "kind": "ENUM",
         "name": "ComponentQuoteOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -12281,6 +12376,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuote",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -12324,6 +12420,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -12375,6 +12472,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -12446,6 +12544,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -12505,6 +12604,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -12588,6 +12688,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -12621,6 +12722,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -12654,6 +12756,7 @@
         "kind": "OBJECT",
         "name": "ComponentQuoteQuoteResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -12687,6 +12790,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlock",
         "description": "Constrained-width component for displaying ad-hoc paragraphs of text (FAQs, intros, descriptions) [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/componentTextBlock)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -12911,6 +13015,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBody",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -12954,6 +13059,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -13005,6 +13111,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -13076,6 +13183,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -13135,6 +13243,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -13218,6 +13327,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -13251,6 +13361,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -13284,6 +13395,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockBodyResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -13317,6 +13429,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -13396,6 +13509,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ComponentTextBlockFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -13867,6 +13981,7 @@
         "kind": "OBJECT",
         "name": "ComponentTextBlockLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -14016,6 +14131,7 @@
         "kind": "ENUM",
         "name": "ComponentTextBlockLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14111,6 +14227,7 @@
         "kind": "ENUM",
         "name": "ComponentTextBlockOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14218,6 +14335,7 @@
         "kind": "OBJECT",
         "name": "ContentfulMetadata",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "tags",
@@ -14249,6 +14367,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ContentfulMetadataFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14284,6 +14403,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ContentfulMetadataTagsFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14343,6 +14463,7 @@
         "kind": "OBJECT",
         "name": "ContentfulTag",
         "description": "Represents a tag entity for finding and organizing content easily.\n      Find out more here: https://www.contentful.com/developers/docs/references/content-delivery-api/#/reference/content-tags",
+        "isOneOf": null,
         "fields": [
           {
             "name": "id",
@@ -14378,6 +14499,7 @@
         "kind": "SCALAR",
         "name": "DateTime",
         "description": "A date-time string at UTC, such as 2007-12-03T10:15:30Z,\n    compliant with the 'date-time' format outlined in section 5.6 of\n    the RFC 3339 profile of the ISO 8601 standard for representation\n    of dates and times using the Gregorian calendar.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14388,6 +14510,7 @@
         "kind": "SCALAR",
         "name": "Dimension",
         "description": "The 'Dimension' type represents dimensions as whole numeric values between `1` and `4000`.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14398,6 +14521,7 @@
         "kind": "INTERFACE",
         "name": "Entry",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "contentfulMetadata",
@@ -14522,6 +14646,7 @@
         "kind": "OBJECT",
         "name": "EntryCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -14601,6 +14726,7 @@
         "kind": "INPUT_OBJECT",
         "name": "EntryFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -14668,6 +14794,7 @@
         "kind": "ENUM",
         "name": "EntryOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14727,6 +14854,7 @@
         "kind": "SCALAR",
         "name": "Float",
         "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](https://en.wikipedia.org/wiki/IEEE_floating_point).",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -14737,6 +14865,7 @@
         "kind": "OBJECT",
         "name": "FooterMenu",
         "description": "Navigation content type used for powering the Footer menu [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/footerMenu)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -15099,6 +15228,7 @@
         "kind": "OBJECT",
         "name": "FooterMenuCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -15178,6 +15308,7 @@
         "kind": "INPUT_OBJECT",
         "name": "FooterMenuFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -15753,6 +15884,7 @@
         "kind": "OBJECT",
         "name": "FooterMenuLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -15825,6 +15957,7 @@
         "kind": "OBJECT",
         "name": "FooterMenuMenuItemsCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -15904,6 +16037,7 @@
         "kind": "ENUM",
         "name": "FooterMenuMenuItemsCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -15987,6 +16121,7 @@
         "kind": "ENUM",
         "name": "FooterMenuOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16106,6 +16241,7 @@
         "kind": "SCALAR",
         "name": "HexColor",
         "description": "The 'HexColor' type represents color in `rgb:ffffff` string format.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16116,6 +16252,7 @@
         "kind": "SCALAR",
         "name": "ID",
         "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16126,6 +16263,7 @@
         "kind": "ENUM",
         "name": "ImageFormat",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16173,6 +16311,7 @@
         "kind": "ENUM",
         "name": "ImageResizeFocus",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16250,6 +16389,7 @@
         "kind": "ENUM",
         "name": "ImageResizeStrategy",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16297,6 +16437,7 @@
         "kind": "INPUT_OBJECT",
         "name": "ImageTransformOptions",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -16404,6 +16545,7 @@
         "kind": "SCALAR",
         "name": "Int",
         "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16414,6 +16556,7 @@
         "kind": "SCALAR",
         "name": "JSON",
         "description": "The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf).",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -16424,6 +16567,7 @@
         "kind": "OBJECT",
         "name": "MenuGroup",
         "description": "A group of items making up a section in the navigation menu [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/menuGroup)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -16695,6 +16839,7 @@
         "kind": "OBJECT",
         "name": "MenuGroupCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -16774,6 +16919,7 @@
         "kind": "OBJECT",
         "name": "MenuGroupFeaturedPagesCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -16853,6 +16999,7 @@
         "kind": "INPUT_OBJECT",
         "name": "MenuGroupFeaturedPagesFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17268,6 +17415,7 @@
         "kind": "UNION",
         "name": "MenuGroupFeaturedPagesItem",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -17284,6 +17432,7 @@
         "kind": "INPUT_OBJECT",
         "name": "MenuGroupFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -17583,6 +17732,7 @@
         "kind": "UNION",
         "name": "MenuGroupGroupLink",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -17599,6 +17749,7 @@
         "kind": "INPUT_OBJECT",
         "name": "MenuGroupGroupLinkFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -18014,6 +18165,7 @@
         "kind": "OBJECT",
         "name": "MenuGroupLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -18240,6 +18392,7 @@
         "kind": "ENUM",
         "name": "MenuGroupLinkingCollectionsFooterMenuCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -18359,6 +18512,7 @@
         "kind": "ENUM",
         "name": "MenuGroupLinkingCollectionsNavigationMenuCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -18430,6 +18584,7 @@
         "kind": "ENUM",
         "name": "MenuGroupOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -18513,6 +18668,7 @@
         "kind": "OBJECT",
         "name": "NavigationMenu",
         "description": "Navigation menu in the header [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/navigationMenu)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -18726,6 +18882,7 @@
         "kind": "OBJECT",
         "name": "NavigationMenuCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -18805,6 +18962,7 @@
         "kind": "INPUT_OBJECT",
         "name": "NavigationMenuFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -18988,6 +19146,7 @@
         "kind": "OBJECT",
         "name": "NavigationMenuLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -19060,6 +19219,7 @@
         "kind": "OBJECT",
         "name": "NavigationMenuMenuItemsCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -19139,6 +19299,7 @@
         "kind": "ENUM",
         "name": "NavigationMenuMenuItemsCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -19222,6 +19383,7 @@
         "kind": "ENUM",
         "name": "NavigationMenuOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -19293,6 +19455,7 @@
         "kind": "OBJECT",
         "name": "Page",
         "description": "Container that enables editors to publish a page, define its slug, select & arrange its content [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/page)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -19699,6 +19862,7 @@
         "kind": "OBJECT",
         "name": "PageCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -19778,6 +19942,7 @@
         "kind": "OBJECT",
         "name": "PageExtraSectionCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -19857,6 +20022,7 @@
         "kind": "INPUT_OBJECT",
         "name": "PageExtraSectionFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20108,6 +20274,7 @@
         "kind": "UNION",
         "name": "PageExtraSectionItem",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -20149,6 +20316,7 @@
         "kind": "INPUT_OBJECT",
         "name": "PageFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -20576,6 +20744,7 @@
         "kind": "OBJECT",
         "name": "PageLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "componentCtaCollection",
@@ -20956,6 +21125,7 @@
         "kind": "ENUM",
         "name": "PageLinkingCollectionsComponentCtaCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21075,6 +21245,7 @@
         "kind": "ENUM",
         "name": "PageLinkingCollectionsComponentDuplexCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21206,6 +21377,7 @@
         "kind": "ENUM",
         "name": "PageLinkingCollectionsComponentHeroBannerCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21349,6 +21521,7 @@
         "kind": "ENUM",
         "name": "PageLinkingCollectionsMenuGroupCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21432,6 +21605,7 @@
         "kind": "ENUM",
         "name": "PageOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21527,6 +21701,7 @@
         "kind": "UNION",
         "name": "PagePageContent",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21553,6 +21728,7 @@
         "kind": "OBJECT",
         "name": "PageTopSectionCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -21632,6 +21808,7 @@
         "kind": "INPUT_OBJECT",
         "name": "PageTopSectionFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -21883,6 +22060,7 @@
         "kind": "UNION",
         "name": "PageTopSectionItem",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21924,6 +22102,7 @@
         "kind": "SCALAR",
         "name": "Quality",
         "description": "The 'Quality' type represents quality as whole numeric values between `1` and `100`.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -21934,6 +22113,7 @@
         "kind": "OBJECT",
         "name": "Query",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_node",
@@ -24501,6 +24681,7 @@
         "kind": "INTERFACE",
         "name": "ResourceLink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -24724,6 +24905,7 @@
         "kind": "OBJECT",
         "name": "ResourceSys",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "linkType",
@@ -24767,6 +24949,7 @@
         "kind": "OBJECT",
         "name": "Seo",
         "description": "Open Graph (OG) meta tags for optimizing SEO visibility [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/seo)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -25028,6 +25211,7 @@
         "kind": "OBJECT",
         "name": "SeoCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -25107,6 +25291,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SeoFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -25534,6 +25719,7 @@
         "kind": "OBJECT",
         "name": "SeoLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -25683,6 +25869,7 @@
         "kind": "ENUM",
         "name": "SeoLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -25778,6 +25965,7 @@
         "kind": "ENUM",
         "name": "SeoOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -25897,6 +26085,7 @@
         "kind": "SCALAR",
         "name": "String",
         "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -25907,6 +26096,7 @@
         "kind": "OBJECT",
         "name": "Sys",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "environmentId",
@@ -26014,6 +26204,7 @@
         "kind": "INPUT_OBJECT",
         "name": "SysFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -26465,6 +26656,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfo",
         "description": "Container for ever-green content like About us, Career pages, FAQ, Knowledge base & more [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/topicBusinessInfo)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -26701,6 +26893,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBody",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -26744,6 +26937,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -26795,6 +26989,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -26866,6 +27061,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -26925,6 +27121,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -27008,6 +27205,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -27041,6 +27239,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -27074,6 +27273,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoBodyResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -27107,6 +27307,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -27186,6 +27387,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TopicBusinessInfoFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -27577,6 +27779,7 @@
         "kind": "OBJECT",
         "name": "TopicBusinessInfoLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -27726,6 +27929,7 @@
         "kind": "ENUM",
         "name": "TopicBusinessInfoLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -27821,6 +28025,7 @@
         "kind": "ENUM",
         "name": "TopicBusinessInfoOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -27904,6 +28109,7 @@
         "kind": "OBJECT",
         "name": "TopicPerson",
         "description": "Container for holding info about people (article authors, company leadership, quoted customers, etc.) [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/topicPerson)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -28190,6 +28396,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBio",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -28233,6 +28440,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -28284,6 +28492,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -28355,6 +28564,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -28414,6 +28624,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -28497,6 +28708,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -28530,6 +28742,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -28563,6 +28776,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonBioResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -28596,6 +28810,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -28675,6 +28890,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TopicPersonFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -29194,6 +29410,7 @@
         "kind": "OBJECT",
         "name": "TopicPersonLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -29266,6 +29483,7 @@
         "kind": "ENUM",
         "name": "TopicPersonOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -29385,6 +29603,7 @@
         "kind": "OBJECT",
         "name": "TopicProduct",
         "description": "Container for product-specific information like card definitions, features, benefits, prices & more [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/topicProduct)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -29710,6 +29929,7 @@
         "kind": "OBJECT",
         "name": "TopicProductCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -29789,6 +30009,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescription",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -29832,6 +30053,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -29883,6 +30105,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -29954,6 +30177,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -30013,6 +30237,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -30096,6 +30321,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -30129,6 +30355,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -30162,6 +30389,7 @@
         "kind": "OBJECT",
         "name": "TopicProductDescriptionResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -30195,6 +30423,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeature",
         "description": "Sub-container for product features enabling re-use of generic features across different products [See type definition](https://app.contentful.com/spaces/c012qveeslgs/content_types/topicProductFeature)",
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -30394,6 +30623,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -30473,6 +30703,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TopicProductFeatureFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -30796,6 +31027,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "entryCollection",
@@ -30945,6 +31177,7 @@
         "kind": "ENUM",
         "name": "TopicProductFeatureLinkingCollectionsTopicProductCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -31040,6 +31273,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescription",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -31083,6 +31317,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -31134,6 +31369,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -31205,6 +31441,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -31264,6 +31501,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -31347,6 +31585,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -31380,6 +31619,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -31413,6 +31653,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureLongDescriptionResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -31446,6 +31687,7 @@
         "kind": "ENUM",
         "name": "TopicProductFeatureOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -31529,6 +31771,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescription",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "json",
@@ -31572,6 +31815,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionAssets",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -31623,6 +31867,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionEntries",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -31694,6 +31939,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionLinks",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "assets",
@@ -31753,6 +31999,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionResources",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "block",
@@ -31836,6 +32083,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionResourcesBlock",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -31869,6 +32117,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionResourcesHyperlink",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -31902,6 +32151,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeatureShortDescriptionResourcesInline",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "sys",
@@ -31935,6 +32185,7 @@
         "kind": "OBJECT",
         "name": "TopicProductFeaturesCollection",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "items",
@@ -32014,6 +32265,7 @@
         "kind": "ENUM",
         "name": "TopicProductFeaturesCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -32097,6 +32349,7 @@
         "kind": "INPUT_OBJECT",
         "name": "TopicProductFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -32536,6 +32789,7 @@
         "kind": "OBJECT",
         "name": "TopicProductLinkingCollections",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "componentProductTableCollection",
@@ -32762,6 +33016,7 @@
         "kind": "ENUM",
         "name": "TopicProductLinkingCollectionsComponentProductTableCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -32857,6 +33112,7 @@
         "kind": "ENUM",
         "name": "TopicProductLinkingCollectionsPageCollectionOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -32952,6 +33208,7 @@
         "kind": "ENUM",
         "name": "TopicProductOrder",
         "description": null,
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -33047,6 +33304,7 @@
         "kind": "INTERFACE",
         "name": "_Node",
         "description": null,
+        "isOneOf": null,
         "fields": [
           {
             "name": "_id",
@@ -33155,6 +33413,7 @@
         "kind": "OBJECT",
         "name": "__Directive",
         "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document.\n\nIn some cases, you need to provide options to alter GraphQL's execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -33271,6 +33530,7 @@
         "kind": "ENUM",
         "name": "__DirectiveLocation",
         "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -33396,6 +33656,7 @@
         "kind": "OBJECT",
         "name": "__EnumValue",
         "description": "One possible value for a given Enum. Enum values are unique values, not a placeholder for a string or numeric value. However an Enum value is returned in a JSON response as a string.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -33463,6 +33724,7 @@
         "kind": "OBJECT",
         "name": "__Field",
         "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -33583,6 +33845,7 @@
         "kind": "OBJECT",
         "name": "__InputValue",
         "description": "Arguments provided to Fields or Directives and the input fields of an InputObject are represented as Input Values which describe their type and optionally a default value.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "name",
@@ -33678,6 +33941,7 @@
         "kind": "OBJECT",
         "name": "__Schema",
         "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "description",
@@ -33789,6 +34053,7 @@
         "kind": "OBJECT",
         "name": "__Type",
         "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum.\n\nDepending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name, description and optional `specifiedByURL`, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
+        "isOneOf": null,
         "fields": [
           {
             "name": "kind",
@@ -33992,6 +34257,18 @@
             },
             "isDeprecated": false,
             "deprecationReason": null
+          },
+          {
+            "name": "isOneOf",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "SCALAR",
+              "name": "Boolean",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
           }
         ],
         "inputFields": null,
@@ -34003,6 +34280,7 @@
         "kind": "ENUM",
         "name": "__TypeKind",
         "description": "An enum describing what kind of type a given `__Type` is.",
+        "isOneOf": null,
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -34062,6 +34340,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cfMenuGroupNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -34337,6 +34616,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cfSeoNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -34764,6 +35044,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cfTopicProductFeatureNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -35087,6 +35368,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cfTopicProductNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -35514,6 +35796,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cfextraSectionMultiTypeNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -35765,6 +36048,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cffeaturedPagesMultiTypeNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -36156,6 +36440,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cfgroupLinkMultiTypeNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
@@ -36547,6 +36832,7 @@
         "kind": "INPUT_OBJECT",
         "name": "cftopSectionMultiTypeNestedFilter",
         "description": null,
+        "isOneOf": false,
         "fields": null,
         "inputFields": [
           {
