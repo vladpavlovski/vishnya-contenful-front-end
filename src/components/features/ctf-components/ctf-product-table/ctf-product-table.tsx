@@ -2,7 +2,7 @@ import { useContentfulInspectorMode } from '@contentful/live-preview/react';
 import Image, { ImageLoader } from 'next/image';
 import { useTranslation } from 'next-i18next';
 import queryString from 'query-string';
-import { useState, useMemo, useRef } from 'react';
+import { useMemo, useRef } from 'react';
 
 import { ProductTableFieldsFragment } from './__generated/ctf-product-table.generated';
 
@@ -108,7 +108,6 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
   // Keeping the grid items the same size
   const gridElement = useRef<HTMLDivElement>(null);
   const gridColumnElements = useRef<(HTMLDivElement | null)[]>([]);
-  const [gridSizes, setGridSizes] = useState<{ [key: string]: number }>({});
 
   return (
     <div ref={gridElement}>
@@ -158,15 +157,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                           )}
                         </div>
                       </div>
-                      <div
-                        data-equal-size="1"
-                        style={{
-                          height:
-                            gridSizes[`index-1`] === undefined
-                              ? undefined
-                              : `${gridSizes[`index-1`]}px`,
-                        }}
-                      >
+                      <div data-equal-size="1">
                         <h2
                           className={''}
                           {...inspectorMode({
@@ -179,12 +170,6 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                       </div>
                       <div
                         data-equal-size="2"
-                        style={{
-                          height:
-                            gridSizes['index-2'] === undefined
-                              ? undefined
-                              : `${gridSizes['index-2']}px`,
-                        }}
                         {...inspectorMode({
                           entryId: product.sys.id,
                           fieldId: 'description',
@@ -203,12 +188,6 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                       </div>
                       <div
                         data-equal-size="3"
-                        style={{
-                          height:
-                            featureNames === null || gridSizes['index-3'] === undefined
-                              ? undefined
-                              : `${gridSizes['index-3']}px`,
-                        }}
                         {...inspectorMode({
                           entryId: product.sys.id,
                           fieldId: 'price',
@@ -256,17 +235,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                           </div>
                         </LayoutContext.Provider>
                       )}
-                      <div
-                        className={''}
-                        data-equal-size={(featureNames || []).length + 4}
-                        style={{
-                          height:
-                            featureNames === null ||
-                            gridSizes[`index-${featureNames.length + 4}`] === undefined
-                              ? undefined
-                              : `${gridSizes[`index-${featureNames.length + 4}`]}px`,
-                        }}
-                      >
+                      <div className={''} data-equal-size={(featureNames || []).length + 4}>
                         {!product.price || product.price === 0 ? (
                           <h2 className={''}>{t('price.free')}</h2>
                         ) : (

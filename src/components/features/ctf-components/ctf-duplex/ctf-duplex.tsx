@@ -59,7 +59,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
 };
 
 const DuplexImage = (props: DuplexFieldsFragment) => {
-  const { image, imageStyle: imageStyleBoolean } = props;
+  const { image } = props;
   const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id });
 
   return (
