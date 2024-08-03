@@ -1,4 +1,3 @@
-import clsx from 'clsx';
 import React from 'react';
 
 type Props = {
@@ -7,5 +6,5 @@ type Props = {
 };
 
 export const PageContainer = (props: Props) => {
-  return <div className={clsx(props.className)}>{props.children}</div>;
+  return <div className={props.className}>{props.children}</div>;
 };

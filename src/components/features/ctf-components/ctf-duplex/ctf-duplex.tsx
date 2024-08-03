@@ -1,5 +1,4 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react';
-import clsx from 'clsx';
 
 import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated';
 
@@ -61,7 +60,6 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
 
 const DuplexImage = (props: DuplexFieldsFragment) => {
   const { image, imageStyle: imageStyleBoolean } = props;
-  const imageStyle = imageStyleBoolean ? 'fixed' : 'full';
   const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id });
 
   return (
@@ -73,16 +71,6 @@ const DuplexImage = (props: DuplexFieldsFragment) => {
           {...inspectorMode({ fieldId: 'image' })}
         >
           <CtfImage
-            className={clsx([
-              imageStyle === 'fixed'
-                ? {
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    objectPosition: 'center center',
-                  }
-                : '',
-            ])}
             src={`${image.url}?w=600`}
             alt={image.description || ''}
             layout="responsive"

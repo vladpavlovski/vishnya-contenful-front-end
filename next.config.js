@@ -2,7 +2,7 @@ require('dotenv').config();
 const nextComposePlugins = require('next-compose-plugins');
 
 const headers = require('./config/headers');
-const includePolyfills = require('./config/includePolyfills');
+// const includePolyfills = require('./config/includePolyfills');
 const plugins = require('./config/plugins');
 const { i18n } = require('./next-i18next.config.js');
 
@@ -62,7 +62,7 @@ module.exports = withPlugins(plugins, {
    */
   images: {
     deviceSizes: [320, 420, 768, 1024, 1200, 1600],
-    domains: ['images.ctfassets.net','images.eu.ctfassets.net'],
+    domains: ['images.ctfassets.net', 'images.eu.ctfassets.net'],
     path: '/_next/image',
     loader: 'default',
   },
@@ -86,7 +86,7 @@ module.exports = withPlugins(plugins, {
       use: ['@svgr/webpack'],
     });
 
-    includePolyfills(config);
+    // includePolyfills(config);
 
     return config;
   },
