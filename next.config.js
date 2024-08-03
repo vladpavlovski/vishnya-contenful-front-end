@@ -65,21 +65,4 @@ module.exports = withPlugins(plugins, {
     path: '/_next/image',
     loader: 'default',
   },
-
-  webpack(config, options) {
-    if (!options.isServer || process.env.circularDependencies) {
-      import('circular-dependency-plugin').then(({ default: CircularDependencyPlugin }) => {
-        config.plugins.push(
-          new CircularDependencyPlugin({
-            exclude: /a\.js|node_modules/,
-            failOnError: false,
-            allowAsyncCycles: true,
-            cwd: process.cwd(),
-          }),
-        );
-      });
-    }
-
-    return config;
-  },
 });

@@ -68,7 +68,6 @@
     "babel-jest": "27.0.2",
     "babel-loader": "8.2.5",
     "babel-plugin-import": "1.13.3",
-    "circular-dependency-plugin": "5.2.2",
     "contentful-import": "9.4.34",
     "eslint": "8.22.0",
     "eslint-config-next": "12.3.1",
