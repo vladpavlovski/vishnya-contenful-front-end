@@ -1691,10 +1691,10 @@
     "@types/react" "*"
     hoist-non-react-statics "^3.3.0"
 
-"@types/imagesloaded@4.1.2":
-  version "4.1.2"
-  resolved "https://registry.yarnpkg.com/@types/imagesloaded/-/imagesloaded-4.1.2.tgz#da743c8d9f4a04f795e99d7921aae7c20af5d2e1"
-  integrity sha512-QxpoYhaYgv1qXwwPd6EnQFLkzrRZaecIafPsY51fnrsr+qIh0wrPVaOQirBaFl+FjFHk5BMfpf+6QHy0lRrcNw==
+"@types/imagesloaded@4.1.6":
+  version "4.1.6"
+  resolved "https://registry.yarnpkg.com/@types/imagesloaded/-/imagesloaded-4.1.6.tgz#7f1575beb306f7dc3ec1aa6901352c4aeb4061af"
+  integrity sha512-X16+aOrPwf3+JAy1rL3zi0m19mbVrhf3AgtMoppqK07QpbkvVpxOzZMjHBS2X5BMOxuP8gQrueplNoYnyaFs5g==
   dependencies:
     "@types/jquery" "*"
 
@@ -1761,13 +1761,12 @@
     "@types/scheduler" "*"
     csstype "^3.0.2"
 
-"@types/react@18.0.15":
-  version "18.0.15"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.0.15.tgz#d355644c26832dc27f3e6cbf0c4f4603fc4ab7fe"
-  integrity sha512-iz3BtLuIYH1uWdsv6wXYdhozhqj20oD4/Hk2DNXIn1kFsmp9x8d9QB6FnPhfkbhd2PgEONt9Q1x/ebkwjfFLow==
+"@types/react@18.3.3":
+  version "18.3.3"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-18.3.3.tgz#9679020895318b0915d7a3ab004d92d33375c45f"
+  integrity sha512-hti/R0pS0q1/xx+TsI73XIqk26eBsISZ2R0wUijXIngRK9R/e7Xw/cXVxQK7R5JjW+SV4zGcn5hXjudkN/pLIw==
   dependencies:
     "@types/prop-types" "*"
-    "@types/scheduler" "*"
     csstype "^3.0.2"
 
 "@types/scheduler@*":
