@@ -1,19 +1,19 @@
-import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react';
-import { DehydratedState, Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { appWithTranslation, SSRConfig } from 'next-i18next';
-import { useEffect, useState } from 'react';
+import { ContentfulLivePreviewProvider } from '@contentful/live-preview/react'
+import { DehydratedState, Hydrate, QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { AppProps } from 'next/app'
+import Head from 'next/head'
+import { appWithTranslation, SSRConfig } from 'next-i18next'
+import { useEffect, useState } from 'react'
 
-import { Layout } from '@src/components/templates/layout/layout';
-import { useContentfulContext, ContentfulContentProvider } from '@src/contentful-context';
-import { queryConfig } from '@src/lib/gql-client';
-import contentfulConfig from 'contentful.config';
-import nextI18nConfig from 'next-i18next.config';
+import { Layout } from '@src/components/templates/layout/layout'
+import { useContentfulContext, ContentfulContentProvider } from '@src/contentful-context'
+import { queryConfig } from '@src/lib/gql-client'
+import contentfulConfig from 'contentful.config'
+import nextI18nConfig from 'next-i18next.config'
 
 const LivePreviewProvider = ({ children }) => {
-  const { previewActive, locale } = useContentfulContext();
+  const { previewActive, locale } = useContentfulContext()
 
   return (
     <ContentfulLivePreviewProvider
@@ -23,34 +23,34 @@ const LivePreviewProvider = ({ children }) => {
     >
       {children}
     </ContentfulLivePreviewProvider>
-  );
-};
+  )
+}
 
-type CustomPageProps = SSRConfig & { dehydratedState: DehydratedState; err: Error };
+type CustomPageProps = SSRConfig & { dehydratedState: DehydratedState; err: Error }
 
 const CustomApp = ({
   Component,
   router,
-  pageProps: originalPageProps,
+  pageProps: originalPageProps
 }: AppProps<CustomPageProps>) => {
-  const [queryClient] = useState(() => new QueryClient(queryConfig));
-  const { dehydratedState, err, ...pageProps } = originalPageProps;
-  const { previewActive } = useContentfulContext();
+  const [queryClient] = useState(() => new QueryClient(queryConfig))
+  const { dehydratedState, err, ...pageProps } = originalPageProps
+  const { previewActive } = useContentfulContext()
 
   useEffect(() => {
     // when component is mounting we remove server side rendered css:
-    const jssStyles = document.querySelector('#jss-server-side');
+    const jssStyles = document.querySelector('#jss-server-side')
 
     if (jssStyles && jssStyles.parentNode) {
-      jssStyles.parentNode.removeChild(jssStyles);
+      jssStyles.parentNode.removeChild(jssStyles)
     }
 
-    router.events.on('routeChangeComplete', () => null);
+    router.events.on('routeChangeComplete', () => null)
 
     return () => {
-      router.events.off('routeChangeComplete', () => null);
-    };
-  }, [router.events]);
+      router.events.off('routeChangeComplete', () => null)
+    }
+  }, [router.events])
 
   return (
     <>
@@ -87,7 +87,7 @@ const CustomApp = ({
         </LivePreviewProvider>
       </ContentfulContentProvider>
     </>
-  );
-};
+  )
+}
 
-export default appWithTranslation(CustomApp, nextI18nConfig);
+export default appWithTranslation(CustomApp, nextI18nConfig)
