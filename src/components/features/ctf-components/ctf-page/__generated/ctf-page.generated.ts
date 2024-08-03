@@ -91,9 +91,9 @@ export type CtfPageFieldsFragment = { __typename: 'Page', pageName?: string | nu
     ) | null> } | null };
 
 export type CtfPageQueryVariables = Types.Exact<{
-  slug: Types.Scalars['String'];
-  locale?: Types.InputMaybe<Types.Scalars['String']>;
-  preview?: Types.InputMaybe<Types.Scalars['Boolean']>;
+  slug: Types.Scalars['String']['input'];
+  locale?: Types.InputMaybe<Types.Scalars['String']['input']>;
+  preview?: Types.InputMaybe<Types.Scalars['Boolean']['input']>;
 }>;
 
 
@@ -101,6 +101,7 @@ export type CtfPageQuery = { __typename?: 'Query', pageCollection?: { __typename
       { __typename?: 'Page' }
       & CtfPageFieldsFragment
     ) | null> } | null };
+
 
 export const PageTopSectionFieldsFragmentDoc = `
     fragment PageTopSectionFields on PageTopSectionItem {
@@ -186,20 +187,22 @@ ${AssetFieldsFragmentDoc}
 ${PageTopSectionFieldsFragmentDoc}
 ${PageContentFieldsFragmentDoc}
 ${PageExtraSectionItemFieldsFragmentDoc}`;
+
 export const useCtfPageQuery = <
       TData = CtfPageQuery,
       TError = unknown
     >(
       variables: CtfPageQueryVariables,
       options?: UseQueryOptions<CtfPageQuery, TError, TData>
-    ) =>
-    useQuery<CtfPageQuery, TError, TData>(
+    ) => {
+    
+    return useQuery<CtfPageQuery, TError, TData>(
       ['CtfPage', variables],
       customFetcher<CtfPageQuery, CtfPageQueryVariables>(CtfPageDocument, variables),
       options
-    );
+    )};
 
 useCtfPageQuery.getKey = (variables: CtfPageQueryVariables) => ['CtfPage', variables];
-;
+
 
 useCtfPageQuery.fetcher = (variables: CtfPageQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfPageQuery, CtfPageQueryVariables>(CtfPageDocument, variables, options);

@@ -60,9 +60,9 @@ export type TextBlockFieldsFragment = { __typename: 'ComponentTextBlock', headli
         ) | null> } } } | null };
 
 export type CtfTextBlockQueryVariables = Types.Exact<{
-  id: Types.Scalars['String'];
-  locale?: Types.InputMaybe<Types.Scalars['String']>;
-  preview?: Types.InputMaybe<Types.Scalars['Boolean']>;
+  id: Types.Scalars['String']['input'];
+  locale?: Types.InputMaybe<Types.Scalars['String']['input']>;
+  preview?: Types.InputMaybe<Types.Scalars['Boolean']['input']>;
 }>;
 
 
@@ -70,6 +70,7 @@ export type CtfTextBlockQuery = { __typename?: 'Query', componentTextBlock?: (
     { __typename?: 'ComponentTextBlock' }
     & TextBlockFieldsFragment
   ) | null };
+
 
 export const TextBlockFieldsFragmentDoc = `
     fragment TextBlockFields on ComponentTextBlock {
@@ -106,20 +107,22 @@ export const CtfTextBlockDocument = `
     ${TextBlockFieldsFragmentDoc}
 ${ComponentReferenceFieldsFragmentDoc}
 ${AssetFieldsFragmentDoc}`;
+
 export const useCtfTextBlockQuery = <
       TData = CtfTextBlockQuery,
       TError = unknown
     >(
       variables: CtfTextBlockQueryVariables,
       options?: UseQueryOptions<CtfTextBlockQuery, TError, TData>
-    ) =>
-    useQuery<CtfTextBlockQuery, TError, TData>(
+    ) => {
+    
+    return useQuery<CtfTextBlockQuery, TError, TData>(
       ['CtfTextBlock', variables],
       customFetcher<CtfTextBlockQuery, CtfTextBlockQueryVariables>(CtfTextBlockDocument, variables),
       options
-    );
+    )};
 
 useCtfTextBlockQuery.getKey = (variables: CtfTextBlockQueryVariables) => ['CtfTextBlock', variables];
-;
+
 
 useCtfTextBlockQuery.fetcher = (variables: CtfTextBlockQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfTextBlockQuery, CtfTextBlockQueryVariables>(CtfTextBlockDocument, variables, options);

@@ -63,9 +63,9 @@ export type BusinessInfoFieldsFragment = { __typename: 'TopicBusinessInfo', name
         ) | null> } } } | null };
 
 export type CtfBusinessInfoQueryVariables = Types.Exact<{
-  id: Types.Scalars['String'];
-  locale?: Types.InputMaybe<Types.Scalars['String']>;
-  preview?: Types.InputMaybe<Types.Scalars['Boolean']>;
+  id: Types.Scalars['String']['input'];
+  locale?: Types.InputMaybe<Types.Scalars['String']['input']>;
+  preview?: Types.InputMaybe<Types.Scalars['Boolean']['input']>;
 }>;
 
 
@@ -73,6 +73,7 @@ export type CtfBusinessInfoQuery = { __typename?: 'Query', topicBusinessInfo?: (
     { __typename?: 'TopicBusinessInfo' }
     & BusinessInfoFieldsFragment
   ) | null };
+
 
 export const BusinessInfoFieldsFragmentDoc = `
     fragment BusinessInfoFields on TopicBusinessInfo {
@@ -111,20 +112,22 @@ export const CtfBusinessInfoDocument = `
     ${BusinessInfoFieldsFragmentDoc}
 ${AssetFieldsFragmentDoc}
 ${ComponentReferenceFieldsFragmentDoc}`;
+
 export const useCtfBusinessInfoQuery = <
       TData = CtfBusinessInfoQuery,
       TError = unknown
     >(
       variables: CtfBusinessInfoQueryVariables,
       options?: UseQueryOptions<CtfBusinessInfoQuery, TError, TData>
-    ) =>
-    useQuery<CtfBusinessInfoQuery, TError, TData>(
+    ) => {
+    
+    return useQuery<CtfBusinessInfoQuery, TError, TData>(
       ['CtfBusinessInfo', variables],
       customFetcher<CtfBusinessInfoQuery, CtfBusinessInfoQueryVariables>(CtfBusinessInfoDocument, variables),
       options
-    );
+    )};
 
 useCtfBusinessInfoQuery.getKey = (variables: CtfBusinessInfoQueryVariables) => ['CtfBusinessInfo', variables];
-;
+
 
 useCtfBusinessInfoQuery.fetcher = (variables: CtfBusinessInfoQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfBusinessInfoQuery, CtfBusinessInfoQueryVariables>(CtfBusinessInfoDocument, variables, options);

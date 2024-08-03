@@ -63,9 +63,9 @@ export type QuoteFieldsFragment = { __typename: 'ComponentQuote', quoteAlignment
   ) | null };
 
 export type CtfQuoteQueryVariables = Types.Exact<{
-  id: Types.Scalars['String'];
-  locale?: Types.InputMaybe<Types.Scalars['String']>;
-  preview?: Types.InputMaybe<Types.Scalars['Boolean']>;
+  id: Types.Scalars['String']['input'];
+  locale?: Types.InputMaybe<Types.Scalars['String']['input']>;
+  preview?: Types.InputMaybe<Types.Scalars['Boolean']['input']>;
 }>;
 
 
@@ -73,6 +73,7 @@ export type CtfQuoteQuery = { __typename?: 'Query', componentQuote?: (
     { __typename?: 'ComponentQuote' }
     & QuoteFieldsFragment
   ) | null };
+
 
 export const QuoteFieldsFragmentDoc = `
     fragment QuoteFields on ComponentQuote {
@@ -112,20 +113,22 @@ export const CtfQuoteDocument = `
     ${QuoteFieldsFragmentDoc}
 ${ComponentReferenceFieldsFragmentDoc}
 ${AssetFieldsFragmentDoc}`;
+
 export const useCtfQuoteQuery = <
       TData = CtfQuoteQuery,
       TError = unknown
     >(
       variables: CtfQuoteQueryVariables,
       options?: UseQueryOptions<CtfQuoteQuery, TError, TData>
-    ) =>
-    useQuery<CtfQuoteQuery, TError, TData>(
+    ) => {
+    
+    return useQuery<CtfQuoteQuery, TError, TData>(
       ['CtfQuote', variables],
       customFetcher<CtfQuoteQuery, CtfQuoteQueryVariables>(CtfQuoteDocument, variables),
       options
-    );
+    )};
 
 useCtfQuoteQuery.getKey = (variables: CtfQuoteQueryVariables) => ['CtfQuote', variables];
-;
+
 
 useCtfQuoteQuery.fetcher = (variables: CtfQuoteQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfQuoteQuery, CtfQuoteQueryVariables>(CtfQuoteDocument, variables, options);
