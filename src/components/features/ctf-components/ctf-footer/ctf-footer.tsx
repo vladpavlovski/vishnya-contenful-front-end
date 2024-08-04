@@ -1,9 +1,9 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslation } from 'next-i18next'
 
-import { FooterFieldsFragment } from './__generated/ctf-footer.generated'
-
+import { footerOptions } from '@src/components/features/ctf-components/ctf-footer/ctf-footer-gql'
 import {
   getLinkDisplayText,
   getLinkHrefPrefix
@@ -12,8 +12,9 @@ import { LanguageSelector } from '@src/components/features/language-selector'
 import { Link } from '@src/components/shared/link'
 import { useContentfulContext } from '@src/contentful-context'
 
-export const CtfFooter = (props: FooterFieldsFragment) => {
-  const footerContent = props.items[0]
+export const CtfFooter = () => {
+  const { data } = useSuspenseQuery(footerOptions)
+  const footerContent = data?.footerMenuCollection?.items?.[0]
 
   const { t } = useTranslation()
   const { locale } = useContentfulContext()
@@ -49,8 +50,8 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
     : undefined
 
   return (
-    <>
-      <div {...containerProps} className="">
+    <div {...containerProps}>
+      <div className="">
         <footer className="">
           {footerContent?.menuItemsCollection?.items?.length && (
             <nav role="navigation" className="">
@@ -157,6 +158,6 @@ export const CtfFooter = (props: FooterFieldsFragment) => {
           </div>
         </section>
       </div>
-    </>
+    </div>
   )
 }

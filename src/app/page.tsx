@@ -12,8 +12,6 @@ import { prefetchPromiseArr } from '@src/lib/prefetch-promise-array'
 export default async function Home() {
   const queryClient = getQueryClient()
 
-  // void queryClient.prefetchQuery(pokemonOptions)
-
   const locale = 'en-US'
   const preview = false
 
