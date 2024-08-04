@@ -50,7 +50,6 @@ export default async function Home() {
 
   return (
     <main>
-      <h1>Pokemon Info</h1>
       <HydrationBoundary state={dehydrate(queryClient)}>
         <CtfPageGgl slug="/" />
       </HydrationBoundary>
