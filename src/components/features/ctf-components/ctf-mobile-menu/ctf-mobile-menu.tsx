@@ -6,7 +6,7 @@ import {
   getLinkDisplayText,
   getLinkHrefPrefix
 } from '@src/components/features/ctf-components/ctf-navigation/utils'
-import { Link } from '@src/components/shared/link'
+import { Link } from '@src/components/shared/Link'
 
 interface MobileMenuPropsInterface extends NavigationFieldsFragment {
   isOpen?: boolean

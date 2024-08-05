@@ -9,7 +9,7 @@ import { CtfAsset } from '../ctf-asset/ctf-asset'
 import { AssetFieldsFragment } from '@src/components/features/ctf-components/ctf-asset/__generated/ctf-asset.generated'
 import { useCtfRichTextHyperlinkQuery } from '@src/components/features/ctf-components/ctf-richtext/__generated/ctf-richtext.generated'
 import { PageLink } from '@src/components/features/page-link/PageLink'
-import { ComponentResolver } from '@src/components/shared/component-resolver'
+import { ComponentResolver } from '@src/components/shared/ComponentResolver'
 import { useContentfulContext } from '@src/contentful-context'
 import { OmitRecursive, tryget } from '@src/utils'
 

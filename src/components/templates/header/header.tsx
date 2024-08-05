@@ -2,7 +2,7 @@
 import { useTranslation } from 'next-i18next'
 
 import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql'
-import { Link } from '@src/components/shared/link'
+import { Link } from '@src/components/shared/Link'
 
 interface HeaderPropsInterface {
   isMenuOpen?: boolean

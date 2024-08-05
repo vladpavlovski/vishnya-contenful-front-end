@@ -1,12 +1,12 @@
-import React, { useMemo } from 'react';
+import React, { useMemo } from 'react'
 
-import { tryget } from '@src/utils';
+import { tryget } from '@src/utils'
 
 export const GraphqlError = (props: { error: any }) => {
-  const { error } = props;
-  console.error({ error });
+  const { error } = props
+  console.error({ error })
 
-  const networkErrors = useMemo(() => tryget(() => error.networkError.result.errors), [error]);
+  const networkErrors = useMemo(() => tryget(() => error.networkError.result.errors), [error])
 
   return (
     <div className={''} style={{ padding: '16px', color: '#f44336', border: '1px solid #f44336' }}>
@@ -35,5 +35,5 @@ export const GraphqlError = (props: { error: any }) => {
         </div>
       )}
     </div>
-  );
-};
+  )
+}

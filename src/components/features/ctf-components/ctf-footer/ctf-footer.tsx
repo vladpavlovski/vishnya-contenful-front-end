@@ -9,7 +9,7 @@ import {
   getLinkHrefPrefix
 } from '@src/components/features/ctf-components/ctf-navigation/utils'
 import { LanguageSelector } from '@src/components/features/language-selector/LanguageSelector'
-import { Link } from '@src/components/shared/link'
+import { Link } from '@src/components/shared/Link'
 import { useContentfulContext } from '@src/contentful-context'
 
 export const CtfFooter = () => {

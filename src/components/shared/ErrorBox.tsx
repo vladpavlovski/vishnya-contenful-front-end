@@ -1,8 +1,8 @@
-import React from 'react';
+import React from 'react'
 
 interface Props {
-  className?: string;
-  children?: any;
+  className?: string
+  children?: any
 }
 
 export const ErrorBox = (props: Props) => {
@@ -10,5 +10,5 @@ export const ErrorBox = (props: Props) => {
     <div className={''}>
       <p className={''}>{props.children}</p>
     </div>
-  );
-};
+  )
+}

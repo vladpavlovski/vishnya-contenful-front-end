@@ -5,7 +5,7 @@ import React from 'react'
 import { NavigationFieldsFragment } from './__generated/ctf-navigation.generated'
 import { getLinkDisplayText, getLinkHrefPrefix } from './utils'
 
-import { Link } from '@src/components/shared/link'
+import { Link } from '@src/components/shared/Link'
 
 export const CtfNavigation = (props: NavigationFieldsFragment) => {
   const inspectorMode = useContentfulInspectorMode()
