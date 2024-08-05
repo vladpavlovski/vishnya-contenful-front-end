@@ -2,7 +2,7 @@
 import { useTranslation } from 'next-i18next'
 import React from 'react'
 
-import { PageContainer } from '@src/components/templates/page-container'
+import { PageContainer } from '@src/components/templates/page-container/PageContainer'
 
 interface PropsInterface {
   error?: {

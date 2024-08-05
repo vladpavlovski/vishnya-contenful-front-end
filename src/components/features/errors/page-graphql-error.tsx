@@ -1,6 +1,6 @@
 'use client'
 import { GraphqlError } from '@src/components/shared/graphql-error'
-import { PageContainer } from '@src/components/templates/page-container'
+import { PageContainer } from '@src/components/templates/page-container/PageContainer'
 
 export const PageGraphqlError = (props: { error: any }) => (
   <PageContainer>

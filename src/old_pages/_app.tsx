@@ -11,7 +11,7 @@ import Head from 'next/head'
 import { appWithTranslation, SSRConfig } from 'next-i18next'
 import { useEffect, useState } from 'react'
 
-import { Layout } from '@src/components/templates/layout/layout'
+import { Layout } from '@src/components/templates/layout/Layout'
 import { useContentfulContext, ContentfulContentProvider } from '@src/contentful-context'
 import { queryConfig } from '@src/lib/gql-client'
 import contentfulConfig from 'contentful.config'

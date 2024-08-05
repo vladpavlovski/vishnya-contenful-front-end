@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 import Providers from '@src/app/providers'
-import { Layout } from '@src/components/templates/layout'
+import { Layout } from '@src/components/templates/layout/Layout'
 
 export const metadata: Metadata = {
   title: 'Home',
