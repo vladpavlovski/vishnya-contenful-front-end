@@ -2,7 +2,7 @@
 import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
 
-import { DEFAULT_LOCALE, LOCALES } from '@src/lib/localse'
+import { DEFAULT_LOCALE, LOCALES } from '@src/lib/locales'
 
 export const LanguageSelector = () => {
   const router = useRouter()
