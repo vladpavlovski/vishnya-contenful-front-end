@@ -6,7 +6,6 @@ import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generate
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
 import { PageLink } from '@src/components/features/page-link'
-import LayoutContext, { defaultLayout, useLayoutContext } from '@src/layout-context'
 
 export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
   const {
@@ -18,16 +17,9 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     targetPage,
     sys: { id }
   } = props
-  const layout = useLayoutContext()
 
   const imageStyle = imageStyleBoolean ? 'partial' : 'full'
-  const backgroundImage = useMemo(
-    () =>
-      image
-        ? `${image.url}?w=${imageStyle === 'partial' ? 767 * 2 : layout.containerWidth * 2}`
-        : undefined,
-    [image, imageStyle, layout.containerWidth]
-  )
+  const backgroundImage = useMemo(() => (image ? `${image.url}?w=${767 * 2}` : undefined), [image])
   const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
@@ -65,19 +57,17 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
           </h1>
         )}
         {bodyText && (
-          <LayoutContext.Provider value={{ ...defaultLayout, parent: 'hero-banner-body' }}>
-            <div
-              className={''}
-              style={{
-                fontWeight: 400,
-                lineHeight: 1.56,
-                marginTop: '6rem'
-              }}
-              {...inspectorMode({ fieldId: 'bodyText' })}
-            >
-              <CtfRichtext {...bodyText} className={''} />
-            </div>
-          </LayoutContext.Provider>
+          <div
+            className={''}
+            style={{
+              fontWeight: 400,
+              lineHeight: 1.56,
+              marginTop: '6rem'
+            }}
+            {...inspectorMode({ fieldId: 'bodyText' })}
+          >
+            <CtfRichtext {...bodyText} className={''} />
+          </div>
         )}
         {targetPage && ctaText && (
           <div className={''} style={{ marginTop: '6rem' }}>

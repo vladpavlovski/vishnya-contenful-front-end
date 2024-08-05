@@ -6,7 +6,6 @@ import { ProductFieldsFragment } from './__generated/ctf-product.generated'
 
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export const CtfProduct = (props: ProductFieldsFragment) => {
   const {
@@ -58,17 +57,15 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
               </h2>
             )}
             {description && (
-              <LayoutContext.Provider value={{ ...defaultLayout, parent: 'product-description' }}>
-                <div
-                  className={''}
-                  {...inspectorMode({
-                    entryId: id,
-                    fieldId: 'description'
-                  })}
-                >
-                  <CtfRichtext {...description} className={''} />
-                </div>
-              </LayoutContext.Provider>
+              <div
+                className={''}
+                {...inspectorMode({
+                  entryId: id,
+                  fieldId: 'description'
+                })}
+              >
+                <CtfRichtext {...description} className={''} />
+              </div>
             )}
           </div>
           {featuredImage && (
@@ -92,92 +89,90 @@ export const CtfProduct = (props: ProductFieldsFragment) => {
         </div>
       </div>
       {featuresCollection && featuresCollection.items.length > 0 && (
-        <LayoutContext.Provider value={{ ...defaultLayout, parent: 'product-table' }}>
-          <section
+        <section
+          className={''}
+          style={{
+            backgroundColor: '#FCFCFC',
+            paddingTop: '152px', // Assuming theme.spacing(19) is 76px
+            paddingBottom: '48px' // Assuming theme.spacing(12) is 48px
+          }}
+        >
+          <div
             className={''}
             style={{
-              backgroundColor: '#FCFCFC',
-              paddingTop: '152px', // Assuming theme.spacing(19) is 76px
-              paddingBottom: '48px' // Assuming theme.spacing(12) is 48px
+              maxWidth: '77rem',
+              marginLeft: 'auto',
+              marginRight: 'auto'
             }}
           >
             <div
               className={''}
               style={{
-                maxWidth: '77rem',
-                marginLeft: 'auto',
-                marginRight: 'auto'
+                display: 'flex'
               }}
             >
-              <div
-                className={''}
-                style={{
-                  display: 'flex'
-                }}
-              >
-                <dl>
-                  {featuresCollection.items.map(
-                    item =>
-                      item && (
-                        <Fragment key={item.sys.id}>
-                          <div
+              <dl>
+                {featuresCollection.items.map(
+                  item =>
+                    item && (
+                      <Fragment key={item.sys.id}>
+                        <div
+                          className={''}
+                          style={{
+                            backgroundColor: '#707070',
+                            height: '2px',
+                            display: item === featuresCollection.items[0] ? 'none' : 'block'
+                          }}
+                        />
+                        <div
+                          className={''}
+                          style={{
+                            display: 'flex',
+                            marginTop: '80px' // Assuming theme.spacing(10) is 80px
+                          }}
+                        >
+                          <dt
                             className={''}
                             style={{
-                              backgroundColor: '#707070',
-                              height: '2px',
-                              display: item === featuresCollection.items[0] ? 'none' : 'block'
+                              marginBottom: '32px', // Assuming theme.spacing(4) is 32px
+                              color: '#414D63'
                             }}
-                          />
-                          <div
+                            {...inspectorMode({
+                              entryId: item.sys.id,
+                              fieldId: 'name'
+                            })}
+                          >
+                            {item.name}
+                          </dt>
+                          <dd
                             className={''}
                             style={{
-                              display: 'flex',
-                              marginTop: '80px' // Assuming theme.spacing(10) is 80px
+                              width: '50rem',
+                              fontSize: '1.8rem',
+                              color: '#414D63',
+                              margin: 0
                             }}
                           >
-                            <dt
-                              className={''}
-                              style={{
-                                marginBottom: '32px', // Assuming theme.spacing(4) is 32px
-                                color: '#414D63'
-                              }}
-                              {...inspectorMode({
-                                entryId: item.sys.id,
-                                fieldId: 'name'
-                              })}
-                            >
-                              {item.name}
-                            </dt>
-                            <dd
-                              className={''}
-                              style={{
-                                width: '50rem',
-                                fontSize: '1.8rem',
-                                color: '#414D63',
-                                margin: 0
-                              }}
-                            >
-                              {item.longDescription && (
-                                <div
-                                  className={''}
-                                  {...inspectorMode({
-                                    entryId: item.sys.id,
-                                    fieldId: 'longDescription'
-                                  })}
-                                >
-                                  <CtfRichtext {...item.longDescription} />
-                                </div>
-                              )}
-                            </dd>
-                          </div>
-                        </Fragment>
-                      )
-                  )}
-                </dl>
-              </div>
+                            {item.longDescription && (
+                              <div
+                                className={''}
+                                {...inspectorMode({
+                                  entryId: item.sys.id,
+                                  fieldId: 'longDescription'
+                                })}
+                              >
+                                <CtfRichtext {...item.longDescription} />
+                              </div>
+                            )}
+                          </dd>
+                        </div>
+                      </Fragment>
+                    )
+                )}
+              </dl>
             </div>
-          </section>
-        </LayoutContext.Provider>
+          </div>
+        </section>
       )}
     </>
   )

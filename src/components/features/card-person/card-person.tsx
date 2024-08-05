@@ -4,7 +4,6 @@ import React from 'react'
 import { Avatar } from '@src/components/features/avatar'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
   return (
@@ -36,11 +35,9 @@ export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
           </p>
         )}
         {bio && (
-          <LayoutContext.Provider value={{ ...defaultLayout, parent: 'card-person' }}>
-            <div>
-              <CtfRichtext {...bio} className={''} />
-            </div>
-          </LayoutContext.Provider>
+          <div>
+            <CtfRichtext {...bio} className={''} />
+          </div>
         )}
       </div>
     </div>

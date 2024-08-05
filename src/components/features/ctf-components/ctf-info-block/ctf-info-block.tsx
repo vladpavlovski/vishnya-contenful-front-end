@@ -7,7 +7,6 @@ import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated'
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
 import { SectionHeadlines } from '@src/components/features/section-headlines'
-import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 export interface CtfInfoBlockPropsInterface extends InfoBlockFieldsFragment {
   previousComponent?: string | null
@@ -61,134 +60,133 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
           }}
           className={''}
         />
-        <LayoutContext.Provider value={{ ...defaultLayout, parent: 'info-block' }}>
-          <div
-            className={''}
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              alignItems: 'flex-start',
-              justifyContent: 'center',
-              marginLeft: '-5rem',
-              marginTop: '-5rem'
-            }}
-          >
-            {block1Body && (
-              <div
-                className={''}
-                style={{
-                  marginLeft: '5rem',
-                  marginTop: '5rem',
-                  maxWidth: '39rem',
-                  width: '100%'
-                }}
-              >
-                {block1Image && (
-                  <div
-                    className={''}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '11.3rem',
-                      height: '11.3rem',
-                      fontSize: 0
-                    }}
-                    {...inspectorMode({
-                      fieldId: 'block1Image'
-                    })}
-                  >
-                    <CtfAsset {...block1Image} showDescription={false} />
-                  </div>
-                )}
+
+        <div
+          className={''}
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'flex-start',
+            justifyContent: 'center',
+            marginLeft: '-5rem',
+            marginTop: '-5rem'
+          }}
+        >
+          {block1Body && (
+            <div
+              className={''}
+              style={{
+                marginLeft: '5rem',
+                marginTop: '5rem',
+                maxWidth: '39rem',
+                width: '100%'
+              }}
+            >
+              {block1Image && (
                 <div
                   className={''}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '11.3rem',
+                    height: '11.3rem',
+                    fontSize: 0
+                  }}
                   {...inspectorMode({
-                    fieldId: 'block1Body'
+                    fieldId: 'block1Image'
                   })}
                 >
-                  <CtfRichtext {...block1Body} className={''} />
+                  <CtfAsset {...block1Image} showDescription={false} />
                 </div>
-              </div>
-            )}
-            {block2Body && (
+              )}
               <div
                 className={''}
-                style={{
-                  marginLeft: '5rem',
-                  marginTop: '5rem',
-                  maxWidth: '39rem',
-                  width: '100%'
-                }}
+                {...inspectorMode({
+                  fieldId: 'block1Body'
+                })}
               >
-                {block2Image && (
-                  <div
-                    className={''}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '11.3rem',
-                      height: '11.3rem',
-                      fontSize: 0
-                    }}
-                    {...inspectorMode({
-                      fieldId: 'block2Image'
-                    })}
-                  >
-                    <CtfAsset {...block2Image} showDescription={false} />
-                  </div>
-                )}
+                <CtfRichtext {...block1Body} className={''} />
+              </div>
+            </div>
+          )}
+          {block2Body && (
+            <div
+              className={''}
+              style={{
+                marginLeft: '5rem',
+                marginTop: '5rem',
+                maxWidth: '39rem',
+                width: '100%'
+              }}
+            >
+              {block2Image && (
                 <div
                   className={''}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '11.3rem',
+                    height: '11.3rem',
+                    fontSize: 0
+                  }}
                   {...inspectorMode({
-                    fieldId: 'block2Body'
+                    fieldId: 'block2Image'
                   })}
                 >
-                  <CtfRichtext {...block2Body} className={''} />
+                  <CtfAsset {...block2Image} showDescription={false} />
                 </div>
-              </div>
-            )}
-            {block3Body && (
+              )}
               <div
                 className={''}
-                style={{
-                  marginLeft: '5rem',
-                  marginTop: '5rem',
-                  maxWidth: '39rem',
-                  width: '100%'
-                }}
+                {...inspectorMode({
+                  fieldId: 'block2Body'
+                })}
               >
-                {block3Image && (
-                  <div
-                    className={''}
-                    style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      width: '11.3rem',
-                      height: '11.3rem',
-                      fontSize: 0
-                    }}
-                    {...inspectorMode({
-                      fieldId: 'block3Image'
-                    })}
-                  >
-                    <CtfAsset {...block3Image} showDescription={false} />
-                  </div>
-                )}
+                <CtfRichtext {...block2Body} className={''} />
+              </div>
+            </div>
+          )}
+          {block3Body && (
+            <div
+              className={''}
+              style={{
+                marginLeft: '5rem',
+                marginTop: '5rem',
+                maxWidth: '39rem',
+                width: '100%'
+              }}
+            >
+              {block3Image && (
                 <div
                   className={''}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    width: '11.3rem',
+                    height: '11.3rem',
+                    fontSize: 0
+                  }}
                   {...inspectorMode({
-                    fieldId: 'block3Body'
+                    fieldId: 'block3Image'
                   })}
                 >
-                  <CtfRichtext {...block3Body} className={''} />
+                  <CtfAsset {...block3Image} showDescription={false} />
                 </div>
+              )}
+              <div
+                className={''}
+                {...inspectorMode({
+                  fieldId: 'block3Body'
+                })}
+              >
+                <CtfRichtext {...block3Body} className={''} />
               </div>
-            )}
-          </div>
-        </LayoutContext.Provider>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )

@@ -5,7 +5,6 @@ import { AssetFieldsFragment } from './__generated/ctf-asset.generated'
 
 import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
 import { CtfVideo } from '@src/components/features/ctf-components/ctf-video/ctf-video'
-import { useLayoutContext } from '@src/layout-context'
 
 interface CtfAssetPropsInterface
   extends AssetFieldsFragment,
@@ -17,7 +16,6 @@ interface CtfAssetPropsInterface
 
 export const CtfAsset = (props: CtfAssetPropsInterface) => {
   const { contentType, url, showDescription = true, title, width, height } = props
-  const layout = useLayoutContext()
 
   if (!contentType || !url) {
     return null
@@ -30,11 +28,7 @@ export const CtfAsset = (props: CtfAssetPropsInterface) => {
         width={width || undefined}
         alt={title || ''}
         src={url}
-        showDescription={
-          ['quote', 'product-table', 'info-block', 'duplex'].includes(layout.parent) === true
-            ? false
-            : showDescription
-        }
+        showDescription={showDescription}
       />
     )
   }

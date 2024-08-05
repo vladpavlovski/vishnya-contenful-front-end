@@ -10,7 +10,6 @@ import { ProductTableFieldsFragment } from './__generated/ctf-product-table.gene
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
 import { FormatCurrency } from '@src/components/features/format-currency'
 import { SectionHeadlines } from '@src/components/features/section-headlines'
-import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
   const params: Record<string, string | number> = {}
@@ -177,14 +176,7 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         })}
                       >
                         {product.description && (
-                          <LayoutContext.Provider
-                            value={{
-                              ...defaultLayout,
-                              parent: 'product-description'
-                            }}
-                          >
-                            <CtfRichtext {...product.description} className={''} />
-                          </LayoutContext.Provider>
+                          <CtfRichtext {...product.description} className={''} />
                         )}
                       </div>
                       <div
@@ -204,37 +196,29 @@ export const CtfProductTable = (props: ProductTableFieldsFragment) => {
                         )}
                       </div>
                       {featureNames && featuresGrid && (
-                        <LayoutContext.Provider
-                          value={{
-                            ...defaultLayout,
-                            parent: 'product-table'
-                          }}
+                        <div
+                          {...inspectorMode({
+                            entryId: product.sys.id,
+                            fieldId: 'features'
+                          })}
                         >
-                          <div className="" />
-                          <div
-                            {...inspectorMode({
-                              entryId: product.sys.id,
-                              fieldId: 'features'
-                            })}
-                          >
-                            {featureNames.map(
-                              (featureName, i) =>
-                                featuresGrid[featureName][product.sys.id] && (
-                                  <div
-                                    key={`${product.sys.id}-${featureName}`}
-                                    className={''}
-                                    {...featuresGrid[featureName][product.sys.id].attributes}
-                                  >
-                                    <div data-equal-size={i + 4} className={''}>
-                                      <CtfRichtext
-                                        {...featuresGrid[featureName][product.sys.id].value}
-                                      />
-                                    </div>
+                          {featureNames.map(
+                            (featureName, i) =>
+                              featuresGrid[featureName][product.sys.id] && (
+                                <div
+                                  key={`${product.sys.id}-${featureName}`}
+                                  className={''}
+                                  {...featuresGrid[featureName][product.sys.id].attributes}
+                                >
+                                  <div data-equal-size={i + 4} className={''}>
+                                    <CtfRichtext
+                                      {...featuresGrid[featureName][product.sys.id].value}
+                                    />
                                   </div>
-                                )
-                            )}
-                          </div>
-                        </LayoutContext.Provider>
+                                </div>
+                              )
+                          )}
+                        </div>
                       )}
                       <div className={''} data-equal-size={(featureNames || []).length + 4}>
                         {!product.price || product.price === 0 ? (

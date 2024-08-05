@@ -5,7 +5,6 @@ import React from 'react'
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import LayoutContext, { defaultLayout } from '@src/layout-context'
 
 interface CardLeadershipPropsInterface extends PersonFieldsFragment {
   previousComponent: string | null
@@ -80,11 +79,9 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
           )}
         </div>
         {bio && (
-          <LayoutContext.Provider value={{ ...defaultLayout, parent: 'card-person' }}>
-            <div {...inspectorMode({ fieldId: 'bio' })}>
-              <CtfRichtext {...bio} className={''} />
-            </div>
-          </LayoutContext.Provider>
+          <div {...inspectorMode({ fieldId: 'bio' })}>
+            <CtfRichtext {...bio} className={''} />
+          </div>
         )}
       </div>
     </div>

@@ -6,7 +6,6 @@ import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated'
 import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
 import { PageLink } from '@src/components/features/page-link'
-import LayoutContext, { defaultLayout } from '@src/layout-context'
 import { optimizeLineBreak } from '@src/utils'
 
 const DuplexContent = (props: DuplexFieldsFragment) => {
@@ -30,19 +29,17 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
         </h2>
       )}
       {bodyText && (
-        <LayoutContext.Provider value={{ ...defaultLayout, parent: 'duplex' }}>
-          <div
-            className={''}
-            style={{
-              fontWeight: 400,
-              lineHeight: 1.56,
-              marginTop: '7rem'
-            }}
-            {...inspectorMode({ fieldId: 'bodyText' })}
-          >
-            <CtfRichtext {...bodyText} className={''} />
-          </div>
-        </LayoutContext.Provider>
+        <div
+          className={''}
+          style={{
+            fontWeight: 400,
+            lineHeight: 1.56,
+            marginTop: '7rem'
+          }}
+          {...inspectorMode({ fieldId: 'bodyText' })}
+        >
+          <CtfRichtext {...bodyText} className={''} />
+        </div>
       )}
       {targetPage && targetPage.slug && (
         <div
