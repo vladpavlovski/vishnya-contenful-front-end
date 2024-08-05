@@ -1,5 +1,5 @@
 'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/dist/react'
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import React from 'react'
 

@@ -1,7 +1,6 @@
-'use client'
-import React, { useMemo } from 'react'
+import React from 'react'
 
-import { useContentfulContext } from '@src/contentful-context'
+import { DEFAULT_LOCALE } from '@src/lib/locales'
 import { componentGqlMap, componentMap } from '@src/mappings'
 
 let previousComponent: string | null = null
@@ -13,11 +12,10 @@ interface Props {
   }
 
   /**
-   * forces to do a graqhql request to get its content, instead
+   * forces to do a graphql request to get its content, instead
    * of expecting content is provided trough `props.componentProps`:
    */
   forceGql?: boolean
-
   className?: string
   inline?: boolean
 }
@@ -26,11 +24,10 @@ export const ComponentResolver = (props: Props) => {
   const { componentProps } = props
 
   const previewActive = false
-  const { locale } = useContentfulContext()
-
+  const locale = DEFAULT_LOCALE
   const ComponentGql = componentGqlMap[componentProps.__typename]
 
-  const shouldForceGql = useMemo(() => {
+  const shouldForceGql = (() => {
     if (props.forceGql === true) {
       return true
     }
@@ -52,7 +49,7 @@ export const ComponentResolver = (props: Props) => {
     }
 
     return true
-  }, [ComponentGql, componentProps, props.forceGql])
+  })()
 
   const Component = !shouldForceGql && componentMap[componentProps.__typename]
 
