@@ -1,49 +1,29 @@
-'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
-import Head from 'next/head'
+import { queryOptions } from '@tanstack/react-query'
 
-import { useCtfBusinessInfoQuery } from './__generated/business-info.generated'
+import {
+  CtfBusinessInfoQueryVariables,
+  useCtfBusinessInfoQuery
+} from './__generated/business-info.generated'
 import CtfBusinessInfo from './CtfBusinessInfo'
 
-import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
-import { useContentfulContext } from '@src/contentful-context'
+import { getQueryClient } from '@src/lib/get-query-client'
 
 interface CtfBusinessInfoGqlPropsInterface {
   id: string
   preview?: boolean
 }
 
-export const CtfBusinessInfoGql = ({ preview, id }: CtfBusinessInfoGqlPropsInterface) => {
-  const { locale } = useContentfulContext()
-
-  const { data, isLoading } = useCtfBusinessInfoQuery({
-    locale,
-    id,
-    preview
+export const getBusinessInfoOptions = ({ id }: CtfBusinessInfoQueryVariables) =>
+  queryOptions({
+    queryKey: useCtfBusinessInfoQuery.getKey({
+      id
+    }),
+    queryFn: useCtfBusinessInfoQuery.fetcher({ id })
   })
 
-  const topicBusinessInfo = useContentfulLiveUpdates(data?.topicBusinessInfo)
+export const CtfBusinessInfoGql = ({ id }: CtfBusinessInfoGqlPropsInterface) => {
+  const queryClient = getQueryClient()
+  void queryClient.prefetchQuery(getBusinessInfoOptions({ id }))
 
-  if (!data || isLoading) {
-    return null
-  }
-
-  if (!topicBusinessInfo) {
-    return <EntryNotFound />
-  }
-
-  return (
-    <>
-      {topicBusinessInfo.featuredImage && (
-        <Head>
-          <meta
-            key="og:image"
-            property="og:image"
-            content={`${topicBusinessInfo.featuredImage?.url}?w=1200&h=630&f=faces&fit=fill`}
-          />
-        </Head>
-      )}
-      <CtfBusinessInfo {...topicBusinessInfo} />
-    </>
-  )
+  return <CtfBusinessInfo id={id} />
 }

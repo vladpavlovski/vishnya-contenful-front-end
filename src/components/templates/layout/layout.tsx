@@ -1,4 +1,3 @@
-'use client'
 import React from 'react'
 
 import { Header } from '../header/Header'
@@ -35,7 +34,7 @@ export const Layout = ({ children }: LayoutPropsInterface) => {
   return (
     <>
       {/* header */}
-      <Header isMenuOpen={false} onMenuClick={() => {}} />
+      <Header />
 
       {/* content */}
       <div className={''}>{children}</div>
@@ -44,7 +43,7 @@ export const Layout = ({ children }: LayoutPropsInterface) => {
       <CtfFooterGql />
 
       {/* mobile menu */}
-      <CtfMobileMenuGql isOpen={false} onOpenChange={() => {}} />
+      <CtfMobileMenuGql />
     </>
   )
 }

@@ -1,19 +1,24 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
+import {
+  useContentfulInspectorMode,
+  useContentfulLiveUpdates
+} from '@contentful/live-preview/react'
+import { useSuspenseQuery } from '@tanstack/react-query'
 import React, { useMemo } from 'react'
 
-import { BusinessInfoFieldsFragment } from './__generated/business-info.generated'
-
+import { getBusinessInfoOptions } from '@src/components/features/ctf-components/ctf-business-info/CtfBusinessInfoGql'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
+import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
+import { BusinessInfoFieldsFragment } from '@src/lib/__generated/graphql.types'
 
-const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
-  const {
-    body,
-    name,
-    shortDescription,
-    featuredImage,
-    sys: { id }
-  } = props
+const CtfBusinessInfo = ({ id }: { id: string }) => {
+  const { data, isLoading } = useSuspenseQuery(getBusinessInfoOptions({ id }))
+  const topicBusinessInfo = useContentfulLiveUpdates(
+    data.topicBusinessInfo
+  ) as BusinessInfoFieldsFragment
+
+  const { body, name, shortDescription, featuredImage } = topicBusinessInfo
+
   const backgroundImage = useMemo(
     () => (featuredImage ? `${featuredImage.url}?w=1920` : undefined),
     [featuredImage]
@@ -21,43 +26,22 @@ const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
 
   const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
+  if (!data || isLoading) {
+    return null
+  }
+  if (!topicBusinessInfo) {
+    return <EntryNotFound />
+  }
+  console.log({ topicBusinessInfo })
   return (
     <div className={''}>
       {(name || shortDescription) && (
         <div className={''}>
-          <div
-            className={''}
-            style={{
-              backgroundImage: `url(${backgroundImage})`,
-              backgroundColor: '#000',
-              backgroundPosition: 'center center',
-              backgroundSize: 'cover',
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              zIndex: 1
-            }}
-            {...inspectorMode({ fieldId: 'featuredImage' })}
-          >
-            <div
-              className={''}
-              style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                position: 'absolute',
-                top: 0,
-                right: 0,
-                bottom: 0,
-                left: 0,
-                zIndex: 1
-              }}
-            />
-          </div>
+          <div className={''} {...inspectorMode({ fieldId: 'featuredImage' })} />
           <div className={''} style={{ maxWidth: '77rem', margin: '0 auto', textAlign: 'center' }}>
             <div
               className={''}
-              style={{ maxWidth: '55rem', padding: '8rem 0', position: 'relative', color: '#fff' }}
+              style={{ maxWidth: '55rem', padding: '4rem 0', position: 'relative', color: '#fff' }}
             >
               {name && (
                 <h1

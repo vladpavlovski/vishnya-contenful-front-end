@@ -95,7 +95,7 @@ export const CtfFooter = () => {
       <div className={''}>
         <section className={''}>
           <div className={''}>
-            <div className={''}>Logog here</div>
+            <div className={''}>Logo here</div>
 
             <section className={''}>
               <p className={''}>{t('legal.copyright', { year: new Date().getFullYear() })}</p>

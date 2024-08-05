@@ -1,4 +1,3 @@
-'use client'
 import { ReactNode } from 'react'
 
 import { PageLinkFieldsFragment } from '@src/components/features/page-link/__generated/page-link.generated'
