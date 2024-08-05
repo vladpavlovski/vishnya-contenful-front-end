@@ -1,7 +1,7 @@
-import { getQueryClient } from '@src/app/get-query-client'
 import { useCtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated'
 import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import { PageError } from '@src/components/features/errors/page-error'
+import { getQueryClient } from '@src/lib/get-query-client'
 // import { getServerSideTranslations } from '@src/lib/get-serverside-translations'
 
 const ErrorPage404 = async () => {

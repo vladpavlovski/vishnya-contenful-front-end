@@ -1,11 +1,11 @@
 import { NextPageContext } from 'next'
 
-import { getQueryClient } from '@src/app/get-query-client'
 import { useCtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated'
 import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
 import CtfPageGgl from '@src/components/features/ctf-components/ctf-page/ctf-page-gql'
 import { ComponentReferenceFieldsFragment } from '@src/lib/__generated/graphql.types'
+import { getQueryClient } from '@src/lib/get-query-client'
 // import { getServerSideTranslations } from '@src/lib/get-serverside-translations'
 import { prefetchMap, PrefetchMappingTypeFetcher } from '@src/lib/prefetch-mappings'
 import { prefetchPromiseArr } from '@src/lib/prefetch-promise-array'

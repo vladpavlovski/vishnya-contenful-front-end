@@ -4,8 +4,8 @@ import { QueryClientProvider } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 import type * as React from 'react'
 
-import { getQueryClient } from '@src/app/get-query-client'
 import { ContentfulContentProvider } from '@src/contentful-context'
+import { getQueryClient } from '@src/lib/get-query-client'
 
 const LivePreviewProvider = ({
   children,
