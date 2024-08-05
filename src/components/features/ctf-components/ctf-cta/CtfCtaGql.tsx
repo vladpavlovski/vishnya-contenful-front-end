@@ -1,9 +1,10 @@
-'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
+import { queryOptions } from '@tanstack/react-query'
 import React from 'react'
 
-import { useCtfCtaQuery } from './__generated/ctf-cta.generated'
+import { CtfCtaQueryVariables, useCtfCtaQuery } from './__generated/ctf-cta.generated'
 import { CtfCta } from './CtfCta'
+
+import { getQueryClient } from '@src/lib/get-query-client'
 
 interface CtfCtaGqlPropsInterface {
   id: string
@@ -11,18 +12,17 @@ interface CtfCtaGqlPropsInterface {
   preview: boolean
 }
 
-export const CtfCtaGql = ({ id, locale, preview }: CtfCtaGqlPropsInterface) => {
-  const { data, isLoading } = useCtfCtaQuery({
-    id,
-    locale,
-    preview
+export const getCtfCtaOptions = ({ id }: CtfCtaQueryVariables) =>
+  queryOptions({
+    queryKey: useCtfCtaQuery.getKey({
+      id
+    }),
+    queryFn: useCtfCtaQuery.fetcher({ id })
   })
 
-  const componentCta = useContentfulLiveUpdates(data?.componentCta)
+export const CtfCtaGql = ({ id, locale, preview }: CtfCtaGqlPropsInterface) => {
+  const queryClient = getQueryClient()
+  void queryClient.prefetchQuery(getCtfCtaOptions({ id, locale, preview }))
 
-  if (isLoading || !componentCta) {
-    return null
-  }
-
-  return <CtfCta {...componentCta} />
+  return <CtfCta id={id} />
 }

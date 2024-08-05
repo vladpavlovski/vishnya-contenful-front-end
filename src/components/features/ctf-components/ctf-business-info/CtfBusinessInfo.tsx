@@ -4,7 +4,7 @@ import {
   useContentfulLiveUpdates
 } from '@contentful/live-preview/react'
 import { useSuspenseQuery } from '@tanstack/react-query'
-import React, { useMemo } from 'react'
+import React from 'react'
 
 import { getBusinessInfoOptions } from '@src/components/features/ctf-components/ctf-business-info/CtfBusinessInfoGql'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
@@ -17,12 +17,7 @@ const CtfBusinessInfo = ({ id }: { id: string }) => {
     data.topicBusinessInfo
   ) as BusinessInfoFieldsFragment
 
-  const { body, name, shortDescription, featuredImage } = topicBusinessInfo
-
-  const backgroundImage = useMemo(
-    () => (featuredImage ? `${featuredImage.url}?w=1920` : undefined),
-    [featuredImage]
-  )
+  const { body, name, shortDescription } = topicBusinessInfo
 
   const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
