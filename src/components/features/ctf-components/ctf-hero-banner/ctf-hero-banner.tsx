@@ -5,7 +5,7 @@ import { useMemo } from 'react'
 import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import { PageLink } from '@src/components/features/page-link'
+import { PageLink } from '@src/components/features/page-link/PageLink'
 
 export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
   const {

@@ -2,7 +2,7 @@
 import { TextBlockFieldsFragment } from './__generated/ctf-text-block.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import { SectionHeadlines } from '@src/components/features/section-headlines'
+import { SectionHeadlines } from '@src/components/features/section-headlines/SectionHeadlines'
 
 export const CtfTextBlock = ({ headline, subline, body }: TextBlockFieldsFragment) => {
   return (

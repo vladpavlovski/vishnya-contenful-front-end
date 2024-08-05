@@ -5,7 +5,7 @@ import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated'
 
 import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import { PageLink } from '@src/components/features/page-link'
+import { PageLink } from '@src/components/features/page-link/PageLink'
 import { optimizeLineBreak } from '@src/utils'
 
 const DuplexContent = (props: DuplexFieldsFragment) => {

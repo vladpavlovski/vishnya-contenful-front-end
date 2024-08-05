@@ -1,7 +1,6 @@
-'use client'
 import React from 'react'
 
-import { Avatar } from '@src/components/features/avatar'
+import { Avatar } from '@src/components/features/avatar/Avatar'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
 
 export const Author = (props: PersonFieldsFragment) => {
@@ -14,19 +13,7 @@ export const Author = (props: PersonFieldsFragment) => {
           <Avatar asset={avatar} />
         </div>
       )}
-      {name && (
-        <p
-          className={''}
-          style={{
-            fontSize: '2.5rem',
-            lineHeight: 1.52,
-            marginBottom: 0,
-            marginTop: '3rem'
-          }}
-        >
-          {name}
-        </p>
-      )}
+      {name && <p>{name}</p>}
     </div>
   )
 }

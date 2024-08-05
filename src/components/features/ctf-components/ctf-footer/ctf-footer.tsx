@@ -8,7 +8,7 @@ import {
   getLinkDisplayText,
   getLinkHrefPrefix
 } from '@src/components/features/ctf-components/ctf-navigation/utils'
-import { LanguageSelector } from '@src/components/features/language-selector'
+import { LanguageSelector } from '@src/components/features/language-selector/LanguageSelector'
 import { Link } from '@src/components/shared/link'
 import { useContentfulContext } from '@src/contentful-context'
 

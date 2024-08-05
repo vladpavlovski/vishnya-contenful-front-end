@@ -8,8 +8,8 @@ import { useMemo, useRef } from 'react'
 import { ProductTableFieldsFragment } from './__generated/ctf-product-table.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import { FormatCurrency } from '@src/components/features/format-currency'
-import { SectionHeadlines } from '@src/components/features/section-headlines'
+import { FormatCurrency } from '@src/components/features/format-currency/FormatCurrency'
+import { SectionHeadlines } from '@src/components/features/section-headlines/SectionHeadlines'
 
 const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
   const params: Record<string, string | number> = {}

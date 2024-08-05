@@ -1,36 +1,32 @@
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react';
+import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
-import { useCtfProductTableQuery } from './__generated/ctf-product-table.generated';
-import { CtfProductTable } from './ctf-product-table';
+import { useCtfProductTableQuery } from './__generated/ctf-product-table.generated'
+import { CtfProductTable } from './ctf-product-table'
 
-import { EntryNotFound } from '@src/components/features/errors/entry-not-found';
+import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
 
 interface CtfProductTableGqlPropsInterface {
-  id: string;
-  locale: string;
-  preview?: boolean;
+  id: string
+  locale: string
+  preview?: boolean
 }
 
 export const CtfProductTableGql = (props: CtfProductTableGqlPropsInterface) => {
   const { isLoading, data } = useCtfProductTableQuery({
     id: props.id,
     locale: props.locale,
-    preview: props.preview,
-  });
+    preview: props.preview
+  })
 
-  const componentProductTable = useContentfulLiveUpdates(data?.componentProductTable);
+  const componentProductTable = useContentfulLiveUpdates(data?.componentProductTable)
 
   if (isLoading || !componentProductTable) {
-    return null;
+    return null
   }
 
   if (!componentProductTable) {
-    return (
-      <div className={''}>
-        <EntryNotFound />
-      </div>
-    );
+    return <EntryNotFound />
   }
 
-  return <CtfProductTable {...componentProductTable} />;
-};
+  return <CtfProductTable {...componentProductTable} />
+}

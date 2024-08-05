@@ -6,7 +6,7 @@ import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated'
 
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
-import { SectionHeadlines } from '@src/components/features/section-headlines'
+import { SectionHeadlines } from '@src/components/features/section-headlines/SectionHeadlines'
 
 export interface CtfInfoBlockPropsInterface extends InfoBlockFieldsFragment {
   previousComponent?: string | null

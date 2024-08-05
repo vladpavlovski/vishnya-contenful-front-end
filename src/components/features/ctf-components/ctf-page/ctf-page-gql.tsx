@@ -5,7 +5,7 @@ import { Metadata } from 'next'
 import CtfPage from './ctf-page'
 
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
-import { PageError } from '@src/components/features/errors/page-error'
+import { PageError } from '@src/components/features/errors/PageError'
 import { tryget } from '@src/utils'
 // import contentfulConfig from 'contentful.config'
 

@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { useCtfBusinessInfoQuery } from './__generated/business-info.generated'
 import CtfBusinessInfo from './ctf-business-info'
 
-import { EntryNotFound } from '@src/components/features/errors/entry-not-found'
+import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
 import { useContentfulContext } from '@src/contentful-context'
 
 interface CtfBusinessInfoGqlPropsInterface {
@@ -29,11 +29,7 @@ export const CtfBusinessInfoGql = ({ preview, id }: CtfBusinessInfoGqlPropsInter
   }
 
   if (!topicBusinessInfo) {
-    return (
-      <div>
-        <EntryNotFound />
-      </div>
-    )
+    return <EntryNotFound />
   }
 
   return (

@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-import { Markdown } from '@src/components/features/markdown'
+import { Markdown } from '@src/components/features/Markdown'
 
 interface SectionHeadlinesPropsInterface {
   headline?: string | null

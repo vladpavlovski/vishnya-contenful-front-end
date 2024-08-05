@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-import { Avatar } from '@src/components/features/avatar'
+import { Avatar } from '@src/components/features/avatar/Avatar'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
 

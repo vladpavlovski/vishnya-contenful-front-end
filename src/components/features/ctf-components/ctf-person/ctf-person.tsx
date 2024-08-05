@@ -3,7 +3,7 @@ import React from 'react'
 import { PersonFieldsFragment } from './__generated/ctf-person.generated'
 
 import { CardLeadership } from '@src/components/features/card-leadership'
-import { CardPerson } from '@src/components/features/card-person'
+import { CardPerson } from '@src/components/features/card-person/CardPerson'
 
 interface CtfPersonPropsInterface extends PersonFieldsFragment {
   previousComponent: string | null
