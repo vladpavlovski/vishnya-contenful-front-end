@@ -3,7 +3,6 @@
 A Marketing Starter Template powered by Next.js & Contentful, pre-designed with optimized & adjustable pages,
 components, and data management.
 
-
 $~$
 
 ## What is Contentful?
@@ -82,13 +81,13 @@ $~$
 To install the necessary dependencies, run:
 
 ```bash
-yarn
+pnpm install
 ```
 
 ### Run the Starter Template in development mode
 
 ```bash
-yarn dev
+pnpm dev
 ```
 
 The Starter Template should be up and running on `http://localhost:3000`.
@@ -176,8 +175,8 @@ read [the official documentation](https://tanstack.com/query/v4/docs/guides/ssr#
 
 In order to (re-)generate the GraphQL schema, types and hooks, please use either of the following commands:
 
-- `yarn graphql-codegen:generate` generates a schema, types and code to fetch data from the Contentful APIs
-- `yarn graphql-codegen:watch` similar to the `generate` command, but it runs as a watch task which will rerun the steps
+- `pnpm graphql-codegen:generate` generates a schema, types and code to fetch data from the Contentful APIs
+- `pnpm graphql-codegen:watch` similar to the `generate` command, but it runs as a watch task which will rerun the steps
   when changes are made in the `.graphql` files
 
 The first steps of the codegen generate files that contain the GraphQL schema and matching TypeScript types.
@@ -250,7 +249,7 @@ Creating new _ctf-components_ involve the following steps:
 
 - Create a folder for the component files (`./src/ctf-components/ctf-[contentTypeName]`)
 - Create the file for the GraphQL query strings (`./src/ctf-components/ctf-[contentTypeName].graphql`)
-- Optionally, generate TypeScript interfaces for the GraphQL result by calling `yarn graphql-codegen:generate` (
+- Optionally, generate TypeScript interfaces for the GraphQL result by calling `pnpm graphql-codegen:generate` (
   see [GraphQL & code generation](./README.md#graphql--code-generation)).
 - Create the React components for rendering (`./src/ctf-components/ctf-[contentTypeName]-gql.tsx`
   and `./src/ctf-components/ctf-[contentTypeName].tsx`).
@@ -269,10 +268,10 @@ The Starter Template can be deployed to your hosting provider of choice.
 We offer integrations with Vercel and Netlify to speed up the process by clicking one of the deploy buttons below. The GitHub repository and
 the necessary environment variables keys are pre-configured in the hosting provider space.
 
-| Vercel                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | Netlify                                                                                                                                                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Vercel                                                                                                                                                                                                                                                                                                                                                                                                                         | Netlify                                                                                                                                                                                                                                                                               |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcontentful%2Ftemplate-marketing-webapp-nextjs&env=CONTENTFUL_SPACE_ID,CONTENTFUL_ACCESS_TOKEN,CONTENTFUL_PREVIEW_ACCESS_TOKEN&envDescription=API%20Keys%20needed%20for%20the%20application&envLink=https%3A%2F%2Fgithub.com%2Fcontentful%2Ftemplate-marketing-webapp-nextjs%23environment-variables) | [![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https%3A%2F%2Fgithub.com%2Fcontentful%2Ftemplate-marketing-webapp-nextjs#CONTENTFUL_SPACE_ID=&CONTENTFUL_ACCESS_TOKEN=&CONTENTFUL_PREVIEW_ACCESS_TOKEN=) |
-| [Environment variables docs](https://vercel.com/docs/concepts/projects/environment-variables)                                                                                                                                                                                                                                                                                                                                                                                              | [Environment variables docs](https://docs.netlify.com/environment-variables/overview/)                                                                                                                                                                                                                                                            |
+| [Environment variables docs](https://vercel.com/docs/concepts/projects/environment-variables)                                                                                                                                                                                                                                                                                                                                  | [Environment variables docs](https://docs.netlify.com/environment-variables/overview/)                                                                                                                                                                                                |
 
 Make sure to add the necessary [environment variables values](./README.md#environment-variables) to the hosting provider
 environment variables.
@@ -324,8 +323,13 @@ $~$
 <!-- FOOTNOTES -->
 
 [^1]: [Next.js docs](https://nextjs.org/docs/getting-started)
+
 [^2]: [React Query](https://tanstack.com/query/v4/docs/overview)
+
 [^3]: [GraphQL docs](https://graphql.org/learn/)
+
 [^4]: [graphql-codegen](https://www.the-guild.dev/graphql/codegen)
+
 [^5]: [TypeScript](https://www.typescriptlang.org/)
+
 [^note]: [React docs](https://reactjs.org/docs/getting-started.html)
