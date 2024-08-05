@@ -17,7 +17,7 @@
     "migrate:init": "ctf-migrate init",
     "migrate:content-model": "ctf-migrate up -a",
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'",
-    "lint-fix": "yarn lint --fix",
+    "lint-fix": "pnpm lint --fix",
     "graphql-codegen:generate": "graphql-codegen -r dotenv/config --config codegen.ts",
     "graphql-codegen:watch": "graphql-codegen --watch -r dotenv/config --config codegen.ts",
     "setup": "./bin/setup.sh"
@@ -35,7 +35,6 @@
     "@contentful/live-preview": "4.5.0",
     "@contentful/rich-text-react-renderer": "15.22.9",
     "@contentful/rich-text-types": "16.8.3",
-    "@tanstack/query-core": "^5.51.21",
     "@tanstack/react-query": "5.51.21",
     "dotenv": "16.4.5",
     "graphql": "16.9.0",
