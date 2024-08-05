@@ -1,7 +1,7 @@
 'use client'
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
-import { CtfPerson } from './ctf-person'
+import { CtfPerson } from './CtfPerson'
 
 import { useCtfPersonQuery } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
 

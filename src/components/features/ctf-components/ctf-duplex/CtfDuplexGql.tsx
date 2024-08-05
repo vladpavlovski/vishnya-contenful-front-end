@@ -3,7 +3,7 @@ import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import React from 'react'
 
 import { useCtfDuplexQuery } from './__generated/ctf-duplex.generated'
-import { CtfDuplex } from './ctf-duplex'
+import { CtfDuplex } from './CtfDuplex'
 
 interface CtfDuplexGqlPropsInterface {
   id: string

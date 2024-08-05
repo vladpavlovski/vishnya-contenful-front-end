@@ -1,12 +1,12 @@
 'use client'
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
-import { CtfMobileMenu } from './ctf-mobile-menu'
+import { useCtfNavigationQuery } from './__generated/ctf-navigation.generated'
+import { CtfNavigation } from './CtfNavigation'
 
-import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import { useContentfulContext } from '@src/contentful-context'
 
-export const CtfMobileMenuGql = props => {
+export const CtfNavigationGql = () => {
   const { locale } = useContentfulContext()
 
   const { data, isLoading } = useCtfNavigationQuery({
@@ -18,5 +18,5 @@ export const CtfMobileMenuGql = props => {
 
   if (!navigationMenuCollection || isLoading) return null
 
-  return <CtfMobileMenu {...props} {...navigationMenuCollection} />
+  return <CtfNavigation {...navigationMenuCollection} />
 }

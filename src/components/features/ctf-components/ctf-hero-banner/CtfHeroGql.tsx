@@ -3,7 +3,7 @@ import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import React from 'react'
 
 import { useCtfHeroBannerQuery } from './__generated/ctf-hero-banner.generated'
-import { CtfHeroBanner } from './ctf-hero-banner'
+import { CtfHeroBanner } from './CtfHeroBanner'
 
 interface CtfHeroGqlPropsInterface {
   id: string

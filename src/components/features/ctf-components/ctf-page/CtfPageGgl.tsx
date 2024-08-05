@@ -2,7 +2,7 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import { Metadata } from 'next'
 
-import CtfPage from './ctf-page'
+import CtfPage from './CtfPage'
 
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
 import { PageError } from '@src/components/features/errors/PageError'

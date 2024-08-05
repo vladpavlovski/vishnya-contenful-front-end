@@ -3,7 +3,7 @@ import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import Head from 'next/head'
 
 import { useCtfBusinessInfoQuery } from './__generated/business-info.generated'
-import CtfBusinessInfo from './ctf-business-info'
+import CtfBusinessInfo from './CtfBusinessInfo'
 
 import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
 import { useContentfulContext } from '@src/contentful-context'

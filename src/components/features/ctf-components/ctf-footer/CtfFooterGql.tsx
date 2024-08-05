@@ -2,7 +2,7 @@ import { queryOptions } from '@tanstack/react-query'
 import React from 'react'
 
 import { useCtfFooterQuery } from './__generated/ctf-footer.generated'
-import { CtfFooter } from './ctf-footer'
+import { CtfFooter } from './CtfFooter'
 
 import { getQueryClient } from '@src/lib/get-query-client'
 

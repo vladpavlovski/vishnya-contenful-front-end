@@ -3,7 +3,7 @@ import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import React from 'react'
 
 import { useCtfCtaQuery } from './__generated/ctf-cta.generated'
-import { CtfCta } from './ctf-cta'
+import { CtfCta } from './CtfCta'
 
 interface CtfCtaGqlPropsInterface {
   id: string

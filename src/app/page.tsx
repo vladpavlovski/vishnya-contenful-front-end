@@ -6,7 +6,7 @@ import { getQueryClient } from '../lib/get-query-client'
 import { useCtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated'
 import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
-import CtfPageGgl from '@src/components/features/ctf-components/ctf-page/ctf-page-gql'
+import CtfPageGgl from '@src/components/features/ctf-components/ctf-page/CtfPageGgl'
 import { prefetchPromiseArr } from '@src/lib/prefetch-promise-array'
 
 export default async function Home() {

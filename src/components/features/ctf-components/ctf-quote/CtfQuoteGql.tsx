@@ -2,7 +2,7 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 import { useCtfQuoteQuery } from './__generated/ctf-quote.generated'
-import { CtfQuote } from './ctf-quote'
+import { CtfQuote } from './CtfQuote'
 
 interface CtfQuoteGqlPropsInterface {
   id: string

@@ -2,7 +2,7 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 import { useCtfTextBlockQuery } from './__generated/ctf-text-block.generated'
-import { CtfTextBlock } from './ctf-text-block'
+import { CtfTextBlock } from './CtfTextBlock'
 
 interface CtfTextBlockGqlPropsInterface {
   id: string

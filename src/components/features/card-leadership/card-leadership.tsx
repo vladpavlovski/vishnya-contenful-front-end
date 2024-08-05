@@ -2,9 +2,9 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import React from 'react'
 
-import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
+import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfAsset'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
 interface CardLeadershipPropsInterface extends PersonFieldsFragment {
   previousComponent: string | null

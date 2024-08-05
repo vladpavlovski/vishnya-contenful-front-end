@@ -3,8 +3,8 @@ import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated'
 
-import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfImage } from '@src/components/features/ctf-components/ctf-image/CtfImage'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { PageLink } from '@src/components/features/page-link/PageLink'
 import { optimizeLineBreak } from '@src/utils'
 

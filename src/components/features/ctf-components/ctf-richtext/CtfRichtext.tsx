@@ -4,7 +4,7 @@ import { documentToReactComponents, Options } from '@contentful/rich-text-react-
 import { Block as RichtextBlock, BLOCKS, INLINES } from '@contentful/rich-text-types'
 import React, { useMemo, useCallback } from 'react'
 
-import { CtfAsset } from '../ctf-asset/ctf-asset'
+import { CtfAsset } from '../ctf-asset/CtfAsset'
 
 import { AssetFieldsFragment } from '@src/components/features/ctf-components/ctf-asset/__generated/ctf-asset.generated'
 import { useCtfRichTextHyperlinkQuery } from '@src/components/features/ctf-components/ctf-richtext/__generated/ctf-richtext.generated'

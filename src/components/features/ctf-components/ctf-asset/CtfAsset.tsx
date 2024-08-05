@@ -3,8 +3,8 @@ import { ImageProps } from 'next/legacy/image'
 
 import { AssetFieldsFragment } from './__generated/ctf-asset.generated'
 
-import { CtfImage } from '@src/components/features/ctf-components/ctf-image/ctf-image'
-import { CtfVideo } from '@src/components/features/ctf-components/ctf-video/ctf-video'
+import { CtfImage } from '@src/components/features/ctf-components/ctf-image/CtfImage'
+import { CtfVideo } from '@src/components/features/ctf-components/ctf-video/CtfVideo'
 
 interface CtfAssetPropsInterface
   extends AssetFieldsFragment,

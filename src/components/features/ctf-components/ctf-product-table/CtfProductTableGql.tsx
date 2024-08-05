@@ -1,7 +1,7 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 import { useCtfProductTableQuery } from './__generated/ctf-product-table.generated'
-import { CtfProductTable } from './ctf-product-table'
+import { CtfProductTable } from './CtfProductTable'
 
 import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
 

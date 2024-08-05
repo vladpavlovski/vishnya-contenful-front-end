@@ -4,7 +4,7 @@ import React, { useMemo } from 'react'
 
 import { BusinessInfoFieldsFragment } from './__generated/business-info.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
 const CtfBusinessInfo = (props: BusinessInfoFieldsFragment) => {
   const {

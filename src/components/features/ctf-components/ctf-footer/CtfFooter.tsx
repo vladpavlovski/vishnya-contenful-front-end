@@ -3,7 +3,7 @@ import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslation } from 'next-i18next'
 
-import { footerOptions } from '@src/components/features/ctf-components/ctf-footer/ctf-footer-gql'
+import { footerOptions } from '@src/components/features/ctf-components/ctf-footer/CtfFooterGql'
 import {
   getLinkDisplayText,
   getLinkHrefPrefix

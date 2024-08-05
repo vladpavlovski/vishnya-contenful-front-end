@@ -3,8 +3,8 @@ import React from 'react'
 
 import { Header } from '../header/Header'
 
-import { CtfFooterGql } from '@src/components/features/ctf-components/ctf-footer/ctf-footer-gql'
-import { CtfMobileMenuGql } from '@src/components/features/ctf-components/ctf-mobile-menu/ctf-mobile-menu-gql'
+import { CtfFooterGql } from '@src/components/features/ctf-components/ctf-footer/CtfFooterGql'
+import { CtfMobileMenuGql } from '@src/components/features/ctf-components/ctf-mobile-menu/CtfMobileMenuGql'
 
 interface LayoutPropsInterface {
   preview: boolean

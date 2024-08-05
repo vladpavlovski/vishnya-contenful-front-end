@@ -2,7 +2,7 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 import { useCtfProductQuery } from './__generated/ctf-product.generated'
-import { CtfProduct } from './ctf-product'
+import { CtfProduct } from './CtfProduct'
 
 import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
 

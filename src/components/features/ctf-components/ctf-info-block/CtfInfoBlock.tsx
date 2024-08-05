@@ -4,8 +4,8 @@ import React from 'react'
 
 import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated'
 
-import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfAsset'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { SectionHeadlines } from '@src/components/features/section-headlines/SectionHeadlines'
 
 export interface CtfInfoBlockPropsInterface extends InfoBlockFieldsFragment {

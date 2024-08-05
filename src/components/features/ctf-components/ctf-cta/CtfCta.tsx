@@ -3,7 +3,7 @@ import React from 'react'
 
 import { CtaFieldsFragment } from './__generated/ctf-cta.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { PageLink } from '@src/components/features/page-link/PageLink'
 import { optimizeLineBreak } from '@src/utils'
 

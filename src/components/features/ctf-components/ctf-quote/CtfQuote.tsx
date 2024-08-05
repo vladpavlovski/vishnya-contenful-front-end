@@ -4,7 +4,7 @@ import { useMemo } from 'react'
 
 import { QuoteFieldsFragment } from './__generated/ctf-quote.generated'
 
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
 export const CtfQuote = (props: QuoteFieldsFragment) => {
   const {

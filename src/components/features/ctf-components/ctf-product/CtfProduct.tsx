@@ -4,8 +4,8 @@ import React, { Fragment } from 'react'
 
 import { ProductFieldsFragment } from './__generated/ctf-product.generated'
 
-import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/ctf-asset'
-import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/ctf-richtext'
+import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfAsset'
+import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
 export const CtfProduct = (props: ProductFieldsFragment) => {
   const {

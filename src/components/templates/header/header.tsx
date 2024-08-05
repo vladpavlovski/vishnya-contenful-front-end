@@ -1,7 +1,7 @@
 'use client'
 import { useTranslation } from 'next-i18next'
 
-import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/ctf-navigation-gql'
+import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/CtfNavigationGql'
 import { Link } from '@src/components/shared/Link'
 
 interface HeaderPropsInterface {
