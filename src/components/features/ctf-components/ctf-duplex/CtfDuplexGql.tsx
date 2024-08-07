@@ -1,28 +1,14 @@
-'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import React from 'react'
 
-import { useCtfDuplexQuery } from './__generated/ctf-duplex.generated'
+import { CtfDuplexQueryVariables, getCtfDuplexOptions } from './__generated/ctf-duplex.generated'
 import { CtfDuplex } from './CtfDuplex'
 
-interface CtfDuplexGqlPropsInterface {
-  id: string
-  locale: string
-  preview: boolean
-}
+import { getQueryClient } from '@src/lib/get-query-client'
 
-export const CtfDuplexGql = ({ id, locale, preview }: CtfDuplexGqlPropsInterface) => {
-  const { data, isLoading } = useCtfDuplexQuery({
-    id,
-    locale,
-    preview
-  })
+export const CtfDuplexGql = async (variables: CtfDuplexQueryVariables) => {
+  const queryClient = getQueryClient()
+  const { componentDuplex } = await queryClient.fetchQuery(getCtfDuplexOptions(variables))
 
-  const componentDuplex = useContentfulLiveUpdates(data?.componentDuplex)
-
-  if (isLoading || !componentDuplex) {
-    return null
-  }
-
+  if (!componentDuplex) return null
   return <CtfDuplex {...componentDuplex} />
 }

@@ -1,6 +1,3 @@
-'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-
 import { DuplexFieldsFragment } from './__generated/ctf-duplex.generated'
 
 import { CtfImage } from '@src/components/features/ctf-components/ctf-image/CtfImage'
@@ -10,7 +7,7 @@ import { optimizeLineBreak } from '@src/utils'
 
 const DuplexContent = (props: DuplexFieldsFragment) => {
   const { headline, bodyText, targetPage, ctaText } = props
-  const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
+  // const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
 
   return (
     <div className={''}>
@@ -23,7 +20,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
             fontWeight: 700,
             maxWidth: '60.4rem'
           }}
-          {...inspectorMode({ fieldId: 'headline' })}
+          // {...inspectorMode({ fieldId: 'headline' })}
         >
           {optimizeLineBreak(headline)}
         </h2>
@@ -36,7 +33,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
             lineHeight: 1.56,
             marginTop: '7rem'
           }}
-          {...inspectorMode({ fieldId: 'bodyText' })}
+          // {...inspectorMode({ fieldId: 'bodyText' })}
         >
           <CtfRichtext {...bodyText} className={''} />
         </div>
@@ -45,7 +42,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
         <div
           className={''}
           style={{ marginTop: '8rem' }}
-          {...inspectorMode({ fieldId: 'ctaText' })}
+          // {...inspectorMode({ fieldId: 'ctaText' })}
         >
           <PageLink page={targetPage} variant="contained" isButton>
             {ctaText}
@@ -58,7 +55,7 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
 
 const DuplexImage = (props: DuplexFieldsFragment) => {
   const { image } = props
-  const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
+  // const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
 
   return (
     <div className={''}>
@@ -66,7 +63,7 @@ const DuplexImage = (props: DuplexFieldsFragment) => {
         <div
           className={''}
           style={{ width: '100%', height: 'auto' }}
-          {...inspectorMode({ fieldId: 'image' })}
+          // {...inspectorMode({ fieldId: 'image' })}
         >
           <CtfImage
             src={`${image.url}?w=600`}

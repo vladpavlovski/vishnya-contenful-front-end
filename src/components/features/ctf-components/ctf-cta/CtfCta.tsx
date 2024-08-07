@@ -1,19 +1,18 @@
 'use client'
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
-import { useSuspenseQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { getCtfCtaOptions } from '@src/components/features/ctf-components/ctf-cta/CtfCtaGql'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { PageLink } from '@src/components/features/page-link/PageLink'
+import { CtfCtaQuery } from '@src/lib/__generated/graphql.types'
 import { optimizeLineBreak } from '@src/utils'
 
-export const CtfCta = ({ id }: { id: string }) => {
-  const { data, isLoading } = useSuspenseQuery(getCtfCtaOptions({ id }))
+export const CtfCta = ({ data }: { data: CtfCtaQuery }) => {
+  // const { data, isLoading } = useSuspenseQuery(getCtfCtaOptions({ id }))
   const componentCta = useContentfulLiveUpdates(data?.componentCta)
 
   // TODO: optimistic updates
-  if (isLoading || !componentCta) {
+  if (!componentCta) {
     return null
   }
   const { headline, subline, targetPage, ctaText, urlParameters } = componentCta

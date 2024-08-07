@@ -17,9 +17,6 @@ importers:
       '@contentful/rich-text-types':
         specifier: 16.8.3
         version: 16.8.3
-      '@tanstack/query-core':
-        specifier: ^5.51.21
-        version: 5.51.21
       '@tanstack/react-query':
         specifier: 5.51.21
         version: 5.51.21(react@18.3.1)
@@ -57,6 +54,9 @@ importers:
         specifier: 11.0.5
         version: 11.0.5
     devDependencies:
+      '@graphql-codegen/add':
+        specifier: ^5.0.3
+        version: 5.0.3(graphql@16.9.0)
       '@graphql-codegen/cli':
         specifier: 5.0.2
         version: 5.0.2(@parcel/watcher@2.4.1)(@types/node@22.1.0)(graphql@16.9.0)(typescript@5.5.4)
@@ -66,6 +66,9 @@ importers:
       '@graphql-codegen/near-operation-file-preset':
         specifier: 3.0.0
         version: 3.0.0(graphql@16.9.0)
+      '@graphql-codegen/plugin-helpers':
+        specifier: ^5.0.4
+        version: 5.0.4(graphql@16.9.0)
       '@graphql-codegen/typescript':
         specifier: 4.0.9
         version: 4.0.9(graphql@16.9.0)

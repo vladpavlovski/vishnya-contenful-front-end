@@ -49,9 +49,11 @@
     "unified": "11.0.5"
   },
   "devDependencies": {
+    "@graphql-codegen/add": "^5.0.3",
     "@graphql-codegen/cli": "5.0.2",
     "@graphql-codegen/introspection": "4.0.3",
     "@graphql-codegen/near-operation-file-preset": "3.0.0",
+    "@graphql-codegen/plugin-helpers": "^5.0.4",
     "@graphql-codegen/typescript": "4.0.9",
     "@graphql-codegen/typescript-operations": "4.2.3",
     "@graphql-codegen/typescript-react-query": "6.1.0",

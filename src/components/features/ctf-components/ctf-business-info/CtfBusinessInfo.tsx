@@ -3,31 +3,28 @@ import {
   useContentfulInspectorMode,
   useContentfulLiveUpdates
 } from '@contentful/live-preview/react'
-import { useSuspenseQuery } from '@tanstack/react-query'
 import React from 'react'
 
-import { getBusinessInfoOptions } from '@src/components/features/ctf-components/ctf-business-info/CtfBusinessInfoGql'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
-import { BusinessInfoFieldsFragment } from '@src/lib/__generated/graphql.types'
+import {
+  BusinessInfoFieldsFragment,
+  CtfBusinessInfoQuery
+} from '@src/lib/__generated/graphql.types'
 
-const CtfBusinessInfo = ({ id }: { id: string }) => {
-  const { data, isLoading } = useSuspenseQuery(getBusinessInfoOptions({ id }))
+const CtfBusinessInfo = ({ data }: { data: CtfBusinessInfoQuery }) => {
   const topicBusinessInfo = useContentfulLiveUpdates(
     data.topicBusinessInfo
   ) as BusinessInfoFieldsFragment
 
-  const { body, name, shortDescription } = topicBusinessInfo
+  const { body, name, shortDescription, sys } = topicBusinessInfo
 
-  const inspectorMode = useContentfulInspectorMode({ entryId: id })
+  const inspectorMode = useContentfulInspectorMode({ entryId: sys.id })
 
-  if (!data || isLoading) {
-    return null
-  }
   if (!topicBusinessInfo) {
     return <EntryNotFound />
   }
-  console.log({ topicBusinessInfo })
+
   return (
     <div className={''}>
       {(name || shortDescription) && (

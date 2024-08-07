@@ -1,11 +1,10 @@
-'use client'
-import { useTranslation } from 'next-i18next'
+// import { useTranslation } from 'next-i18next'
 import React from 'react'
 
 import { ErrorBox } from '@src/components/shared/ErrorBox'
 
 export const EntryNotFound = (props: { className?: string }) => {
-  const { t } = useTranslation()
-
-  return <ErrorBox {...props}>{t('error.componentNotFound')}</ErrorBox>
+  // const { t } = useTranslation()
+  // {t('error.componentNotFound')}
+  return <ErrorBox {...props}>Component not found</ErrorBox>
 }
