@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next'
 import queryString from 'query-string'
 import { useMemo, useRef } from 'react'
 
-import { ProductTableFieldsFragment } from './__generated/ctf-product-table.generated'
+import { CtfProductTableQuery } from './__generated/ctf-product-table.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { FormatCurrency } from '@src/components/features/format-currency/FormatCurrency'
@@ -25,14 +25,14 @@ const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
   return queryString.stringifyUrl({ url: src, query: params })
 }
 
-export const CtfProductTable = (props: ProductTableFieldsFragment) => {
+export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery) => {
   const { t } = useTranslation()
   const {
     headline,
     subline,
     productsCollection,
     sys: { id }
-  } = props
+  } = componentProductTable!
 
   const inspectorMode = useContentfulInspectorMode()
 

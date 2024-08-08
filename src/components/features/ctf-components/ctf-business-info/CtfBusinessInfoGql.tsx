@@ -1,14 +1,11 @@
 import {
   CtfBusinessInfoQueryVariables,
-  getCtfBusinessInfoOptions
+  getCtfBusinessInfoData
 } from './__generated/business-info.generated'
 import CtfBusinessInfo from './CtfBusinessInfo'
 
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export const CtfBusinessInfoGql = async (variables: CtfBusinessInfoQueryVariables) => {
-  const queryClient = getQueryClient()
-  const data = await queryClient.fetchQuery(getCtfBusinessInfoOptions(variables))
+  const data = await getCtfBusinessInfoData(variables)
 
   return <CtfBusinessInfo data={data} />
 }

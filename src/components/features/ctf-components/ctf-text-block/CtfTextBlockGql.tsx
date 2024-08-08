@@ -1,27 +1,15 @@
-'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
-
-import { useCtfTextBlockQuery } from './__generated/ctf-text-block.generated'
+import {
+  CtfTextBlockQueryVariables,
+  getCtfTextBlockData
+} from './__generated/ctf-text-block.generated'
 import { CtfTextBlock } from './CtfTextBlock'
 
-interface CtfTextBlockGqlPropsInterface {
-  id: string
-  locale: string
-  preview: boolean
-}
-
-export const CtfTextBlockGql = ({ id, locale, preview }: CtfTextBlockGqlPropsInterface) => {
-  const { isLoading, data } = useCtfTextBlockQuery({
+export const CtfTextBlockGql = async ({ id, locale, preview }: CtfTextBlockQueryVariables) => {
+  const data = await getCtfTextBlockData({
     id,
     locale,
     preview
   })
 
-  const componentTextBlock = useContentfulLiveUpdates(data?.componentTextBlock)
-
-  if (isLoading || !componentTextBlock) {
-    return null
-  }
-
-  return <CtfTextBlock {...componentTextBlock} />
+  return <CtfTextBlock {...data} />
 }

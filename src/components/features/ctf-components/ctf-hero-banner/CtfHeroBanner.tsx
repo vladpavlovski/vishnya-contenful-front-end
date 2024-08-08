@@ -2,12 +2,12 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import { useMemo } from 'react'
 
-import { HeroBannerFieldsFragment } from './__generated/ctf-hero-banner.generated'
+import { CtfHeroBannerQuery } from './__generated/ctf-hero-banner.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { PageLink } from '@src/components/features/page-link/PageLink'
 
-export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
+export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
   const {
     image,
     imageStyle: imageStyleBoolean,
@@ -16,7 +16,7 @@ export const CtfHeroBanner = (props: HeroBannerFieldsFragment) => {
     ctaText,
     targetPage,
     sys: { id }
-  } = props
+  } = componentHeroBanner!
 
   const imageStyle = imageStyleBoolean ? 'partial' : 'full'
   const backgroundImage = useMemo(() => (image ? `${image.url}?w=${767 * 2}` : undefined), [image])

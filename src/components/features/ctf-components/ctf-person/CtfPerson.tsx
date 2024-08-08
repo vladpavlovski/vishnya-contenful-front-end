@@ -1,21 +1,23 @@
 import React from 'react'
 
-import { PersonFieldsFragment } from './__generated/ctf-person.generated'
+import { CtfPersonQuery } from './__generated/ctf-person.generated'
 
 import { CardLeadership } from '@src/components/features/card-leadership/CardLeadership'
 import { CardPerson } from '@src/components/features/card-person/CardPerson'
 
-interface CtfPersonPropsInterface extends PersonFieldsFragment {
+interface CtfPersonPropsInterface extends CtfPersonQuery {
   previousComponent: string | null
 }
 
 export const CtfPerson = (props: CtfPersonPropsInterface) => {
-  const isLeadership = props.cardStyle === false
+  const isLeadership = !!props?.topicPerson?.cardStyle
+  const { ...rest } = props.topicPerson
+  const cardProps = { ...rest, previousComponent: props.previousComponent }
 
   return (
     <div className={''} style={{ maxWidth: '100%', padding: 0 }}>
       <div className={''}>
-        {isLeadership ? <CardLeadership {...props} /> : <CardPerson {...props} />}
+        {isLeadership ? <CardLeadership {...cardProps} /> : <CardPerson {...cardProps} />}
       </div>
     </div>
   )

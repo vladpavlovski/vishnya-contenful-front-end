@@ -2,15 +2,15 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import React from 'react'
 
-import { NavigationFieldsFragment } from './__generated/ctf-navigation.generated'
+import { CtfNavigationQuery } from './__generated/ctf-navigation.generated'
 import { getLinkDisplayText, getLinkHrefPrefix } from './utils'
 
 import { Link } from '@src/components/shared/Link'
 
-export const CtfNavigation = (props: NavigationFieldsFragment) => {
+export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) => {
   const inspectorMode = useContentfulInspectorMode()
 
-  const navigationContent = props.items[0]
+  const navigationContent = navigationMenuCollection?.items?.[0]
 
   const renderNavigationLinks = (menuGroup, listClassName) => {
     return menuGroup?.items?.map(menuItem => {

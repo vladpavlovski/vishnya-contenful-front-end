@@ -2,19 +2,19 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import React, { Fragment } from 'react'
 
-import { ProductFieldsFragment } from './__generated/ctf-product.generated'
+import { CtfProductQuery } from './__generated/ctf-product.generated'
 
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfAsset'
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
-export const CtfProduct = (props: ProductFieldsFragment) => {
+export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
   const {
     name,
     featuredImage,
     description,
     featuresCollection,
     sys: { id }
-  } = props
+  } = topicProduct!
 
   const inspectorMode = useContentfulInspectorMode()
 

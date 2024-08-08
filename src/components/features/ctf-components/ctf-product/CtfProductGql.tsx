@@ -1,33 +1,14 @@
-'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
-
-import { useCtfProductQuery } from './__generated/ctf-product.generated'
+import { CtfProductQueryVariables, getCtfProductData } from './__generated/ctf-product.generated'
 import { CtfProduct } from './CtfProduct'
 
 import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'
 
-interface CtfProductGqlPropsInterface {
-  id: string
-  locale: string
-  preview?: boolean
-}
+export const CtfProductGql = async (props: CtfProductQueryVariables) => {
+  const data = await getCtfProductData(props)
 
-export const CtfProductGql = (props: CtfProductGqlPropsInterface) => {
-  const { isLoading, data } = useCtfProductQuery({
-    id: props.id,
-    locale: props.locale,
-    preview: props.preview
-  })
-
-  const topicProduct = useContentfulLiveUpdates(data?.topicProduct)
-
-  if (!data || isLoading) {
-    return null
-  }
-
-  if (!topicProduct) {
+  if (!data) {
     return <EntryNotFound />
   }
 
-  return <CtfProduct {...topicProduct} />
+  return <CtfProduct {...data} />
 }

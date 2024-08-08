@@ -1,22 +1,12 @@
-'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
-
 import { CtfMobileMenu } from './CtfMobileMenu'
 
-import { useCtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
-import { useContentfulContext } from '@src/contentful-context'
+import {
+  CtfNavigationQueryVariables,
+  getCtfNavigationData
+} from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 
-export const CtfMobileMenuGql = props => {
-  const { locale } = useContentfulContext()
+export const CtfMobileMenuGql = async (props: CtfNavigationQueryVariables) => {
+  const data = await getCtfNavigationData(props)
 
-  const { data, isLoading } = useCtfNavigationQuery({
-    locale,
-    preview: false
-  })
-
-  const navigationMenuCollection = useContentfulLiveUpdates(data?.navigationMenuCollection)
-
-  if (!navigationMenuCollection || isLoading) return null
-
-  return <CtfMobileMenu {...props} {...navigationMenuCollection} />
+  return <CtfMobileMenu {...data} />
 }

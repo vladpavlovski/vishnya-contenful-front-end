@@ -1,19 +1,10 @@
-import { queryOptions } from '@tanstack/react-query'
 import React from 'react'
 
-import { useCtfFooterQuery } from './__generated/ctf-footer.generated'
+import { CtfFooterQueryVariables, getCtfFooterData } from './__generated/ctf-footer.generated'
 import { CtfFooter } from './CtfFooter'
 
-import { getQueryClient } from '@src/lib/get-query-client'
+export const CtfFooterGql = async (variables: CtfFooterQueryVariables) => {
+  const data = await getCtfFooterData(variables)
 
-export const footerOptions = queryOptions({
-  queryKey: useCtfFooterQuery.getKey(),
-  queryFn: useCtfFooterQuery.fetcher()
-})
-
-export const CtfFooterGql = () => {
-  const queryClient = getQueryClient()
-  void queryClient.prefetchQuery(footerOptions)
-
-  return <CtfFooter />
+  return <CtfFooter {...data} />
 }

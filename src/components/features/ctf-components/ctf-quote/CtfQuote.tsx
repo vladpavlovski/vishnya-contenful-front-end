@@ -2,11 +2,11 @@
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import { useMemo } from 'react'
 
-import { QuoteFieldsFragment } from './__generated/ctf-quote.generated'
+import { CtfQuoteQuery } from './__generated/ctf-quote.generated'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
-export const CtfQuote = (props: QuoteFieldsFragment) => {
+export const CtfQuote = ({ componentQuote }: CtfQuoteQuery) => {
   const {
     imagePosition,
     image,
@@ -14,7 +14,7 @@ export const CtfQuote = (props: QuoteFieldsFragment) => {
 
     quoteAlignment: quoteAlignmentBoolean,
     sys: { id }
-  } = props
+  } = componentQuote!
   const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight'
   const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left'
   const backgroundImage = useMemo(() => (image ? `${image.url}?w=${600 * 2}` : undefined), [image])

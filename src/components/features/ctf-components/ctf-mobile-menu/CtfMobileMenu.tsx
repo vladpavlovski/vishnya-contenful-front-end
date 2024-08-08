@@ -1,28 +1,25 @@
 'use client'
 import React from 'react'
 
-import { NavigationFieldsFragment } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
+import { CtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import {
   getLinkDisplayText,
   getLinkHrefPrefix
 } from '@src/components/features/ctf-components/ctf-navigation/utils'
 import { Link } from '@src/components/shared/Link'
 
-interface MobileMenuPropsInterface extends NavigationFieldsFragment {
-  isOpen?: boolean
-  onOpenChange: (isOpen: boolean) => any
-}
-
-export const CtfMobileMenu = (props: MobileMenuPropsInterface) => {
-  const { isOpen, onOpenChange } = props
-
+export const CtfMobileMenu = (props: CtfNavigationQuery) => {
+  const isOpen = false
+  const onOpenChange = (isOpen: boolean) => {
+    console.log({ isOpen })
+  }
   const onCloseClick = (e, reason) => {
     if (reason === 'backdropClick') {
       onOpenChange(false)
     }
   }
 
-  const mobileMenuContent = props.items[0]
+  const mobileMenuContent = props.navigationMenuCollection?.items?.[0]
 
   const renderMobileMenuLinks = menuGroup => {
     return menuGroup?.items?.map(menuItem => {

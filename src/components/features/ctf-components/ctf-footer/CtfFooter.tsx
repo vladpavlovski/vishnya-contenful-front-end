@@ -1,9 +1,8 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import { useSuspenseQuery } from '@tanstack/react-query'
 import { useTranslation } from 'next-i18next'
 
-import { footerOptions } from '@src/components/features/ctf-components/ctf-footer/CtfFooterGql'
+import { CtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated'
 import {
   getLinkDisplayText,
   getLinkHrefPrefix
@@ -12,9 +11,8 @@ import { LanguageSelector } from '@src/components/features/language-selector/Lan
 import { Link } from '@src/components/shared/Link'
 import { useContentfulContext } from '@src/contentful-context'
 
-export const CtfFooter = () => {
-  const { data } = useSuspenseQuery(footerOptions)
-  const footerContent = data?.footerMenuCollection?.items?.[0]
+export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
+  const footerContent = footerMenuCollection?.items?.[0]
 
   const { t } = useTranslation()
   const { locale } = useContentfulContext()
