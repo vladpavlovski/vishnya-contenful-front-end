@@ -15,10 +15,9 @@
  *****************************************************
  */
 
- import { queryOptions } from '@tanstack/react-query';
+import * as Types from '../../../../__generated/graphql.types';
 
-import * as Types from '../../__generated/graphql.types';
-
+import { queryOptions } from '@tanstack/react-query';
 export type ComponentReferenceFields_ComponentCta_Fragment = { __typename: 'ComponentCta', sys: { __typename?: 'Sys', id: string } };
 
 export type ComponentReferenceFields_ComponentDuplex_Fragment = { __typename: 'ComponentDuplex', sys: { __typename?: 'Sys', id: string } };

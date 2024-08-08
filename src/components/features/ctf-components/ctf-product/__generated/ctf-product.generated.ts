@@ -15,12 +15,11 @@
  *****************************************************
  */
 
- import { queryOptions } from '@tanstack/react-query';
-
-import * as Types from '../../../../../lib/__generated/graphql.types';
+import * as Types from '../../../../../../__generated/graphql.types';
 
 import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { ProductFeatureFieldsFragment } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
+import { queryOptions } from '@tanstack/react-query';
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { ProductFeatureFieldsFragmentDoc } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';

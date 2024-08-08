@@ -15,12 +15,11 @@
  *****************************************************
  */
 
- import { queryOptions } from '@tanstack/react-query';
-
-import * as Types from '../../../../../lib/__generated/graphql.types';
+import * as Types from '../../../../../../__generated/graphql.types';
 
 import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
 import { MenuGroupFieldsFragment } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
+import { queryOptions } from '@tanstack/react-query';
 import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
 import { MenuGroupFieldsFragmentDoc } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';

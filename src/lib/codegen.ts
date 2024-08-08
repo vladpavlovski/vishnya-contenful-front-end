@@ -1,6 +1,6 @@
 import { CodegenConfig } from '@graphql-codegen/cli'
 
-import { fetchConfig } from './src/lib/fetchConfig'
+import { fetchConfig } from './fetchConfig'
 
 export const config: CodegenConfig = {
   overwrite: true,
@@ -11,25 +11,25 @@ export const config: CodegenConfig = {
     }
   ],
   generates: {
-    './src/lib/__generated/graphql.schema.json': {
+    './__generated/graphql.schema.json': {
       plugins: ['introspection']
     },
-    './src/lib/__generated/graphql.schema.graphql': {
+    './__generated/graphql.schema.graphql': {
       plugins: ['schema-ast'],
       config: {
         commentDescriptions: true
       }
     },
-    './src/lib/__generated/graphql.types.ts': {
+    './__generated/graphql.types.ts': {
       plugins: ['typescript', 'typescript-operations'],
-      documents: ['./src/**/*.graphql']
+      documents: ['../**/*.graphql']
     },
-    './src/': {
-      documents: ['./src/**/*.graphql'],
+    './': {
+      documents: ['../**/*.graphql'],
       preset: 'near-operation-file',
       presetConfig: {
         extension: '.generated.ts',
-        baseTypesPath: 'lib/__generated/graphql.types.ts',
+        baseTypesPath: '__generated/graphql.types.ts',
         folder: '__generated'
       },
       plugins: [
@@ -51,12 +51,15 @@ export const config: CodegenConfig = {
  *                                                    *
  *****************************************************
  */
-
- import { queryOptions } from '@tanstack/react-query';
 `
           }
         },
         'typescript-operations',
+        {
+          add: {
+            content: `import { queryOptions } from '@tanstack/react-query';`
+          }
+        },
         'typescript-react-query',
         './src/lib/fetchFunctionPlugin.ts'
       ],

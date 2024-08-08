@@ -15,11 +15,10 @@
  *****************************************************
  */
 
- import { queryOptions } from '@tanstack/react-query';
-
-import * as Types from '../../__generated/graphql.types';
+import * as Types from '../../../../__generated/graphql.types';
 
 import { PageLinkFieldsFragment } from '../../../components/features/page-link/__generated/page-link.generated';
+import { queryOptions } from '@tanstack/react-query';
 import { PageLinkFieldsFragmentDoc } from '../../../components/features/page-link/__generated/page-link.generated';
 export type MenuGroupFieldsFragment = { __typename?: 'MenuGroupFeaturedPagesCollection', items: Array<(
     { __typename?: 'Page' }
