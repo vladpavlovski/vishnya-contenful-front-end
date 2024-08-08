@@ -17,25 +17,25 @@ export const config: CodegenConfig = {
     }
   ],
   generates: {
-    './__generated/graphql.schema.json': {
+    './src/lib/__generated/graphql.schema.json': {
       plugins: ['introspection']
     },
-    './__generated/graphql.schema.graphql': {
+    './src/lib/__generated/graphql.schema.graphql': {
       plugins: ['schema-ast'],
       config: {
         commentDescriptions: true
       }
     },
-    './__generated/graphql.types.ts': {
+    './src/lib/__generated/graphql.types.ts': {
       plugins: ['typescript', 'typescript-operations'],
-      documents: ['../**/*.graphql']
+      documents: ['./**/*.graphql']
     },
-    './': {
-      documents: ['../**/*.graphql'],
+    './src': {
+      documents: ['./**/*.graphql'],
       preset: 'near-operation-file',
       presetConfig: {
         extension: '.generated.ts',
-        baseTypesPath: '__generated/graphql.types.ts',
+        baseTypesPath: './lib/__generated/graphql.types.ts',
         folder: '__generated'
       },
       plugins: [

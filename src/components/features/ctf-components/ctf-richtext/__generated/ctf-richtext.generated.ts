@@ -16,7 +16,7 @@
  *****************************************************/
 
 
-import * as Types from '../../../../../../__generated/graphql.types';
+import * as Types from '../../../../../lib/__generated/graphql.types';
 
 import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
 import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';

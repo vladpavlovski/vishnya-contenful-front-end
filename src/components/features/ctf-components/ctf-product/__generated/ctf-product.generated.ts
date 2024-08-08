@@ -16,7 +16,7 @@
  *****************************************************/
 
 
-import * as Types from '../../../../../../__generated/graphql.types';
+import * as Types from '../../../../../lib/__generated/graphql.types';
 
 import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { ProductFeatureFieldsFragment } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';

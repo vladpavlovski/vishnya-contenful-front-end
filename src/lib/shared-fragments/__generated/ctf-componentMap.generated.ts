@@ -16,7 +16,7 @@
  *****************************************************/
 
 
-import * as Types from '../../../../__generated/graphql.types';
+import * as Types from '../../__generated/graphql.types';
 
 
 import { getQueryClient } from '@src/lib/get-query-client'
