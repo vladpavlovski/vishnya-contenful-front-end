@@ -1,19 +1,7 @@
-'use client'
-import { useTranslation } from 'next-i18next'
-
 import { CtfNavigationGql } from '@src/components/features/ctf-components/ctf-navigation/CtfNavigationGql'
 import { Link } from '@src/components/shared/Link'
 
-interface HeaderPropsInterface {
-  isMenuOpen?: boolean
-  onMenuClick?: () => any
-}
-
-export const Header = (props: HeaderPropsInterface) => {
-  const { t } = useTranslation()
-
-  const { onMenuClick, isMenuOpen } = props
-
+export const Header = () => {
   return (
     <header className={''} style={{ boxShadow: '0 2px 6px #00000021' }}>
       <div
@@ -24,7 +12,7 @@ export const Header = (props: HeaderPropsInterface) => {
         }}
       >
         <div>
-          <Link href="/" withoutMaterial title={t('common.homepage')}>
+          <Link href="/" withoutMaterial title={'Homepage'}>
             Logo here
           </Link>
           <div style={{ display: 'none' }}>
@@ -32,19 +20,6 @@ export const Header = (props: HeaderPropsInterface) => {
               <CtfNavigationGql />
             </div>
           </div>
-        </div>
-
-        {/* menu button */}
-        <div style={{ display: 'block', marginLeft: 'auto' }}>
-          <button
-            title={t('navigation.mobileMenuButton')}
-            onClick={() => onMenuClick?.()}
-            aria-controls="mobile-menu"
-            aria-expanded={isMenuOpen}
-            aria-haspopup="dialog"
-            className={''}
-            style={{ border: 'none', background: 'transparent' }}
-          />
         </div>
       </div>
     </header>
