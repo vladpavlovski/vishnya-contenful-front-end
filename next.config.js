@@ -1,6 +1,10 @@
 /* eslint-disable @typescript-eslint/no-require-imports */
 require('dotenv').config()
 
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.BUNDLE_ANALYZE === 'true'
+})
+
 const headers = require('./config/headers')
 const { i18n } = require('./next-i18next.config.js')
 
@@ -8,7 +12,9 @@ const { i18n } = require('./next-i18next.config.js')
  * Next config
  * documentation: https://nextjs.org/docs/api-reference/next.config.js/introduction
  */
-module.exports = {
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   i18n,
   /**
    * add the environment variables you would like exposed to the client here
@@ -62,4 +68,18 @@ module.exports = {
     path: '/_next/image',
     loader: 'default'
   }
+  // webpack: (config, { isServer }) => {
+  //   if (!isServer) {
+  //     config.optimization.splitChunks.cacheGroups = {
+  //       vendor: {
+  //         test: /[\\/]node_modules[\\/]/,
+  //         name: 'vendors',
+  //         chunks: 'all'
+  //       }
+  //     }
+  //   }
+  //   return config
+  // }
 }
+
+module.exports = withBundleAnalyzer(nextConfig)
