@@ -20,9 +20,6 @@ import * as Types from '../../__generated/graphql.types';
 
 import { PageLinkFieldsFragment } from '../../../components/features/page-link/__generated/page-link.generated';
 import { PageLinkFieldsFragmentDoc } from '../../../components/features/page-link/__generated/page-link.generated';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type MenuGroupFieldsFragment = { __typename?: 'MenuGroupFeaturedPagesCollection', items: Array<(
     { __typename?: 'Page' }
     & PageLinkFieldsFragment

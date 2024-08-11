@@ -2,7 +2,7 @@ import { CtfPerson } from './CtfPerson'
 
 import {
   CtfPersonQueryVariables,
-  getCtfPersonData
+  useCtfPersonQuery
 } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
 
 export const CtfPersonGql = async (
@@ -10,11 +10,11 @@ export const CtfPersonGql = async (
 ) => {
   const { id, locale, preview, previousComponent } = props
 
-  const data = await getCtfPersonData({
+  const data = await useCtfPersonQuery.fetcher({
     id,
     locale,
     preview
-  })
+  })()
 
   return <CtfPerson {...data} previousComponent={previousComponent} />
 }

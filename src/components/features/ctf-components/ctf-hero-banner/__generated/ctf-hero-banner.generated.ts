@@ -24,9 +24,6 @@ import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-l
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type HeroBannerFieldsFragment = { __typename: 'ComponentHeroBanner', headline?: string | null, ctaText?: string | null, imageStyle?: boolean | null, heroSize?: boolean | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, bodyText?: { __typename?: 'ComponentHeroBannerBodyText', json: any } | null, targetPage?: (
     { __typename?: 'Page' }
     & PageLinkFieldsFragment
@@ -118,30 +115,3 @@ useSuspenseCtfHeroBannerQuery.getKey = (variables: CtfHeroBannerQueryVariables) 
 
 
 useCtfHeroBannerQuery.fetcher = (variables: CtfHeroBannerQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfHeroBannerQuery, CtfHeroBannerQueryVariables>(CtfHeroBannerDocument, variables, options);
-
-
-/**
- * The getCtfHeroBannerData is used to fetch data for server-side components.
- * 
- * @param {CtfHeroBannerQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfHeroBannerData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfHeroBannerData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfHeroBannerData = async (variables: CtfHeroBannerQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfHeroBannerQuery.getKey(variables),
-    queryFn: useCtfHeroBannerQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

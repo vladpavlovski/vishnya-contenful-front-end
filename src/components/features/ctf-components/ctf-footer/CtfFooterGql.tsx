@@ -1,10 +1,9 @@
 import React from 'react'
 
-import { CtfFooterQueryVariables, getCtfFooterData } from './__generated/ctf-footer.generated'
+import { CtfFooterQueryVariables, useCtfFooterQuery } from './__generated/ctf-footer.generated'
 import { CtfFooter } from './CtfFooter'
 
 export const CtfFooterGql = async (variables: CtfFooterQueryVariables) => {
-  const data = await getCtfFooterData(variables)
-
+  const data = await useCtfFooterQuery.fetcher(variables)()
   return <CtfFooter {...data} />
 }

@@ -2,7 +2,7 @@ import { Metadata } from 'next'
 
 import CtfPage from './CtfPage'
 
-import { getCtfPageData } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
+import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
 import { PageError } from '@src/components/features/errors/PageError'
 import { DEFAULT_LOCALE } from '@src/lib/locales'
 import { tryget } from '@src/utils'
@@ -20,7 +20,7 @@ const CtfPageGgl = async ({ slug: slugFromProps }: Props) => {
   const slug = !slugFromProps || slugFromProps === '/' ? 'home' : slugFromProps
   const locale = DEFAULT_LOCALE
 
-  const data = await getCtfPageData({ slug, locale, preview: false })
+  const data = await useCtfPageQuery.fetcher({ slug, locale, preview: false })()
 
   const page = tryget(() => data?.pageCollection!.items[0])
 

@@ -22,9 +22,6 @@ import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.gener
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type ProductFeatureFieldsFragment = { __typename: 'TopicProductFeature', name?: string | null, sys: { __typename?: 'Sys', id: string }, longDescription?: { __typename?: 'TopicProductFeatureLongDescription', json: any, links: { __typename?: 'TopicProductFeatureLongDescriptionLinks', assets: { __typename?: 'TopicProductFeatureLongDescriptionAssets', block: Array<(
           { __typename?: 'Asset' }
           & AssetFieldsFragment
@@ -122,30 +119,3 @@ useSuspenseCtfProductFeatureQuery.getKey = (variables: CtfProductFeatureQueryVar
 
 
 useCtfProductFeatureQuery.fetcher = (variables: CtfProductFeatureQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfProductFeatureQuery, CtfProductFeatureQueryVariables>(CtfProductFeatureDocument, variables, options);
-
-
-/**
- * The getCtfProductFeatureData is used to fetch data for server-side components.
- * 
- * @param {CtfProductFeatureQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfProductFeatureData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfProductFeatureData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfProductFeatureData = async (variables: CtfProductFeatureQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfProductFeatureQuery.getKey(variables),
-    queryFn: useCtfProductFeatureQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

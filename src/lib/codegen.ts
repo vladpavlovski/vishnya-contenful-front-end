@@ -46,15 +46,7 @@ export const config: CodegenConfig = {
           }
         },
         'typescript-operations',
-        {
-          add: {
-            content: `
-import { getQueryClient } from '@src/lib/get-query-client'
-`
-          }
-        },
-        'typescript-react-query',
-        './src/lib/fetchFunctionPlugin.ts'
+        'typescript-react-query'
       ],
       config: {
         reactQueryVersion: 5,

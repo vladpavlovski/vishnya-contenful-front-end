@@ -24,9 +24,6 @@ import { MenuGroupFieldsFragmentDoc } from '../../../../../lib/shared-fragments/
 import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type FooterFieldsFragment = { __typename?: 'FooterMenuCollection', items: Array<{ __typename: 'FooterMenu', twitterLink?: string | null, facebookLink?: string | null, linkedinLink?: string | null, instagramLink?: string | null, sys: { __typename?: 'Sys', id: string }, menuItemsCollection?: { __typename?: 'FooterMenuMenuItemsCollection', items: Array<{ __typename: 'MenuGroup', groupName?: string | null, sys: { __typename?: 'Sys', id: string }, featuredPagesCollection?: (
           { __typename?: 'MenuGroupFeaturedPagesCollection' }
           & MenuGroupFieldsFragment
@@ -126,30 +123,3 @@ useSuspenseCtfFooterQuery.getKey = (variables?: CtfFooterQueryVariables) => vari
 
 
 useCtfFooterQuery.fetcher = (variables?: CtfFooterQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfFooterQuery, CtfFooterQueryVariables>(CtfFooterDocument, variables, options);
-
-
-/**
- * The getCtfFooterData is used to fetch data for server-side components.
- * 
- * @param {CtfFooterQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfFooterData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfFooterData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfFooterData = async (variables: CtfFooterQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfFooterQuery.getKey(variables),
-    queryFn: useCtfFooterQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

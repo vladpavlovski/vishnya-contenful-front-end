@@ -22,9 +22,6 @@ import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.gener
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type PageTopSectionFields_ComponentCta_Fragment = { __typename: 'ComponentCta' };
 
 export type PageTopSectionFields_ComponentDuplex_Fragment = { __typename: 'ComponentDuplex' };
@@ -247,30 +244,3 @@ useSuspenseCtfPageQuery.getKey = (variables: CtfPageQueryVariables) => ['CtfPage
 
 
 useCtfPageQuery.fetcher = (variables: CtfPageQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfPageQuery, CtfPageQueryVariables>(CtfPageDocument, variables, options);
-
-
-/**
- * The getCtfPageData is used to fetch data for server-side components.
- * 
- * @param {CtfPageQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfPageData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfPageData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfPageData = async (variables: CtfPageQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfPageQuery.getKey(variables),
-    queryFn: useCtfPageQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

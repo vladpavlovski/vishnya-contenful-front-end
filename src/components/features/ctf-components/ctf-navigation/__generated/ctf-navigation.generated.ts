@@ -24,9 +24,6 @@ import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-l
 import { MenuGroupFieldsFragmentDoc } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type NavigationFieldsFragment = { __typename?: 'NavigationMenuCollection', items: Array<{ __typename?: 'NavigationMenu', menuItemsCollection?: { __typename?: 'NavigationMenuMenuItemsCollection', items: Array<{ __typename: 'MenuGroup', groupName?: string | null, sys: { __typename?: 'Sys', id: string }, link?: (
           { __typename?: 'Page' }
           & PageLinkFieldsFragment
@@ -116,30 +113,3 @@ useSuspenseCtfNavigationQuery.getKey = (variables?: CtfNavigationQueryVariables)
 
 
 useCtfNavigationQuery.fetcher = (variables?: CtfNavigationQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfNavigationQuery, CtfNavigationQueryVariables>(CtfNavigationDocument, variables, options);
-
-
-/**
- * The getCtfNavigationData is used to fetch data for server-side components.
- * 
- * @param {CtfNavigationQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfNavigationData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfNavigationData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfNavigationData = async (variables: CtfNavigationQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfNavigationQuery.getKey(variables),
-    queryFn: useCtfNavigationQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

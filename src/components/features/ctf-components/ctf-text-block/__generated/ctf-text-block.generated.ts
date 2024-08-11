@@ -24,9 +24,6 @@ import { ComponentReferenceFieldsFragmentDoc } from '../../../../../lib/shared-f
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type TextBlockFieldsFragment = { __typename: 'ComponentTextBlock', headline?: string | null, subline?: string | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, body?: { __typename?: 'ComponentTextBlockBody', json: any, links: { __typename?: 'ComponentTextBlockBodyLinks', entries: { __typename?: 'ComponentTextBlockBodyEntries', block: Array<(
           { __typename?: 'ComponentCta' }
           & ComponentReferenceFields_ComponentCta_Fragment
@@ -167,30 +164,3 @@ useSuspenseCtfTextBlockQuery.getKey = (variables: CtfTextBlockQueryVariables) =>
 
 
 useCtfTextBlockQuery.fetcher = (variables: CtfTextBlockQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfTextBlockQuery, CtfTextBlockQueryVariables>(CtfTextBlockDocument, variables, options);
-
-
-/**
- * The getCtfTextBlockData is used to fetch data for server-side components.
- * 
- * @param {CtfTextBlockQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfTextBlockData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfTextBlockData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfTextBlockData = async (variables: CtfTextBlockQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfTextBlockQuery.getKey(variables),
-    queryFn: useCtfTextBlockQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

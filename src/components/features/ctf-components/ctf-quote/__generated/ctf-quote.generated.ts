@@ -24,9 +24,6 @@ import { ComponentReferenceFieldsFragmentDoc } from '../../../../../lib/shared-f
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type QuoteFieldsFragment = { __typename: 'ComponentQuote', quoteAlignment?: boolean | null, imagePosition?: boolean | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, quote?: { __typename?: 'ComponentQuoteQuote', json: any, links: { __typename?: 'ComponentQuoteQuoteLinks', entries: { __typename?: 'ComponentQuoteQuoteEntries', block: Array<(
           { __typename?: 'ComponentCta' }
           & ComponentReferenceFields_ComponentCta_Fragment
@@ -173,30 +170,3 @@ useSuspenseCtfQuoteQuery.getKey = (variables: CtfQuoteQueryVariables) => ['CtfQu
 
 
 useCtfQuoteQuery.fetcher = (variables: CtfQuoteQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfQuoteQuery, CtfQuoteQueryVariables>(CtfQuoteDocument, variables, options);
-
-
-/**
- * The getCtfQuoteData is used to fetch data for server-side components.
- * 
- * @param {CtfQuoteQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfQuoteData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfQuoteData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfQuoteData = async (variables: CtfQuoteQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfQuoteQuery.getKey(variables),
-    queryFn: useCtfQuoteQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

@@ -26,9 +26,6 @@ import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.ge
 import { ProductFeatureFieldsFragmentDoc } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type ProductTableFieldsFragment = { __typename: 'ComponentProductTable', headline?: string | null, subline?: string | null, sys: { __typename?: 'Sys', id: string }, productsCollection?: { __typename?: 'ComponentProductTableProductsCollection', items: Array<(
       { __typename?: 'TopicProduct' }
       & ProductFieldsFragment
@@ -111,30 +108,3 @@ useSuspenseCtfProductTableQuery.getKey = (variables: CtfProductTableQueryVariabl
 
 
 useCtfProductTableQuery.fetcher = (variables: CtfProductTableQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfProductTableQuery, CtfProductTableQueryVariables>(CtfProductTableDocument, variables, options);
-
-
-/**
- * The getCtfProductTableData is used to fetch data for server-side components.
- * 
- * @param {CtfProductTableQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfProductTableData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfProductTableData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfProductTableData = async (variables: CtfProductTableQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfProductTableQuery.getKey(variables),
-    queryFn: useCtfProductTableQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

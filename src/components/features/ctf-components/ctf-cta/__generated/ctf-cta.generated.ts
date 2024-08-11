@@ -22,9 +22,6 @@ import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link
 import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type CtaFieldsFragment = { __typename: 'ComponentCta', headline?: string | null, ctaText?: string | null, urlParameters?: string | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, subline?: { __typename?: 'ComponentCtaSubline', json: any } | null, targetPage?: (
     { __typename?: 'Page' }
     & PageLinkFieldsFragment
@@ -108,30 +105,3 @@ useSuspenseCtfCtaQuery.getKey = (variables: CtfCtaQueryVariables) => ['CtfCtaSus
 
 
 useCtfCtaQuery.fetcher = (variables: CtfCtaQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfCtaQuery, CtfCtaQueryVariables>(CtfCtaDocument, variables, options);
-
-
-/**
- * The getCtfCtaData is used to fetch data for server-side components.
- * 
- * @param {CtfCtaQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfCtaData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfCtaData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfCtaData = async (variables: CtfCtaQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfCtaQuery.getKey(variables),
-    queryFn: useCtfCtaQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

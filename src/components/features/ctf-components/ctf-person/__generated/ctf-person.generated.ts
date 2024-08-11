@@ -22,9 +22,6 @@ import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.gener
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type PersonFieldsFragment = { __typename: 'TopicPerson', name?: string | null, website?: string | null, location?: string | null, cardStyle?: boolean | null, sys: { __typename?: 'Sys', id: string }, bio?: { __typename?: 'TopicPersonBio', json: any } | null, avatar?: (
     { __typename?: 'Asset' }
     & AssetFieldsFragment
@@ -108,30 +105,3 @@ useSuspenseCtfPersonQuery.getKey = (variables: CtfPersonQueryVariables) => ['Ctf
 
 
 useCtfPersonQuery.fetcher = (variables: CtfPersonQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfPersonQuery, CtfPersonQueryVariables>(CtfPersonDocument, variables, options);
-
-
-/**
- * The getCtfPersonData is used to fetch data for server-side components.
- * 
- * @param {CtfPersonQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfPersonData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfPersonData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfPersonData = async (variables: CtfPersonQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfPersonQuery.getKey(variables),
-    queryFn: useCtfPersonQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

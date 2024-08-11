@@ -24,9 +24,6 @@ import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.ge
 import { ComponentReferenceFieldsFragmentDoc } from '../../../../../lib/shared-fragments/__generated/ctf-componentMap.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type BusinessInfoFieldsFragment = { __typename: 'TopicBusinessInfo', name?: string | null, shortDescription?: string | null, sys: { __typename?: 'Sys', id: string }, featuredImage?: (
     { __typename?: 'Asset' }
     & AssetFieldsFragment
@@ -172,30 +169,3 @@ useSuspenseCtfBusinessInfoQuery.getKey = (variables: CtfBusinessInfoQueryVariabl
 
 
 useCtfBusinessInfoQuery.fetcher = (variables: CtfBusinessInfoQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfBusinessInfoQuery, CtfBusinessInfoQueryVariables>(CtfBusinessInfoDocument, variables, options);
-
-
-/**
- * The getCtfBusinessInfoData is used to fetch data for server-side components.
- * 
- * @param {CtfBusinessInfoQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfBusinessInfoData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfBusinessInfoData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfBusinessInfoData = async (variables: CtfBusinessInfoQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfBusinessInfoQuery.getKey(variables),
-    queryFn: useCtfBusinessInfoQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

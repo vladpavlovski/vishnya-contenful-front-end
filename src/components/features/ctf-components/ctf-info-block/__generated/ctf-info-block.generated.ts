@@ -22,9 +22,6 @@ import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.gener
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type InfoBlockFieldsFragment = { __typename: 'ComponentInfoBlock', headline?: string | null, subline?: string | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, block1Image?: (
     { __typename?: 'Asset' }
     & AssetFieldsFragment
@@ -125,30 +122,3 @@ useSuspenseCtfInfoBlockQuery.getKey = (variables: CtfInfoBlockQueryVariables) =>
 
 
 useCtfInfoBlockQuery.fetcher = (variables: CtfInfoBlockQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfInfoBlockQuery, CtfInfoBlockQueryVariables>(CtfInfoBlockDocument, variables, options);
-
-
-/**
- * The getCtfInfoBlockData is used to fetch data for server-side components.
- * 
- * @param {CtfInfoBlockQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfInfoBlockData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfInfoBlockData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfInfoBlockData = async (variables: CtfInfoBlockQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfInfoBlockQuery.getKey(variables),
-    queryFn: useCtfInfoBlockQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};

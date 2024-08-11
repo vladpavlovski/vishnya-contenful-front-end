@@ -2,11 +2,11 @@ import React from 'react'
 
 import {
   CtfHeroBannerQueryVariables,
-  getCtfHeroBannerData
+  useCtfHeroBannerQuery
 } from './__generated/ctf-hero-banner.generated'
 import { CtfHeroBanner } from './CtfHeroBanner'
 
 export const CtfHeroGql = async (props: CtfHeroBannerQueryVariables) => {
-  const data = await getCtfHeroBannerData(props)
+  const data = await useCtfHeroBannerQuery.fetcher(props)()
   return <CtfHeroBanner {...data} />
 }

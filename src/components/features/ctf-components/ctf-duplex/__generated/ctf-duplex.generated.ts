@@ -24,9 +24,6 @@ import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-l
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
-
-import { getQueryClient } from '@src/lib/get-query-client'
-
 export type DuplexFieldsFragment = { __typename: 'ComponentDuplex', containerLayout?: boolean | null, headline?: string | null, ctaText?: string | null, imageStyle?: boolean | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, bodyText?: { __typename?: 'ComponentDuplexBodyText', json: any } | null, targetPage?: (
     { __typename?: 'Page' }
     & PageLinkFieldsFragment
@@ -118,30 +115,3 @@ useSuspenseCtfDuplexQuery.getKey = (variables: CtfDuplexQueryVariables) => ['Ctf
 
 
 useCtfDuplexQuery.fetcher = (variables: CtfDuplexQueryVariables, options?: RequestInit['headers']) => customFetcher<CtfDuplexQuery, CtfDuplexQueryVariables>(CtfDuplexDocument, variables, options);
-
-
-/**
- * The getCtfDuplexData is used to fetch data for server-side components.
- * 
- * @param {CtfDuplexQueryVariables} variables - The variables required for the GraphQL query.
- * @returns {Promise<unknown>} The data returned by the GraphQL query.
- * 
- * Example usage:
- * 
- * import { getCtfDuplexData } from 'path/to/your/output';
- * 
- * const fetchData = async () => {
- *   const data = await getCtfDuplexData(variables);
- *   console.log(data);
- * };
- * 
- */
-
-export const getCtfDuplexData = async (variables: CtfDuplexQueryVariables) => {
-  const queryClient = getQueryClient();
-  const queryOptions = {
-    queryKey: useCtfDuplexQuery.getKey(variables),
-    queryFn: useCtfDuplexQuery.fetcher(variables),
-  };
-  return queryClient.fetchQuery(queryOptions);
-};
