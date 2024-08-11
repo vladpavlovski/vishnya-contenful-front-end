@@ -67,7 +67,8 @@ const nextConfig = {
     ],
     path: '/_next/image',
     loader: 'default'
-  }
+  },
+  productionBrowserSourceMaps: process.env.BUNDLE_ANALYZE === 'true'
   // webpack: (config, { isServer }) => {
   //   if (!isServer) {
   //     config.optimization.splitChunks.cacheGroups = {
