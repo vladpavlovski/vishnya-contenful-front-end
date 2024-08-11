@@ -1,6 +1,6 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import React, { Fragment } from 'react'
+import { Fragment } from 'react'
 
 import { CtfProductQuery } from './__generated/ctf-product.generated'
 

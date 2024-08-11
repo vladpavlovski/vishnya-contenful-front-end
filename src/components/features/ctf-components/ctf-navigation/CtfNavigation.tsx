@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import React from 'react'
 
 import { CtfNavigationQuery } from './__generated/ctf-navigation.generated'
 import { getLinkDisplayText, getLinkHrefPrefix } from './utils'

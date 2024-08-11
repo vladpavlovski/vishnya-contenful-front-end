@@ -1,7 +1,5 @@
-import React from 'react'
-
 import { Avatar } from '@src/components/features/avatar/Avatar'
-import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
+import { PersonFieldsFragment } from '@src/lib/__generated/graphql.types'
 
 export const Author = (props: PersonFieldsFragment) => {
   const { name, avatar } = props

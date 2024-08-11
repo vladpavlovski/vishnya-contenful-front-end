@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 
 import { CtfNavigationQuery } from '@src/components/features/ctf-components/ctf-navigation/__generated/ctf-navigation.generated'
 import {

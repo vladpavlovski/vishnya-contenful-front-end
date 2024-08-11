@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import React from 'react'
 
 import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated'
 

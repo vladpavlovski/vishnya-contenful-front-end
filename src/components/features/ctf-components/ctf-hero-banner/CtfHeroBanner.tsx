@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import { useMemo } from 'react'
 
 import { CtfHeroBannerQuery } from './__generated/ctf-hero-banner.generated'
 
@@ -19,7 +18,7 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
   } = componentHeroBanner!
 
   const imageStyle = imageStyleBoolean ? 'partial' : 'full'
-  const backgroundImage = useMemo(() => (image ? `${image.url}?w=${767 * 2}` : undefined), [image])
+  const backgroundImage = image ? `${image.url}?w=${767 * 2}` : undefined
   const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (

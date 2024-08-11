@@ -2,7 +2,7 @@
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer'
 import { Block as RichtextBlock, BLOCKS, INLINES } from '@contentful/rich-text-types'
-import React, { useMemo, useCallback } from 'react'
+import { useMemo, useCallback } from 'react'
 
 import { CtfAsset } from '../ctf-asset/CtfAsset'
 

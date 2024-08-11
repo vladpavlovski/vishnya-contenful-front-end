@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
-import React from 'react'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { PageLink } from '@src/components/features/page-link/PageLink'

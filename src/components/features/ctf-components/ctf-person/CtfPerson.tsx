@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { CtfPersonQuery } from './__generated/ctf-person.generated'
 
 import { CardLeadership } from '@src/components/features/card-leadership/CardLeadership'

@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import React from 'react'
 
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfAsset'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'

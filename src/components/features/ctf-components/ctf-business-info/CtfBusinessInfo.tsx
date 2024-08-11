@@ -3,7 +3,6 @@ import {
   useContentfulInspectorMode,
   useContentfulLiveUpdates
 } from '@contentful/live-preview/react'
-import React from 'react'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { EntryNotFound } from '@src/components/features/errors/EntryNotFound'

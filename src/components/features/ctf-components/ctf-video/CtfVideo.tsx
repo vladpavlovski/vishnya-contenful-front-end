@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 
 import { AssetFieldsFragment } from '@src/components/features/ctf-components/ctf-asset/__generated/ctf-asset.generated'
 

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import { Markdown } from '@src/components/features/Markdown'
 
 interface SectionHeadlinesPropsInterface {

@@ -1,7 +1,6 @@
 import Image from 'next/legacy/image'
-import React from 'react'
 
-import { AssetFieldsFragment } from '@src/components/features/ctf-components/ctf-asset/__generated/ctf-asset.generated'
+import { AssetFieldsFragment } from '@src/lib/__generated/graphql.types'
 
 interface AvatarPropsInterface {
   asset: AssetFieldsFragment

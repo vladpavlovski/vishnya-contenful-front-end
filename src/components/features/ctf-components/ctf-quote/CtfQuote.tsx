@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import { useMemo } from 'react'
 
 import { CtfQuoteQuery } from './__generated/ctf-quote.generated'
 
@@ -17,7 +16,7 @@ export const CtfQuote = ({ componentQuote }: CtfQuoteQuery) => {
   } = componentQuote!
   const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight'
   const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left'
-  const backgroundImage = useMemo(() => (image ? `${image.url}?w=${600 * 2}` : undefined), [image])
+  const backgroundImage = image ? `${image.url}?w=${600 * 2}` : undefined
   const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (

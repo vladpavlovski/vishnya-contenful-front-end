@@ -1,6 +1,6 @@
 'use client'
 import Image, { ImageProps } from 'next/legacy/image'
-import React, { useState } from 'react'
+import { useState } from 'react'
 
 interface CtfImagePropsInterface extends ImageProps {
   description?: string | null
