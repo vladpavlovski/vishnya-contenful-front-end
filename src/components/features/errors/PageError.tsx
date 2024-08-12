@@ -1,5 +1,3 @@
-// import { useTranslation } from 'next-i18next'
-
 import { PageContainer } from '@src/components/templates/page-container/PageContainer'
 
 interface PropsInterface {
@@ -10,8 +8,6 @@ interface PropsInterface {
 }
 
 export const PageError = (props: PropsInterface) => {
-  // const { t } = useTranslation()
-
   const error =
     props.error === undefined
       ? {
@@ -30,7 +26,6 @@ export const PageError = (props: PropsInterface) => {
           >
             <div className={''} style={{ width: '100%', maxWidth: '800px' }}>
               <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
-                {/* {t('error.code', { code: error.code })} */}
                 <h1 style={{ marginBottom: '1rem' }}>Error code</h1>
               </div>
               {error.message && (

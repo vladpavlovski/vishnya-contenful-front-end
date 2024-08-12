@@ -1,6 +1,5 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
-import { useTranslation } from 'next-i18next'
 
 import { CtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated'
 import {
@@ -14,7 +13,6 @@ import { useContentfulContext } from '@src/contentful-context'
 export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
   const footerContent = footerMenuCollection?.items?.[0]
 
-  const { t } = useTranslation()
   const { locale } = useContentfulContext()
   const inspectorMode = useContentfulInspectorMode()
 
@@ -96,7 +94,7 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
             <div className={''}>Logo here</div>
 
             <section className={''}>
-              <p className={''}>{t('legal.copyright', { year: new Date().getFullYear() })}</p>
+              <p className={''}>{`Copyright ${new Date().getFullYear()}`}</p>
               {footerContent?.legalLinks?.featuredPagesCollection?.items?.length && (
                 <nav role="navigation" className={''}>
                   <ul className={''}>
@@ -109,12 +107,12 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
 
           <div className={''}>
             <div className={''}>
-              <p className={''}>{t('socials.findUsOn')}</p>
+              <p className={''}>{`find Us On`}</p>
               <div className={''}>
                 {footerContent?.twitterLink && (
                   <a
                     href={footerContent.twitterLink}
-                    title={t('socials.twitter')}
+                    title={`Twitter`}
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
@@ -124,7 +122,7 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
                 {footerContent?.facebookLink && (
                   <a
                     href={footerContent.facebookLink}
-                    title={t('socials.facebook')}
+                    title={`Facebook`}
                     target="_blank"
                     rel="nofollow noreferrer"
                   >
@@ -132,19 +130,14 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
                   </a>
                 )}
                 {footerContent?.linkedinLink && (
-                  <a
-                    href={footerContent.linkedinLink}
-                    title={t('socials.linkedin')}
-                    target="_blank"
-                    rel="nofollow noreferrer"
-                  >
+                  <a href={footerContent.linkedinLink} title={`LinkedIn`} rel="nofollow noreferrer">
                     LinkedIn-icon
                   </a>
                 )}
                 {footerContent?.instagramLink && (
                   <a
                     href={footerContent.instagramLink}
-                    title={t('socials.instagram')}
+                    title={`Instagram`}
                     target="_blank"
                     rel="nofollow noreferrer"
                   >

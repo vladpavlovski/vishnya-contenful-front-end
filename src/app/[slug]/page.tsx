@@ -3,7 +3,6 @@ import { useCtfNavigationQuery } from '@src/components/features/ctf-components/c
 import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
 import CtfPageGgl from '@src/components/features/ctf-components/ctf-page/CtfPageGgl'
 import { getQueryClient } from '@src/lib/get-query-client'
-// import { getServerSideTranslations } from '@src/lib/get-serverside-translations'
 import { prefetchMap, PrefetchMappingTypeFetcher } from '@src/lib/prefetch-mappings'
 import { prefetchPromiseArr } from '@src/lib/prefetch-promise-array'
 import { ComponentReferenceFieldsFragment } from '@src/lib/shared-fragments/__generated/ctf-componentMap.generated'

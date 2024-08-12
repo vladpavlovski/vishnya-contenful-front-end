@@ -1,7 +1,6 @@
 'use client'
 import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import Image, { ImageLoader } from 'next/legacy/image'
-import { useTranslation } from 'next-i18next'
 import queryString from 'query-string'
 import { useMemo, useRef } from 'react'
 
@@ -26,7 +25,6 @@ const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
 }
 
 export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery) => {
-  const { t } = useTranslation()
   const {
     headline,
     subline,
@@ -187,11 +185,11 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                         })}
                       >
                         {!product.price || product.price === 0 ? (
-                          <h2 className={''}>{t('price.free')}</h2>
+                          <h2 className={''}>{'Free'}</h2>
                         ) : (
                           <h2 className={''}>
                             <FormatCurrency value={product.price} />
-                            <span className={''}>/{t('time.month')}</span>
+                            <span className={''}>/{'Month'}</span>
                           </h2>
                         )}
                       </div>
@@ -222,11 +220,11 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                       )}
                       <div className={''} data-equal-size={(featureNames || []).length + 4}>
                         {!product.price || product.price === 0 ? (
-                          <h2 className={''}>{t('price.free')}</h2>
+                          <h2 className={''}>{'Free'}</h2>
                         ) : (
                           <h2 className={''}>
                             <FormatCurrency value={product.price} />
-                            <span className={''}>/{t('time.month')}</span>
+                            <span className={''}>/{'Month'}</span>
                           </h2>
                         )}
                       </div>
