@@ -5,13 +5,13 @@ module.exports = {
     commonjs: true,
     es6: true,
     jest: true,
-    node: true,
+    node: true
   },
   plugins: ['react-hooks'],
   settings: {
     react: {
-      version: 'detect',
-    },
+      version: 'detect'
+    }
   },
   extends: [
     'plugin:prettier/recommended',
@@ -22,7 +22,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
-    'plugin:@next/next/recommended',
+    'plugin:@next/next/recommended'
   ],
   rules: {
     '@typescript-eslint/no-var-requires': 'off',
@@ -35,8 +35,8 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
-        argsIgnorePattern: '^_|req|res|next|err|ctx|args|context|info',
-      },
+        argsIgnorePattern: '^_|req|res|next|err|ctx|args|context|info'
+      }
     ],
     '@typescript-eslint/no-object-literal-type-assertion': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
@@ -49,6 +49,7 @@ module.exports = {
     'import/default': 'off',
     'import/named': 'off',
     'import/namespace': 'off',
+    '@typescript-eslint/no-require-imports': 'off',
     'import/order': [
       'warn',
       {
@@ -58,19 +59,19 @@ module.exports = {
           {
             pattern: '@/**',
             group: 'external',
-            position: 'after',
+            position: 'after'
           },
           {
             pattern: '@test/**',
             group: 'external',
-            position: 'after',
-          },
+            position: 'after'
+          }
         ],
         alphabetize: {
           order: 'asc' /* sort in ascending order. Options: ['ignore', 'asc', 'desc'] */,
-          caseInsensitive: true /* ignore case. Options: [true, false] */,
-        },
-      },
+          caseInsensitive: true /* ignore case. Options: [true, false] */
+        }
+      }
     ],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
@@ -80,7 +81,7 @@ module.exports = {
     'react-hooks/exhaustive-deps': 'warn',
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
-    'react/self-closing-comp': 'warn',
+    'react/self-closing-comp': 'warn'
   },
   overrides: [
     {
@@ -90,24 +91,24 @@ module.exports = {
         ecmaVersion: 2018,
         sourceType: 'module',
         ecmaFeatures: {
-          jsx: true,
+          jsx: true
         },
         // typescript-eslint specific options
-        warnOnUnsupportedTypeScriptVersion: true,
+        warnOnUnsupportedTypeScriptVersion: true
       },
       settings: {
         'import/parsers': {
-          '@typescript-eslint/parser': ['.ts', '.tsx'],
+          '@typescript-eslint/parser': ['.ts', '.tsx']
         },
         'import/resolver': {
           typescript: {
-            alwaysTryTypes: true,
-          },
-        },
-      },
-    },
+            alwaysTryTypes: true
+          }
+        }
+      }
+    }
   ],
   globals: {
-    React: 'writable',
-  },
-};
+    React: 'writable'
+  }
+}
