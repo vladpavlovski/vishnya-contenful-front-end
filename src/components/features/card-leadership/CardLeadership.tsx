@@ -14,7 +14,6 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
     name,
     bio,
     avatar,
-    previousComponent,
     sys: { id: entryId }
   } = props
   const nameSplit = name?.split(', ')
