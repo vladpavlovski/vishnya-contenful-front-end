@@ -9,7 +9,7 @@ import { useCtfPageQuery } from '@src/components/features/ctf-components/ctf-pag
 import CtfPageGgl from '@src/components/features/ctf-components/ctf-page/CtfPageGgl'
 import { prefetchPromiseArr } from '@src/lib/prefetch-promise-array'
 
-export default async function Home() {
+export default async function Page() {
   const queryClient = getQueryClient()
 
   const locale = 'en-US'

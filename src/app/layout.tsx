@@ -1,7 +1,8 @@
 import { Metadata } from 'next'
 
-import Providers from '@src/app/providers'
+import Providers from '@app/[lang]/providers'
 import { Layout } from '@src/components/templates/layout/Layout'
+import { DEFAULT_LOCALE } from '@src/lib/locales'
 
 export const metadata: Metadata = {
   title: 'Home',
@@ -13,9 +14,16 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest'
 }
 
-export default function RootLayout({ children }: { children: React.ReactElement }) {
+export default function RootLayout({
+  children,
+  params
+}: {
+  children: React.ReactElement
+  params: { lang: string }
+}) {
+  const { lang } = params
   return (
-    <html lang="en" dir="ltr" suppressHydrationWarning>
+    <html lang={lang || DEFAULT_LOCALE} dir="ltr" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         {/* <link
