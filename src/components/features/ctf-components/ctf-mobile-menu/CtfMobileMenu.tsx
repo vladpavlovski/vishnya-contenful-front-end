@@ -25,10 +25,8 @@ export const CtfMobileMenu = (props: CtfNavigationQuery) => {
       const href = getLinkHrefPrefix(menuItem)
       const linkText = getLinkDisplayText(menuItem)
       return (
-        <li key={menuItem.sys.id} className={''}>
-          <Link href={href} className={''}>
-            {linkText}
-          </Link>
+        <li key={menuItem.sys.id}>
+          <Link href={href}>{linkText}</Link>
         </li>
       )
     })
@@ -37,7 +35,6 @@ export const CtfMobileMenu = (props: CtfNavigationQuery) => {
   return (
     // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
     <div
-      className={''}
       role="dialog"
       id="mobile-menu"
       aria-modal={true}
@@ -55,13 +52,12 @@ export const CtfMobileMenu = (props: CtfNavigationQuery) => {
       }}
     >
       {mobileMenuContent?.menuItemsCollection?.items.length && (
-        <nav role="navigation" className={''} style={{ padding: '4rem 8rem' }}>
-          <ul className={''} style={{ listStyle: 'none', margin: 0, padding: 0 }}>
+        <nav role="navigation" style={{ padding: '4rem 8rem' }}>
+          <ul style={{ listStyle: 'none', margin: 0, padding: 0 }}>
             {mobileMenuContent.menuItemsCollection.items.map(menuItem =>
               menuItem ? (
                 <li
                   key={menuItem.sys.id}
-                  className={''}
                   style={{
                     cursor: 'default',
                     display: 'block',
@@ -73,13 +69,10 @@ export const CtfMobileMenu = (props: CtfNavigationQuery) => {
                   {!menuItem.link ? (
                     menuItem.groupName
                   ) : (
-                    <Link href={`/${menuItem.link.slug}`} className={''}>
-                      {menuItem.groupName}
-                    </Link>
+                    <Link href={`/${menuItem.link.slug}`}>{menuItem.groupName}</Link>
                   )}
                   {!menuItem.link && menuItem.children && (
                     <ul
-                      className={''}
                       style={{
                         borderLeft: '1px solid #eee',
                         listStyle: 'none',

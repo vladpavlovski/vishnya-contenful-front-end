@@ -7,8 +7,8 @@ interface Props {
 
 export const ErrorBox = (props: Props) => {
   return (
-    <div className={''}>
-      <p className={''}>{props.children}</p>
+    <div>
+      <p>{props.children}</p>
     </div>
   )
 }

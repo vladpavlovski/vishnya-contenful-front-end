@@ -25,27 +25,21 @@ const CtfBusinessInfo = ({ data }: { data: CtfBusinessInfoQuery }) => {
   }
 
   return (
-    <div className={''}>
+    <div>
       {(name || shortDescription) && (
-        <div className={''}>
-          <div className={''} {...inspectorMode({ fieldId: 'featuredImage' })} />
-          <div className={''} style={{ maxWidth: '77rem', margin: '0 auto', textAlign: 'center' }}>
+        <div>
+          <div {...inspectorMode({ fieldId: 'featuredImage' })} />
+          <div style={{ maxWidth: '77rem', margin: '0 auto', textAlign: 'center' }}>
             <div
-              className={''}
               style={{ maxWidth: '55rem', padding: '4rem 0', position: 'relative', color: '#fff' }}
             >
               {name && (
-                <h1
-                  className={''}
-                  style={{ fontSize: '4.5rem' }}
-                  {...inspectorMode({ fieldId: 'name' })}
-                >
+                <h1 style={{ fontSize: '4.5rem' }} {...inspectorMode({ fieldId: 'name' })}>
                   {name}
                 </h1>
               )}
               {shortDescription && (
                 <p
-                  className={''}
                   style={{ fontSize: '2.5rem', marginTop: '3rem' }}
                   {...inspectorMode({
                     fieldId: 'shortDescription'

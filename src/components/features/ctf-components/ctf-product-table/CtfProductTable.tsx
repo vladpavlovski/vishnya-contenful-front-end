@@ -109,23 +109,21 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
 
   return (
     <div ref={gridElement}>
-      <div className="">
-        <div className="">
+      <div>
+        <div>
           <SectionHeadlines
             headline={headline}
             headlineLivePreviewProps={inspectorMode({ entryId: id, fieldId: 'headline' })}
             subline={subline}
             sublineLivePreviewProps={inspectorMode({ entryId: id, fieldId: 'subline' })}
-            className={''}
           />
           {productsCollection && productsCollection.items.length > 0 && (
-            <div className="">
+            <div>
               {productsCollection.items.map(
                 (product, j) =>
                   product && (
                     <div
                       key={product.sys.id}
-                      className=""
                       ref={el => {
                         gridColumnElements.current[j] = el
                       }}
@@ -135,7 +133,6 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                       })}
                     >
                       <div
-                        className=""
                         {...inspectorMode({
                           entryId: product.sys.id,
                           fieldId: 'featuredImage'
@@ -157,7 +154,6 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                       </div>
                       <div data-equal-size="1">
                         <h2
-                          className={''}
                           {...inspectorMode({
                             entryId: product.sys.id,
                             fieldId: 'name'
@@ -173,9 +169,7 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                           fieldId: 'description'
                         })}
                       >
-                        {product.description && (
-                          <CtfRichtext {...product.description} className={''} />
-                        )}
+                        {product.description && <CtfRichtext {...product.description} />}
                       </div>
                       <div
                         data-equal-size="3"
@@ -185,11 +179,11 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                         })}
                       >
                         {!product.price || product.price === 0 ? (
-                          <h2 className={''}>{'Free'}</h2>
+                          <h2>{'Free'}</h2>
                         ) : (
-                          <h2 className={''}>
+                          <h2>
                             <FormatCurrency value={product.price} />
-                            <span className={''}>/{'Month'}</span>
+                            <span>/{'Month'}</span>
                           </h2>
                         )}
                       </div>
@@ -205,10 +199,9 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                               featuresGrid[featureName][product.sys.id] && (
                                 <div
                                   key={`${product.sys.id}-${featureName}`}
-                                  className={''}
                                   {...featuresGrid[featureName][product.sys.id].attributes}
                                 >
-                                  <div data-equal-size={i + 4} className={''}>
+                                  <div data-equal-size={i + 4}>
                                     <CtfRichtext
                                       {...featuresGrid[featureName][product.sys.id].value}
                                     />
@@ -218,13 +211,13 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                           )}
                         </div>
                       )}
-                      <div className={''} data-equal-size={(featureNames || []).length + 4}>
+                      <div data-equal-size={(featureNames || []).length + 4}>
                         {!product.price || product.price === 0 ? (
-                          <h2 className={''}>{'Free'}</h2>
+                          <h2>{'Free'}</h2>
                         ) : (
-                          <h2 className={''}>
+                          <h2>
                             <FormatCurrency value={product.price} />
-                            <span className={''}>/{'Month'}</span>
+                            <span>/{'Month'}</span>
                           </h2>
                         )}
                       </div>

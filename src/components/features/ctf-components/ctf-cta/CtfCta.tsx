@@ -18,13 +18,11 @@ export const CtfCta = ({ data }: { data: CtfCtaQuery }) => {
 
   return (
     <div
-      className={''}
       style={{
         textAlign: 'center'
       }}
     >
       <div
-        className={''}
         style={{
           marginLeft: 'auto',
           marginRight: 'auto',
@@ -34,7 +32,6 @@ export const CtfCta = ({ data }: { data: CtfCtaQuery }) => {
       >
         {headline && (
           <h2
-            className={''}
             style={{
               fontWeight: 'bold'
             }}
@@ -44,18 +41,17 @@ export const CtfCta = ({ data }: { data: CtfCtaQuery }) => {
         )}
         {subline && (
           <div
-            className={''}
             style={{
               fontWeight: 400,
               lineHeight: 1.52,
               marginTop: '8rem'
             }}
           >
-            <CtfRichtext {...subline} className={''} />
+            <CtfRichtext {...subline} />
           </div>
         )}
         {targetPage && targetPage.slug && (
-          <div className={''} style={{ marginTop: '8rem' }}>
+          <div style={{ marginTop: '8rem' }}>
             <PageLink
               page={targetPage}
               variant="contained"

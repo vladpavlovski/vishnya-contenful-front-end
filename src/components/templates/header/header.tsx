@@ -3,7 +3,7 @@ import { Link } from '@src/components/shared/Link'
 
 export const Header = () => {
   return (
-    <header className={''} style={{ boxShadow: '0 2px 6px #00000021' }}>
+    <header style={{ boxShadow: '0 2px 6px #00000021' }}>
       <div
         style={{
           display: 'flex',
@@ -16,7 +16,7 @@ export const Header = () => {
             Logo here
           </Link>
           <div style={{ display: 'none' }}>
-            <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <CtfNavigationGql />
             </div>
           </div>

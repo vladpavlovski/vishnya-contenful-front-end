@@ -17,19 +17,16 @@ export const PageError = (props: PropsInterface) => {
       : props.error
 
   return (
-    <div className={''} style={{ width: '100%', minHeight: '100%', color: 'black' }}>
+    <div style={{ width: '100%', minHeight: '100%', color: 'black' }}>
       <PageContainer>
-        <div className={''} style={{ paddingTop: '16rem' }}>
-          <div
-            className={''}
-            style={{ display: 'flex', justifyContent: 'center', marginBottom: '6rem' }}
-          >
-            <div className={''} style={{ width: '100%', maxWidth: '800px' }}>
-              <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
+        <div style={{ paddingTop: '16rem' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '6rem' }}>
+            <div style={{ width: '100%', maxWidth: '800px' }}>
+              <div style={{ display: 'flex', alignItems: 'center' }}>
                 <h1 style={{ marginBottom: '1rem' }}>Error code</h1>
               </div>
               {error.message && (
-                <div className={''} style={{ marginBottom: '6rem' }}>
+                <div style={{ marginBottom: '6rem' }}>
                   <h4>{error.message}</h4>
                 </div>
               )}

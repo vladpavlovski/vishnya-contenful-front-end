@@ -4,36 +4,17 @@ import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtex
 
 export const CardPerson = ({ name, bio, avatar }: PersonFieldsFragment) => {
   return (
-    <div className={''} style={{ display: 'flex' }}>
+    <div style={{ display: 'flex' }}>
       {avatar && (
-        <div
-          className={''}
-          style={{
-            flexShrink: 0,
-            marginRight: '13rem',
-            width: '10rem'
-          }}
-        >
+        <div>
           <Avatar asset={avatar} />
         </div>
       )}
       <div>
-        {name && (
-          <p
-            className={''}
-            style={{
-              fontSize: '1.8rem',
-              lineHeight: 1.333,
-              marginBottom: '2rem',
-              marginTop: 0
-            }}
-          >
-            {name}
-          </p>
-        )}
+        {name && <p>{name}</p>}
         {bio && (
           <div>
-            <CtfRichtext {...bio} className={''} />
+            <CtfRichtext {...bio} />
           </div>
         )}
       </div>

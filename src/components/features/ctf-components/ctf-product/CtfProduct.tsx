@@ -22,7 +22,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
     <>
       <div style={{ maxWidth: '100%', padding: 0 }}>
         <div
-          className={''}
           style={{
             display: 'flex',
             flexDirection: 'column',
@@ -36,7 +35,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
           }}
         >
           <div
-            className={''}
             style={{
               order: 2,
               width: '100%'
@@ -44,7 +42,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
           >
             {name && (
               <h2
-                className={''}
                 style={{
                   fontSize: '3.2rem',
                   maxWidth: '60.4rem',
@@ -58,19 +55,17 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
             )}
             {description && (
               <div
-                className={''}
                 {...inspectorMode({
                   entryId: id,
                   fieldId: 'description'
                 })}
               >
-                <CtfRichtext {...description} className={''} />
+                <CtfRichtext {...description} />
               </div>
             )}
           </div>
           {featuredImage && (
             <div
-              className={''}
               style={{
                 marginBottom: '80px', // Assuming theme.spacing(10) is 80px
                 order: 1,
@@ -83,14 +78,13 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                 fieldId: 'featuredImage'
               })}
             >
-              <CtfAsset {...featuredImage} showDescription={false} className={''} />
+              <CtfAsset {...featuredImage} showDescription={false} />
             </div>
           )}
         </div>
       </div>
       {featuresCollection && featuresCollection.items.length > 0 && (
         <section
-          className={''}
           style={{
             backgroundColor: '#FCFCFC',
             paddingTop: '152px', // Assuming theme.spacing(19) is 76px
@@ -98,7 +92,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
           }}
         >
           <div
-            className={''}
             style={{
               maxWidth: '77rem',
               marginLeft: 'auto',
@@ -106,7 +99,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
             }}
           >
             <div
-              className={''}
               style={{
                 display: 'flex'
               }}
@@ -117,7 +109,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                     item && (
                       <Fragment key={item.sys.id}>
                         <div
-                          className={''}
                           style={{
                             backgroundColor: '#707070',
                             height: '2px',
@@ -125,14 +116,12 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                           }}
                         />
                         <div
-                          className={''}
                           style={{
                             display: 'flex',
                             marginTop: '80px' // Assuming theme.spacing(10) is 80px
                           }}
                         >
                           <dt
-                            className={''}
                             style={{
                               marginBottom: '32px', // Assuming theme.spacing(4) is 32px
                               color: '#414D63'
@@ -145,7 +134,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                             {item.name}
                           </dt>
                           <dd
-                            className={''}
                             style={{
                               width: '50rem',
                               fontSize: '1.8rem',
@@ -155,7 +143,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                           >
                             {item.longDescription && (
                               <div
-                                className={''}
                                 {...inspectorMode({
                                   entryId: item.sys.id,
                                   fieldId: 'longDescription'

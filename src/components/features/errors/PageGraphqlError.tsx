@@ -3,8 +3,8 @@ import { PageContainer } from '@src/components/templates/page-container/PageCont
 
 export const PageGraphqlError = (props: { error: any }) => (
   <PageContainer>
-    <div className={''} style={{ padding: '0 1rem' }}>
-      <div className={''} style={{ marginTop: '3rem', marginBottom: '3rem' }}>
+    <div style={{ padding: '0 1rem' }}>
+      <div style={{ marginTop: '3rem', marginBottom: '3rem' }}>
         <GraphqlError error={props.error} />
       </div>
     </div>

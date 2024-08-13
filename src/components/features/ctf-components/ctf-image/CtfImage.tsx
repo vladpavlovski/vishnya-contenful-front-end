@@ -25,7 +25,6 @@ export const CtfImage = ({
 
   return (
     <figure
-      className={''}
       style={{
         margin: 0,
         fontSize: 0,

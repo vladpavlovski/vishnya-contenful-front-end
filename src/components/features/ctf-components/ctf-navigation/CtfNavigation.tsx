@@ -25,9 +25,7 @@ export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) 
             fieldId: 'pageName'
           })}
         >
-          <Link href={href} className={''}>
-            {linkText}
-          </Link>
+          <Link href={href}>{linkText}</Link>
         </li>
       )
     })
@@ -38,7 +36,6 @@ export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) 
       {navigationContent?.menuItemsCollection?.items.length && (
         <nav role="navigation">
           <ul
-            className={''}
             style={{
               alignItems: 'center',
               display: 'flex',
@@ -52,7 +49,6 @@ export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) 
                 menuItem && (
                   <li
                     key={menuItem.sys.id}
-                    className={''}
                     style={{
                       alignItems: 'center',
                       cursor: 'default',
@@ -72,13 +68,10 @@ export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) 
                     {!menuItem.link ? (
                       menuItem.groupName
                     ) : (
-                      <Link href={`/${menuItem.link.slug}`} className={''}>
-                        {menuItem.groupName}
-                      </Link>
+                      <Link href={`/${menuItem.link.slug}`}>{menuItem.groupName}</Link>
                     )}
                     {!menuItem.link && menuItem.children && (
                       <ul
-                        className={''}
                         style={{
                           backgroundColor: '#fff',
                           boxShadow: '0 3px 6px #00000029',

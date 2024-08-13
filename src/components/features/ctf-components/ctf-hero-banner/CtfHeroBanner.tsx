@@ -22,11 +22,10 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
   const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
-    <div className={''} {...inspectorMode({ fieldId: 'image' })}>
+    <div {...inspectorMode({ fieldId: 'image' })}>
       {imageStyle === 'partial' && backgroundImage && (
-        <div className={''}>
+        <div>
           <div
-            className={''}
             style={{
               backgroundSize: 'cover',
               backgroundPosition: 'center',
@@ -40,10 +39,9 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
           />
         </div>
       )}
-      <div className={''}>
+      <div>
         {headline && (
           <h1
-            className={''}
             style={{
               fontSize: '3rem',
               fontWeight: 800,
@@ -57,7 +55,6 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
         )}
         {bodyText && (
           <div
-            className={''}
             style={{
               fontWeight: 400,
               lineHeight: 1.56,
@@ -65,11 +62,11 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
             }}
             {...inspectorMode({ fieldId: 'bodyText' })}
           >
-            <CtfRichtext {...bodyText} className={''} />
+            <CtfRichtext {...bodyText} />
           </div>
         )}
         {targetPage && ctaText && (
-          <div className={''} style={{ marginTop: '6rem' }}>
+          <div style={{ marginTop: '6rem' }}>
             <PageLink page={targetPage} variant="contained" isButton>
               {ctaText}
             </PageLink>

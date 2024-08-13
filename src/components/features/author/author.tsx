@@ -7,7 +7,7 @@ export const Author = (props: PersonFieldsFragment) => {
   return (
     <div>
       {avatar && (
-        <div className={''} style={{ display: 'inline-block', width: '11.4rem' }}>
+        <div style={{ display: 'inline-block', width: '11.4rem' }}>
           <Avatar asset={avatar} />
         </div>
       )}

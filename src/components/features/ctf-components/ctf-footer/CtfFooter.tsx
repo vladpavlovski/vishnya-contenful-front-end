@@ -29,9 +29,7 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
             fieldId: 'pageName'
           })}
         >
-          <Link href={href} className={''}>
-            {linkText}
-          </Link>
+          <Link href={href}>{linkText}</Link>
         </li>
       )
     })
@@ -47,18 +45,17 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
 
   return (
     <div {...containerProps}>
-      <div className="">
-        <footer className="">
+      <div>
+        <footer>
           {footerContent?.menuItemsCollection?.items?.length && (
-            <nav role="navigation" className="">
+            <nav role="navigation">
               {footerContent.menuItemsCollection.items.map(
                 menuItem =>
                   menuItem && (
-                    <div key={menuItem.sys.id} className={''}>
-                      <ul className={''}>
+                    <div key={menuItem.sys.id}>
+                      <ul>
                         <li>
                           <p
-                            className={''}
                             {...inspectorMode({
                               entryId: menuItem.sys.id,
                               fieldId: 'groupName',
@@ -68,7 +65,7 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
                             {menuItem.groupName}
                           </p>
                           {menuItem.featuredPagesCollection && (
-                            <ul className={''}>
+                            <ul>
                               {renderMenuGroupLinks(
                                 menuItem.featuredPagesCollection,
 
@@ -83,21 +80,21 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
               )}
             </nav>
           )}
-          <section className={''}>
+          <section>
             <LanguageSelector />
           </section>
         </footer>
       </div>
-      <div className={''}>
-        <section className={''}>
-          <div className={''}>
-            <div className={''}>Logo here</div>
+      <div>
+        <section>
+          <div>
+            <div>Logo here</div>
 
-            <section className={''}>
-              <p className={''}>{`Copyright ${new Date().getFullYear()}`}</p>
+            <section>
+              <p>{`Copyright ${new Date().getFullYear()}`}</p>
               {footerContent?.legalLinks?.featuredPagesCollection?.items?.length && (
-                <nav role="navigation" className={''}>
-                  <ul className={''}>
+                <nav role="navigation">
+                  <ul>
                     {renderMenuGroupLinks(footerContent.legalLinks.featuredPagesCollection, '')}
                   </ul>
                 </nav>
@@ -105,10 +102,10 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
             </section>
           </div>
 
-          <div className={''}>
-            <div className={''}>
-              <p className={''}>{`find Us On`}</p>
-              <div className={''}>
+          <div>
+            <div>
+              <p>{`find Us On`}</p>
+              <div>
                 {footerContent?.twitterLink && (
                   <a
                     href={footerContent.twitterLink}

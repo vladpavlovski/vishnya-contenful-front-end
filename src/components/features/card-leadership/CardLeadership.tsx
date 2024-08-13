@@ -22,33 +22,9 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
   const inspectorMode = useContentfulInspectorMode({ entryId })
 
   return (
-    <div
-      className={''}
-      style={{
-        alignItems: 'flex-start',
-        display: 'flex',
-        flexDirection: 'column',
-        marginLeft: 'auto',
-        marginRight: 'auto',
-        maxWidth: '93.4rem',
-        ...(previousComponent === 'TopicPerson' && {
-          marginTop: '7rem'
-        })
-      }}
-    >
+    <div>
       {avatar && (
-        <div
-          {...inspectorMode({ fieldId: 'avatar' })}
-          className={''}
-          style={{
-            borderRadius: '50%',
-            flexShrink: 0,
-            marginBottom: '5rem',
-            marginRight: '10rem',
-            maxWidth: '9.8rem',
-            overflow: 'hidden'
-          }}
-        >
+        <div {...inspectorMode({ fieldId: 'avatar' })}>
           <CtfAsset {...avatar} showDescription={false} />
         </div>
       )}
@@ -56,30 +32,14 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
         <div {...inspectorMode({ fieldId: 'name' })}>
           {nameSplit && (
             <>
-              {nameSplit[0] && (
-                <p
-                  className={''}
-                  style={{
-                    fontSize: '2.1rem',
-                    fontWeight: 500,
-                    lineHeight: 1.333,
-                    marginBottom: '1rem'
-                  }}
-                >
-                  {nameSplit[0]}
-                </p>
-              )}
-              {nameSplit.length === 2 && (
-                <p className={''} style={{ fontSize: '1.8rem' }}>
-                  {nameSplit[1]}
-                </p>
-              )}
+              {nameSplit[0] && <p>{nameSplit[0]}</p>}
+              {nameSplit.length === 2 && <p style={{ fontSize: '1.8rem' }}>{nameSplit[1]}</p>}
             </>
           )}
         </div>
         {bio && (
           <div {...inspectorMode({ fieldId: 'bio' })}>
-            <CtfRichtext {...bio} className={''} />
+            <CtfRichtext {...bio} />
           </div>
         )}
       </div>

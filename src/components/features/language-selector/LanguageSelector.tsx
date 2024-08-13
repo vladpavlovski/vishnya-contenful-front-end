@@ -12,7 +12,7 @@ export const LanguageSelector = () => {
   })
 
   return LOCALES.length > 1 ? (
-    <div className={''} style={{ display: 'flex', alignItems: 'center' }}>
+    <div style={{ display: 'flex', alignItems: 'center' }}>
       language-icon
       <select
         value={DEFAULT_LOCALE}

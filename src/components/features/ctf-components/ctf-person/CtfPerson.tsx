@@ -13,10 +13,8 @@ export const CtfPerson = (props: CtfPersonPropsInterface) => {
   const cardProps = { ...rest, previousComponent: props.previousComponent }
 
   return (
-    <div className={''} style={{ maxWidth: '100%', padding: 0 }}>
-      <div className={''}>
-        {isLeadership ? <CardLeadership {...cardProps} /> : <CardPerson {...cardProps} />}
-      </div>
+    <div style={{ maxWidth: '100%', padding: 0 }}>
+      <div>{isLeadership ? <CardLeadership {...cardProps} /> : <CardPerson {...cardProps} />}</div>
     </div>
   )
 }

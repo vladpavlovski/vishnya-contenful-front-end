@@ -44,17 +44,9 @@ export const SectionHeadlines = (props: SectionHeadlinesPropsInterface) => {
 
   return (
     <div className={align === 'center' ? '' : '' + ' ' + className}>
-      {headline && (
-        <h2 {...computedHeadlineProps} className={''}>
-          {headline}
-        </h2>
-      )}
-      {subline && (
-        <h3 {...computedSublineProps} className={''}>
-          {subline}
-        </h3>
-      )}
-      {body && <Markdown text={body} className={''} />}
+      {headline && <h2 {...computedHeadlineProps}>{headline}</h2>}
+      {subline && <h3 {...computedSublineProps}>{subline}</h3>}
+      {body && <Markdown text={body} />}
     </div>
   )
 }

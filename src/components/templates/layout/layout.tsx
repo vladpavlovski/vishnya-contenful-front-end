@@ -37,7 +37,7 @@ export const Layout = ({ children }: LayoutPropsInterface) => {
       <Header />
 
       {/* content */}
-      <div className={''}>{children}</div>
+      <div>{children}</div>
 
       {/* footer */}
       <CtfFooterGql />

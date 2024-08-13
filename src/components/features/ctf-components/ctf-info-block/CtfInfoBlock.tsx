@@ -34,7 +34,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
       }}
     >
       <div
-        className={''}
         style={{
           marginLeft: 'auto',
           marginRight: 'auto',
@@ -57,11 +56,9 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
             style: {},
             ...inspectorMode({ fieldId: 'subline' })
           }}
-          className={''}
         />
 
         <div
-          className={''}
           style={{
             display: 'flex',
             flexWrap: 'wrap',
@@ -73,7 +70,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
         >
           {block1Body && (
             <div
-              className={''}
               style={{
                 marginLeft: '5rem',
                 marginTop: '5rem',
@@ -83,7 +79,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
             >
               {block1Image && (
                 <div
-                  className={''}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -100,18 +95,16 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 </div>
               )}
               <div
-                className={''}
                 {...inspectorMode({
                   fieldId: 'block1Body'
                 })}
               >
-                <CtfRichtext {...block1Body} className={''} />
+                <CtfRichtext {...block1Body} />
               </div>
             </div>
           )}
           {block2Body && (
             <div
-              className={''}
               style={{
                 marginLeft: '5rem',
                 marginTop: '5rem',
@@ -121,7 +114,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
             >
               {block2Image && (
                 <div
-                  className={''}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -138,18 +130,16 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 </div>
               )}
               <div
-                className={''}
                 {...inspectorMode({
                   fieldId: 'block2Body'
                 })}
               >
-                <CtfRichtext {...block2Body} className={''} />
+                <CtfRichtext {...block2Body} />
               </div>
             </div>
           )}
           {block3Body && (
             <div
-              className={''}
               style={{
                 marginLeft: '5rem',
                 marginTop: '5rem',
@@ -159,7 +149,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
             >
               {block3Image && (
                 <div
-                  className={''}
                   style={{
                     display: 'flex',
                     alignItems: 'center',
@@ -176,12 +165,11 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                 </div>
               )}
               <div
-                className={''}
                 {...inspectorMode({
                   fieldId: 'block3Body'
                 })}
               >
-                <CtfRichtext {...block3Body} className={''} />
+                <CtfRichtext {...block3Body} />
               </div>
             </div>
           )}

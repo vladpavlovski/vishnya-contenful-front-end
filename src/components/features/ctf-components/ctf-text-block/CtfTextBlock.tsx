@@ -9,7 +9,6 @@ export const CtfTextBlock = ({ componentTextBlock }: CtfTextBlockQuery) => {
   return (
     <div>
       <div
-        className={''}
         style={{ marginLeft: 'auto', marginRight: 'auto', maxWidth: '126rem', padding: '152px 0' }}
       >
         <SectionHeadlines
@@ -21,7 +20,6 @@ export const CtfTextBlock = ({ componentTextBlock }: CtfTextBlockQuery) => {
           sublineProps={{
             style: {}
           }}
-          className={''}
         />
         {body && (
           <div>

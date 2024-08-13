@@ -10,10 +10,9 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
   // const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
 
   return (
-    <div className={''}>
+    <div>
       {headline && (
         <h2
-          className={''}
           style={{
             fontSize: '3rem',
             lineHeight: 1.3,
@@ -27,7 +26,6 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
       )}
       {bodyText && (
         <div
-          className={''}
           style={{
             fontWeight: 400,
             lineHeight: 1.56,
@@ -35,12 +33,11 @@ const DuplexContent = (props: DuplexFieldsFragment) => {
           }}
           // {...inspectorMode({ fieldId: 'bodyText' })}
         >
-          <CtfRichtext {...bodyText} className={''} />
+          <CtfRichtext {...bodyText} />
         </div>
       )}
       {targetPage && targetPage.slug && (
         <div
-          className={''}
           style={{ marginTop: '8rem' }}
           // {...inspectorMode({ fieldId: 'ctaText' })}
         >
@@ -58,10 +55,9 @@ const DuplexImage = (props: DuplexFieldsFragment) => {
   // const inspectorMode = useContentfulInspectorMode({ entryId: props.sys.id })
 
   return (
-    <div className={''}>
+    <div>
       {image?.url ? (
         <div
-          className={''}
           style={{ width: '100%', height: 'auto' }}
           // {...inspectorMode({ fieldId: 'image' })}
         >
@@ -82,8 +78,8 @@ export const CtfDuplex = (props: DuplexFieldsFragment) => {
   const { containerLayout: containerLayoutBoolean } = props
 
   return (
-    <div className={''}>
-      <div className={''}>
+    <div>
+      <div>
         {containerLayoutBoolean ? (
           <>
             <DuplexImage {...props} />

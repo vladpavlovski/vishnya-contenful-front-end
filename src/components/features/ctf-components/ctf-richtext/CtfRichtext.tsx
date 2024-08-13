@@ -93,11 +93,7 @@ export const CtfRichtext = (props: CtfRichtextPropsInterface) => {
         const id = tryget(() => node.data.target.sys.id)
         if (id) {
           return (
-            <ComponentResolver
-              componentProps={{ sys: { id }, __typename: 'NtMergetag' }}
-              className={''}
-              inline
-            />
+            <ComponentResolver componentProps={{ sys: { id }, __typename: 'NtMergetag' }} inline />
           )
         }
         return <>{`${node.nodeType} ${id}`}</>
@@ -108,7 +104,7 @@ export const CtfRichtext = (props: CtfRichtextPropsInterface) => {
           const entry = entryBlocks.find(block => block!.sys.id === id)
 
           if (entry) {
-            return <ComponentResolver componentProps={entry} className={''} />
+            return <ComponentResolver componentProps={entry} />
           }
         }
         return <>{`${node.nodeType} ${id}`}</>
@@ -200,7 +196,7 @@ export const CtfRichtext = (props: CtfRichtextPropsInterface) => {
       )
     }
     opts.renderNode![BLOCKS.HR] = hrRenderer
-    opts.renderNode![BLOCKS.LIST_ITEM] = (_, children) => <li className={''}>{children}</li>
+    opts.renderNode![BLOCKS.LIST_ITEM] = (_, children) => <li>{children}</li>
 
     opts.renderText = text => {
       return text.split('\n').reduce((children, textSegment, index) => {

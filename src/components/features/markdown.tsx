@@ -15,7 +15,7 @@ type Props = {
 
 export const Markdown = (props: Props) => {
   return (
-    <div className={''} style={{ fontFamily: 'Arial, sans-serif', color: 'black' }}>
+    <div style={{ fontFamily: 'Arial, sans-serif', color: 'black' }}>
       {(renderer.processSync(props.text) as any).result}
     </div>
   )
