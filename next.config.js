@@ -28,27 +28,6 @@ const nextConfig = {
   },
 
   /**
-   * The experimental option allows you to enable future/experimental options
-   * like React 18 concurrent features.
-   */
-  experimental: {
-    // urlImports: true,
-    // concurrentFeatures: true,
-    // serverComponents: true,
-  },
-
-  /**
-   * SWC minification opt-in
-   * Please note that while not in experimental, the swcMinification may cause issues in your build.
-   * example: https://github.com/vercel/next.js/issues/30429 (Yup email validation causes an exception)
-   */
-  // swcMinify: true,
-
-  poweredByHeader: false,
-  reactStrictMode: false,
-  compress: true,
-
-  /**
    * add the headers you would like your next server to use
    * documentation: https://nextjs.org/docs/api-reference/next.config.js/headers
    *                https://nextjs.org/docs/advanced-features/security-headers
@@ -67,20 +46,8 @@ const nextConfig = {
     ],
     path: '/_next/image',
     loader: 'default'
-  },
-  productionBrowserSourceMaps: process.env.BUNDLE_ANALYZE === 'true'
-  // webpack: (config, { isServer }) => {
-  //   if (!isServer) {
-  //     config.optimization.splitChunks.cacheGroups = {
-  //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name: 'vendors',
-  //         chunks: 'all'
-  //       }
-  //     }
-  //   }
-  //   return config
-  // }
+  }
+  // productionBrowserSourceMaps: process.env.BUNDLE_ANALYZE === 'true'
 }
 
-module.exports = withBundleAnalyzer(nextConfig)
+module.exports = nextConfig

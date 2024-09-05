@@ -23,7 +23,7 @@ export const PageError = (props: PropsInterface) => {
           <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '6rem' }}>
             <div style={{ width: '100%', maxWidth: '800px' }}>
               <div style={{ display: 'flex', alignItems: 'center' }}>
-                <h1 style={{ marginBottom: '1rem' }}>Error code</h1>
+                <h1 style={{ marginBottom: '1rem' }}>{`Error code: ${error.code}`}</h1>
               </div>
               {error.message && (
                 <div style={{ marginBottom: '6rem' }}>
