@@ -7,12 +7,9 @@ import {
 } from '@src/components/features/ctf-components/ctf-navigation/utils'
 import { LanguageSelector } from '@src/components/features/language-selector/LanguageSelector'
 import { Link } from '@src/components/shared/Link'
-import { useContentfulContext } from '@src/contentful-context'
 
 export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
   const footerContent = footerMenuCollection?.items?.[0]
-
-  const { locale } = useContentfulContext()
 
   const renderMenuGroupLinks = (menuGroup, listClassName) => {
     return menuGroup?.items?.map(menuItem => {

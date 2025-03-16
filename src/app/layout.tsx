@@ -3,7 +3,6 @@ import { Metadata } from 'next'
 import Providers from '@app/providers'
 import { Layout } from '@src/components/templates/layout/Layout'
 import { DEFAULT_LOCALE } from '@src/lib/locales'
-import '@src/styles/globals.css'
 
 export const metadata: Metadata = {
   title: 'Home',

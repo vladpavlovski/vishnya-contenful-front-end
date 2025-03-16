@@ -13,7 +13,7 @@ export const CtfVideo = (props: CtfVideoPropsInterface) => {
 
   return (
     <div>
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+      {}
       <video src={url!} autoPlay={autoplay} controls style={{ width: '100%' }} />
       {showDescription && <p>{description}</p>}
     </div>

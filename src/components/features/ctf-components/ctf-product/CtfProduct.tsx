@@ -7,13 +7,7 @@ import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfA
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 
 export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
-  const {
-    name,
-    featuredImage,
-    description,
-    featuresCollection,
-    sys: { id }
-  } = topicProduct!
+  const { name, featuredImage, description, featuresCollection } = topicProduct!
 
   return (
     <>

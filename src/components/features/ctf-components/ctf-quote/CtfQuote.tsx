@@ -10,8 +10,7 @@ export const CtfQuote = ({ componentQuote }: CtfQuoteQuery) => {
     image,
     quote,
 
-    quoteAlignment: quoteAlignmentBoolean,
-    sys: { id }
+    quoteAlignment: quoteAlignmentBoolean
   } = componentQuote!
   const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight'
   const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left'

@@ -65,7 +65,7 @@ const Page = async ({ params }: { params: { slug: string } }) => {
     })()
 
     // Different data structured can be returned, this function makes sure the correct data is returned
-    const inputArr = (__typename => {
+    const inputArr = (() => {
       if ('topicBusinessInfo' in data) {
         return data?.topicBusinessInfo?.body?.links.entries.block
       }

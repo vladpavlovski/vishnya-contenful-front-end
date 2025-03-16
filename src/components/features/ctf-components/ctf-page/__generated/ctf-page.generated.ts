@@ -16,11 +16,12 @@
  *****************************************************/
 
 
-import * as Types from '../../../../../lib/__generated/graphql.types';
+import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 
+import * as Types from '../../../../../lib/__generated/graphql.types';
 import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.generated';
 import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
-import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
+
 import { customFetcher } from '@src/lib/fetchConfig';
 export type PageTopSectionFields_ComponentCta_Fragment = { __typename: 'ComponentCta' };
 

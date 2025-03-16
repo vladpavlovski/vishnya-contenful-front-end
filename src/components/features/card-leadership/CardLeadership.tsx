@@ -9,12 +9,7 @@ interface CardLeadershipPropsInterface extends PersonFieldsFragment {
 }
 
 export const CardLeadership = (props: CardLeadershipPropsInterface) => {
-  const {
-    name,
-    bio,
-    avatar,
-    sys: { id: entryId }
-  } = props
+  const { name, bio, avatar } = props
   const nameSplit = name?.split(', ')
 
   return (

@@ -24,12 +24,7 @@ const contentfulLoader: ImageLoader = ({ src, width, quality }) => {
 }
 
 export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery) => {
-  const {
-    headline,
-    subline,
-    productsCollection,
-    sys: { id }
-  } = componentProductTable!
+  const { headline, subline, productsCollection } = componentProductTable!
 
   // Rendering product features
   const featureNames: string[] | null = useMemo(() => {

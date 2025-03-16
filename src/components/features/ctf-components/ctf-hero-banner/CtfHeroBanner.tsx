@@ -12,8 +12,7 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
     headline,
     bodyText,
     ctaText,
-    targetPage,
-    sys: { id }
+    targetPage
   } = componentHeroBanner!
 
   const imageStyle = imageStyleBoolean ? 'partial' : 'full'

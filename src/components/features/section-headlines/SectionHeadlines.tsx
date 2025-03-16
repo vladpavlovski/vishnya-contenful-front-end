@@ -1,4 +1,4 @@
-import { Markdown } from '@src/components/features/Markdown'
+import { Markdown } from '@src/components/features/markdown'
 
 interface SectionHeadlinesPropsInterface {
   headline?: string | null

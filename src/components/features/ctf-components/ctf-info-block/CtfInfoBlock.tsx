@@ -20,8 +20,7 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
     block2Body,
     block3Image,
     block3Body,
-    previousComponent,
-    sys: { id }
+    previousComponent
   } = props
 
   return (

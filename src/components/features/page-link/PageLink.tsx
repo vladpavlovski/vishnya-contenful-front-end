@@ -5,6 +5,7 @@ import { Link, LinkProps } from '@src/components/shared/Link'
 
 export type PageLinkProps = Omit<LinkProps, 'children'> & {
   page: PageLinkFieldsFragment
+  // eslint-disable-next-line no-unused-vars
   render?: (pathname?: string) => ReactNode
   children?: ReactNode
 }
