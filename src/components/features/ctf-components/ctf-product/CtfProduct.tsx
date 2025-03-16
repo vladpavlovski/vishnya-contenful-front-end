@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import { Fragment } from 'react'
 
 import { CtfProductQuery } from './__generated/ctf-product.generated'
@@ -15,8 +14,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
     featuresCollection,
     sys: { id }
   } = topicProduct!
-
-  const inspectorMode = useContentfulInspectorMode()
 
   return (
     <>
@@ -48,18 +45,12 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                   fontWeight: 600,
                   lineHeight: 1.39
                 }}
-                {...inspectorMode({ entryId: id, fieldId: 'name' })}
               >
                 {name}
               </h2>
             )}
             {description && (
-              <div
-                {...inspectorMode({
-                  entryId: id,
-                  fieldId: 'description'
-                })}
-              >
+              <div>
                 <CtfRichtext {...description} />
               </div>
             )}
@@ -73,10 +64,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                 display: 'flex',
                 justifyContent: 'flex-end'
               }}
-              {...inspectorMode({
-                entryId: id,
-                fieldId: 'featuredImage'
-              })}
             >
               <CtfAsset {...featuredImage} showDescription={false} />
             </div>
@@ -126,10 +113,6 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                               marginBottom: '32px', // Assuming theme.spacing(4) is 32px
                               color: '#414D63'
                             }}
-                            {...inspectorMode({
-                              entryId: item.sys.id,
-                              fieldId: 'name'
-                            })}
                           >
                             {item.name}
                           </dt>
@@ -142,12 +125,7 @@ export const CtfProduct = ({ topicProduct }: CtfProductQuery) => {
                             }}
                           >
                             {item.longDescription && (
-                              <div
-                                {...inspectorMode({
-                                  entryId: item.sys.id,
-                                  fieldId: 'longDescription'
-                                })}
-                              >
+                              <div>
                                 <CtfRichtext {...item.longDescription} />
                               </div>
                             )}

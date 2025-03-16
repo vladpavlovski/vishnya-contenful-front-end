@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 import { documentToReactComponents, Options } from '@contentful/rich-text-react-renderer'
 import { Block as RichtextBlock, BLOCKS, INLINES } from '@contentful/rich-text-types'
 import { useMemo, useCallback } from 'react'
@@ -45,7 +44,7 @@ const EntryHyperlink = ({ node }) => {
     preview: false
   })
 
-  const page = useContentfulLiveUpdates(data?.page)
+  const page = data?.page
 
   if (!data || isLoading) return null
 

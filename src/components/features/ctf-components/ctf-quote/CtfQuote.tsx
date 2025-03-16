@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { CtfQuoteQuery } from './__generated/ctf-quote.generated'
 
@@ -17,7 +16,6 @@ export const CtfQuote = ({ componentQuote }: CtfQuoteQuery) => {
   const containerLayout = imagePosition === true ? 'imageLeft' : 'imageRight'
   const quoteAlignment = quoteAlignmentBoolean === true ? 'center' : 'left'
   const backgroundImage = image ? `${image.url}?w=${600 * 2}` : undefined
-  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
     <div>
@@ -31,7 +29,6 @@ export const CtfQuote = ({ componentQuote }: CtfQuoteQuery) => {
       >
         {quote && (
           <div
-            {...inspectorMode({ fieldId: 'quote' })}
             style={{
               textAlign: quoteAlignment
             }}
@@ -46,9 +43,6 @@ export const CtfQuote = ({ componentQuote }: CtfQuoteQuery) => {
           order: 1,
           width: '100%'
         }}
-        {...inspectorMode({
-          fieldId: 'image'
-        })}
       >
         {backgroundImage && (
           <div

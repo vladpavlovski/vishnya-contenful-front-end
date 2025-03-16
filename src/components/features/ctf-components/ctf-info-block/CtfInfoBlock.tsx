@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { InfoBlockFieldsFragment } from './__generated/ctf-info-block.generated'
 
@@ -24,7 +23,6 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
     previousComponent,
     sys: { id }
   } = props
-  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
     <div
@@ -48,13 +46,11 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
         <SectionHeadlines
           headline={headline}
           headlineProps={{
-            style: {},
-            ...inspectorMode({ fieldId: 'headline' })
+            style: {}
           }}
           subline={subline}
           sublineProps={{
-            style: {},
-            ...inspectorMode({ fieldId: 'subline' })
+            style: {}
           }}
         />
 
@@ -87,18 +83,11 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                     height: '11.3rem',
                     fontSize: 0
                   }}
-                  {...inspectorMode({
-                    fieldId: 'block1Image'
-                  })}
                 >
                   <CtfAsset {...block1Image} showDescription={false} />
                 </div>
               )}
-              <div
-                {...inspectorMode({
-                  fieldId: 'block1Body'
-                })}
-              >
+              <div>
                 <CtfRichtext {...block1Body} />
               </div>
             </div>
@@ -122,18 +111,11 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                     height: '11.3rem',
                     fontSize: 0
                   }}
-                  {...inspectorMode({
-                    fieldId: 'block2Image'
-                  })}
                 >
                   <CtfAsset {...block2Image} showDescription={false} />
                 </div>
               )}
-              <div
-                {...inspectorMode({
-                  fieldId: 'block2Body'
-                })}
-              >
+              <div>
                 <CtfRichtext {...block2Body} />
               </div>
             </div>
@@ -157,18 +139,11 @@ export const CtfInfoBlock = (props: CtfInfoBlockPropsInterface) => {
                     height: '11.3rem',
                     fontSize: 0
                   }}
-                  {...inspectorMode({
-                    fieldId: 'block3Image'
-                  })}
                 >
                   <CtfAsset {...block3Image} showDescription={false} />
                 </div>
               )}
-              <div
-                {...inspectorMode({
-                  fieldId: 'block3Body'
-                })}
-              >
+              <div>
                 <CtfRichtext {...block3Body} />
               </div>
             </div>

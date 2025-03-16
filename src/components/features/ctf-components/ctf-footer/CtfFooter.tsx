@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { CtfFooterQuery } from '@src/components/features/ctf-components/ctf-footer/__generated/ctf-footer.generated'
 import {
@@ -14,37 +13,21 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
   const footerContent = footerMenuCollection?.items?.[0]
 
   const { locale } = useContentfulContext()
-  const inspectorMode = useContentfulInspectorMode()
 
   const renderMenuGroupLinks = (menuGroup, listClassName) => {
     return menuGroup?.items?.map(menuItem => {
       const href = getLinkHrefPrefix(menuItem)
       const linkText = getLinkDisplayText(menuItem)
       return (
-        <li
-          key={menuItem.sys.id}
-          className={listClassName}
-          {...inspectorMode({
-            entryId: menuItem.sys.id,
-            fieldId: 'pageName'
-          })}
-        >
+        <li key={menuItem.sys.id} className={listClassName}>
           <Link href={href}>{linkText}</Link>
         </li>
       )
     })
   }
 
-  const containerProps = footerContent?.sys?.id
-    ? inspectorMode({
-        entryId: footerContent.sys.id,
-        fieldId: 'menuItems',
-        locale
-      })
-    : undefined
-
   return (
-    <div {...containerProps}>
+    <div>
       <div>
         <footer>
           {footerContent?.menuItemsCollection?.items?.length && (
@@ -55,15 +38,7 @@ export const CtfFooter = ({ footerMenuCollection }: CtfFooterQuery) => {
                     <div key={menuItem.sys.id}>
                       <ul>
                         <li>
-                          <p
-                            {...inspectorMode({
-                              entryId: menuItem.sys.id,
-                              fieldId: 'groupName',
-                              locale
-                            })}
-                          >
-                            {menuItem.groupName}
-                          </p>
+                          <p>{menuItem.groupName}</p>
                           {menuItem.featuredPagesCollection && (
                             <ul>
                               {renderMenuGroupLinks(

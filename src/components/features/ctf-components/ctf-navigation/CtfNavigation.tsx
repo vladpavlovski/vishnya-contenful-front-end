@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { CtfNavigationQuery } from './__generated/ctf-navigation.generated'
 import { getLinkDisplayText, getLinkHrefPrefix } from './utils'
@@ -7,8 +6,6 @@ import { getLinkDisplayText, getLinkHrefPrefix } from './utils'
 import { Link } from '@src/components/shared/Link'
 
 export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) => {
-  const inspectorMode = useContentfulInspectorMode()
-
   const navigationContent = navigationMenuCollection?.items?.[0]
 
   const renderNavigationLinks = (menuGroup, listClassName) => {
@@ -17,14 +14,7 @@ export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) 
       const linkText = getLinkDisplayText(menuItem)
 
       return (
-        <li
-          key={menuItem.sys.id}
-          className={listClassName}
-          {...inspectorMode({
-            entryId: menuItem.sys.id,
-            fieldId: 'pageName'
-          })}
-        >
+        <li key={menuItem.sys.id} className={listClassName}>
           <Link href={href}>{linkText}</Link>
         </li>
       )
@@ -60,10 +50,6 @@ export const CtfNavigation = ({ navigationMenuCollection }: CtfNavigationQuery) 
                       marginRight: '4rem', // Assuming theme.spacing(8) is 4rem
                       position: 'relative'
                     }}
-                    {...inspectorMode({
-                      entryId: menuItem.sys.id,
-                      fieldId: 'groupName'
-                    })}
                   >
                     {!menuItem.link ? (
                       menuItem.groupName

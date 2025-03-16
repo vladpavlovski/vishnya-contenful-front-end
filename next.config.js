@@ -6,7 +6,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 })
 
 const headers = require('./config/headers')
-const { i18n } = require('./next-i18next.config.js')
 
 /**
  * Next config
@@ -15,7 +14,6 @@ const { i18n } = require('./next-i18next.config.js')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  i18n,
   /**
    * add the environment variables you would like exposed to the client here
    * documentation: https://nextjs.org/docs/api-reference/next.config.js/environment-variables

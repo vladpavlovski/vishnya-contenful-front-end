@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 import { CtfRichtext } from '@src/components/features/ctf-components/ctf-richtext/CtfRichtext'
 import { PageLink } from '@src/components/features/page-link/PageLink'
@@ -8,7 +7,7 @@ import { optimizeLineBreak } from '@src/utils'
 
 export const CtfCta = ({ data }: { data: CtfCtaQuery }) => {
   // const { data, isLoading } = useSuspenseQuery(getCtfCtaOptions({ id }))
-  const componentCta = useContentfulLiveUpdates(data?.componentCta)
+  const componentCta = data?.componentCta
 
   // TODO: optimistic updates
   if (!componentCta) {

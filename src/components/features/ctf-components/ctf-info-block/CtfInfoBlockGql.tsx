@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulLiveUpdates } from '@contentful/live-preview/react'
 
 import { useCtfInfoBlockQuery } from './__generated/ctf-info-block.generated'
 import { CtfInfoBlock } from './CtfInfoBlock'
@@ -23,11 +22,13 @@ export const CtfInfoBlockGql = ({
     preview
   })
 
-  const componentInfoBlock = useContentfulLiveUpdates(data?.componentInfoBlock)
+  const componentInfoBlock = data?.componentInfoBlock
 
   if (isLoading || !componentInfoBlock) {
     return null
   }
 
-  return <CtfInfoBlock {...componentInfoBlock} previousComponent={previousComponent} />
+  const { __typename, sys } = componentInfoBlock
+
+  return <CtfInfoBlock __typename={__typename} sys={sys} previousComponent={previousComponent} />
 }

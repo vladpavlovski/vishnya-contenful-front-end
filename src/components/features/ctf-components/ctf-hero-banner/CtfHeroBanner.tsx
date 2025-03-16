@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { CtfHeroBannerQuery } from './__generated/ctf-hero-banner.generated'
 
@@ -19,10 +18,9 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
 
   const imageStyle = imageStyleBoolean ? 'partial' : 'full'
   const backgroundImage = image ? `${image.url}?w=${767 * 2}` : undefined
-  const inspectorMode = useContentfulInspectorMode({ entryId: id })
 
   return (
-    <div {...inspectorMode({ fieldId: 'image' })}>
+    <div>
       {imageStyle === 'partial' && backgroundImage && (
         <div>
           <div
@@ -48,7 +46,6 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
               lineHeight: 1.08,
               maxWidth: '44rem'
             }}
-            {...inspectorMode({ fieldId: 'headline' })}
           >
             {headline}
           </h1>
@@ -60,7 +57,6 @@ export const CtfHeroBanner = ({ componentHeroBanner }: CtfHeroBannerQuery) => {
               lineHeight: 1.56,
               marginTop: '6rem'
             }}
-            {...inspectorMode({ fieldId: 'bodyText' })}
           >
             <CtfRichtext {...bodyText} />
           </div>

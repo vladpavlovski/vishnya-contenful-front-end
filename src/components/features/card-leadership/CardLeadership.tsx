@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 
 import { CtfAsset } from '@src/components/features/ctf-components/ctf-asset/CtfAsset'
 import { PersonFieldsFragment } from '@src/components/features/ctf-components/ctf-person/__generated/ctf-person.generated'
@@ -18,17 +17,15 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
   } = props
   const nameSplit = name?.split(', ')
 
-  const inspectorMode = useContentfulInspectorMode({ entryId })
-
   return (
     <div>
       {avatar && (
-        <div {...inspectorMode({ fieldId: 'avatar' })}>
+        <div>
           <CtfAsset {...avatar} showDescription={false} />
         </div>
       )}
       <div>
-        <div {...inspectorMode({ fieldId: 'name' })}>
+        <div>
           {nameSplit && (
             <>
               {nameSplit[0] && <p>{nameSplit[0]}</p>}
@@ -37,7 +34,7 @@ export const CardLeadership = (props: CardLeadershipPropsInterface) => {
           )}
         </div>
         {bio && (
-          <div {...inspectorMode({ fieldId: 'bio' })}>
+          <div>
             <CtfRichtext {...bio} />
           </div>
         )}

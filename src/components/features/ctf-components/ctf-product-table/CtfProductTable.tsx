@@ -1,5 +1,4 @@
 'use client'
-import { useContentfulInspectorMode } from '@contentful/live-preview/react'
 import Image, { ImageLoader } from 'next/legacy/image'
 import queryString from 'query-string'
 import { useMemo, useRef } from 'react'
@@ -31,8 +30,6 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
     productsCollection,
     sys: { id }
   } = componentProductTable!
-
-  const inspectorMode = useContentfulInspectorMode()
 
   // Rendering product features
   const featureNames: string[] | null = useMemo(() => {
@@ -94,14 +91,14 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
           : 'longDescription'
 
         grid[featureName][product.sys.id] = {
-          attributes: inspectorMode({ fieldId, entryId: feature.sys.id }),
+          attributes: {},
           value: feature[fieldId]
         }
       })
     })
 
     return grid
-  }, [featureNames, productsCollection, inspectorMode])
+  }, [featureNames, productsCollection])
 
   // Keeping the grid items the same size
   const gridElement = useRef<HTMLDivElement>(null)
@@ -111,12 +108,7 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
     <div ref={gridElement}>
       <div>
         <div>
-          <SectionHeadlines
-            headline={headline}
-            headlineLivePreviewProps={inspectorMode({ entryId: id, fieldId: 'headline' })}
-            subline={subline}
-            sublineLivePreviewProps={inspectorMode({ entryId: id, fieldId: 'subline' })}
-          />
+          <SectionHeadlines headline={headline} subline={subline} />
           {productsCollection && productsCollection.items.length > 0 && (
             <div>
               {productsCollection.items.map(
@@ -127,17 +119,8 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                       ref={el => {
                         gridColumnElements.current[j] = el
                       }}
-                      {...inspectorMode({
-                        entryId: product.sys.id,
-                        fieldId: 'internalName'
-                      })}
                     >
-                      <div
-                        {...inspectorMode({
-                          entryId: product.sys.id,
-                          fieldId: 'featuredImage'
-                        })}
-                      >
+                      <div>
                         <div data-equal-size="0">
                           {product.featuredImage && (
                             <Image
@@ -153,31 +136,12 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                         </div>
                       </div>
                       <div data-equal-size="1">
-                        <h2
-                          {...inspectorMode({
-                            entryId: product.sys.id,
-                            fieldId: 'name'
-                          })}
-                        >
-                          {product.name}
-                        </h2>
+                        <h2>{product.name}</h2>
                       </div>
-                      <div
-                        data-equal-size="2"
-                        {...inspectorMode({
-                          entryId: product.sys.id,
-                          fieldId: 'description'
-                        })}
-                      >
+                      <div data-equal-size="2">
                         {product.description && <CtfRichtext {...product.description} />}
                       </div>
-                      <div
-                        data-equal-size="3"
-                        {...inspectorMode({
-                          entryId: product.sys.id,
-                          fieldId: 'price'
-                        })}
-                      >
+                      <div data-equal-size="3">
                         {!product.price || product.price === 0 ? (
                           <h2>{'Free'}</h2>
                         ) : (
@@ -188,12 +152,7 @@ export const CtfProductTable = ({ componentProductTable }: CtfProductTableQuery)
                         )}
                       </div>
                       {featureNames && featuresGrid && (
-                        <div
-                          {...inspectorMode({
-                            entryId: product.sys.id,
-                            fieldId: 'features'
-                          })}
-                        >
+                        <div>
                           {featureNames.map(
                             (featureName, i) =>
                               featuresGrid[featureName][product.sys.id] && (
