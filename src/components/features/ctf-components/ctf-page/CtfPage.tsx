@@ -1,6 +1,5 @@
 import { CtfPageFieldsFragment } from '@src/components/features/ctf-components/ctf-page/__generated/ctf-page.generated'
 import { ComponentResolver } from '@src/components/shared/ComponentResolver'
-import { PageContainer } from '@src/components/templates/page-container/PageContainer'
 
 const CtfPage = (props: CtfPageFieldsFragment) => {
   const topSection =
@@ -10,7 +9,7 @@ const CtfPage = (props: CtfPageFieldsFragment) => {
     props.extraSectionCollection && props.extraSectionCollection.items.filter(it => !!it)
 
   return (
-    <PageContainer>
+    <>
       {topSection &&
         topSection.map(entry => <ComponentResolver componentProps={entry!} key={entry!.sys.id} />)}
 
@@ -20,7 +19,7 @@ const CtfPage = (props: CtfPageFieldsFragment) => {
         extraSection.map(entry => (
           <ComponentResolver componentProps={entry!} key={entry!.sys.id} />
         ))}
-    </PageContainer>
+    </>
   )
 }
 
