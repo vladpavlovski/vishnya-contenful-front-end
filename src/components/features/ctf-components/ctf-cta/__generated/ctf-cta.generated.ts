@@ -16,12 +16,11 @@
  *****************************************************/
 
 
-import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
-
 import * as Types from '../../../../../lib/__generated/graphql.types';
+
 import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
 import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
-
+import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
 export type CtaFieldsFragment = { __typename: 'ComponentCta', headline?: string | null, ctaText?: string | null, urlParameters?: string | null, colorPalette?: string | null, sys: { __typename?: 'Sys', id: string }, subline?: { __typename?: 'ComponentCtaSubline', json: any } | null, targetPage?: (
     { __typename?: 'Page' }

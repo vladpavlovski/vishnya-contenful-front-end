@@ -16,14 +16,13 @@
  *****************************************************/
 
 
-import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
-
 import * as Types from '../../../../../lib/__generated/graphql.types';
-import { MenuGroupFieldsFragment } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
-import { MenuGroupFieldsFragmentDoc } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
-import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
-import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
 
+import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
+import { MenuGroupFieldsFragment } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
+import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
+import { MenuGroupFieldsFragmentDoc } from '../../../../../lib/shared-fragments/__generated/ctf-menuGroup.generated';
+import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
 export type NavigationFieldsFragment = { __typename?: 'NavigationMenuCollection', items: Array<{ __typename?: 'NavigationMenu', menuItemsCollection?: { __typename?: 'NavigationMenuMenuItemsCollection', items: Array<{ __typename: 'MenuGroup', groupName?: string | null, sys: { __typename?: 'Sys', id: string }, link?: (
           { __typename?: 'Page' }

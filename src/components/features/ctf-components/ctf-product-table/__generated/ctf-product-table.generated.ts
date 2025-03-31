@@ -16,16 +16,15 @@
  *****************************************************/
 
 
-import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
-
 import * as Types from '../../../../../lib/__generated/graphql.types';
-import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.generated';
-import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
-import { ProductFieldsFragment } from '../../ctf-product/__generated/ctf-product.generated';
-import { ProductFieldsFragmentDoc } from '../../ctf-product/__generated/ctf-product.generated';
-import { ProductFeatureFieldsFragment } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
-import { ProductFeatureFieldsFragmentDoc } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
 
+import { ProductFieldsFragment } from '../../ctf-product/__generated/ctf-product.generated';
+import { AssetFieldsFragment } from '../../ctf-asset/__generated/ctf-asset.generated';
+import { ProductFeatureFieldsFragment } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
+import { ProductFieldsFragmentDoc } from '../../ctf-product/__generated/ctf-product.generated';
+import { AssetFieldsFragmentDoc } from '../../ctf-asset/__generated/ctf-asset.generated';
+import { ProductFeatureFieldsFragmentDoc } from '../../ctf-product-feature/__generated/ctf-product-feature.generated';
+import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
 export type ProductTableFieldsFragment = { __typename: 'ComponentProductTable', headline?: string | null, subline?: string | null, sys: { __typename?: 'Sys', id: string }, productsCollection?: { __typename?: 'ComponentProductTableProductsCollection', items: Array<(
       { __typename?: 'TopicProduct' }

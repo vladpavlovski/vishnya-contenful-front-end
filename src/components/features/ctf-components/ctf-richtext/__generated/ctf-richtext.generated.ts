@@ -16,12 +16,11 @@
  *****************************************************/
 
 
-import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
-
 import * as Types from '../../../../../lib/__generated/graphql.types';
+
 import { PageLinkFieldsFragment } from '../../../page-link/__generated/page-link.generated';
 import { PageLinkFieldsFragmentDoc } from '../../../page-link/__generated/page-link.generated';
-
+import { useQuery, useSuspenseQuery, UseQueryOptions, UseSuspenseQueryOptions } from '@tanstack/react-query';
 import { customFetcher } from '@src/lib/fetchConfig';
 export type RichTextHyperlinkFieldsFragment = { __typename?: 'Query', page?: (
     { __typename?: 'Page' }
